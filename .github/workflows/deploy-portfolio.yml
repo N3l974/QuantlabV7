@@ -76,6 +76,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          envs: IMAGE,SERVICE,BINANCE_API_KEY,BINANCE_API_SECRET,GHCR_USERNAME,GHCR_TOKEN
           script: |
             set -e
             mkdir -p ~/quantlab-deploy/runtime/logs
