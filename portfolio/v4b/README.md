@@ -18,15 +18,35 @@ Portfolio V4b est le portefeuille de trading quantitatif validé de QuantLab V7.
 
 ```
 v4b/
-├── README.md                          # Ce fichier
+├── README.md                          # Documentation de référence
 ├── code/
 │   ├── portfolio_v4b_final.py         # Script de validation complète
 │   └── diagnostic_v4_fast.py          # Diagnostic des stratégies (2 phases)
-├── docs/
-│   └── (archives / docs internes)
 └── results/
     └── portfolio_v4b_final_*.json     # Résultats de validation (métriques, MC, stress)
 ```
+
+## Processus de construction et validation
+
+### Logique de construction
+
+1. Charger les métriques issues du diagnostic et les paramètres retenus.
+2. Rejouer chaque combo sur la période holdout avec frais/slippage.
+3. Conserver les 8 combos cibles (allocation top3_heavy) et appliquer les poids.
+4. Appliquer le leverage 1.5x de manière uniforme au portefeuille agrégé.
+5. Produire métriques finales + Monte Carlo + stress tests.
+
+### Protocole train/validation
+
+- **Train (calibration)**: optimisations historiques via pipeline V4 (walk-forward + sélection).
+- **Validation finale**: holdout strict non vu pendant calibration.
+- Aucun recalibrage sur la période holdout finale (pas de fuite de données).
+
+### Périodes utilisées
+
+- **Fenêtre holdout**: 12 mois, de **fév. 2025 à fév. 2026**.
+- **Fenêtres de projection MC**: 3M, 6M, 12M, 24M, 36M.
+- **Granularité d'analyse**: barres 1d/4h selon les combos; agrégation portfolio sur l'historique holdout.
 
 ## Composition
 
@@ -84,8 +104,8 @@ python scripts/portfolio_v4b_final.py
 
 ### Voir les résultats
 
-- `docs/results/17_portfolio_v4b.md` : Rapport V4b
 - `results/portfolio_v4b_final_*.json` : Données brutes (métriques, MC, stress tests)
+- `README.md` (ce fichier) : synthèse de référence (thèse, protocole, performances)
 
 ## Évolution des versions
 

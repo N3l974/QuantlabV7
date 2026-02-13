@@ -20,18 +20,24 @@ Seuls les portfolios ayant passé la validation complète (walk-forward + holdou
 portfolio/
 ├── README.md              # Ce fichier
 ├── v4b/                   # Portfolio V4b (archivé)
+│   ├── README.md          # Doc complète (thèse + protocole train/validation)
 │   ├── code/              # Scripts de construction et diagnostic
-│   ├── docs/              # Documentation et présentation investisseur
 │   └── results/           # Résultats JSON de validation
 ├── v5b/                   # Portfolio V5b (actif — 3 profils de risque)
+│   ├── README.md          # Doc complète (construction + validation + périodes)
 │   ├── code/              # portfolio_v5b_final.py, diagnostic_v5b.py
-│   ├── docs/              # Rapport multi-profil + audit + confiance
 │   └── results/           # Résultats JSON (métriques, audit, MC)
 └── v5c-highrisk/          # Portfolio V5c (spéculatif court terme)
+    ├── README.md          # Doc complète (logique + split train/test)
     ├── code/              # portfolio_v5c_highrisk.py
-    ├── docs/              # Rapport high-risk
     └── results/           # Résultats JSON
 ```
+
+## Convention documentation (nouvelle)
+
+- La documentation de référence est centralisée dans chaque `README.md` de portfolio.
+- Le sous-dossier `docs/` n'est plus requis pour les portfolios futurs.
+- Les éventuels fichiers `docs/` historiques restent tolérés comme archive, mais la vérité produit doit être dans le README du portfolio.
 
 ## Historique
 

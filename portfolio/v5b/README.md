@@ -20,15 +20,38 @@ Portfolio V5b est le portefeuille de trading quantitatif de nouvelle génératio
 
 ```
 v5b/
-├── README.md                              # Ce fichier
+├── README.md                              # Documentation de référence
 ├── code/
 │   ├── portfolio_v5b_final.py             # Construction multi-profil + audit + confiance
 │   └── diagnostic_v5b.py                  # Diagnostic V5b (multi-seed, risk grid)
-├── docs/
-│   └── portfolio_v5b_final.md             # Rapport complet (audit, MC, confiance)
 └── results/
     └── portfolio_v5b_final_*.json         # Résultats (métriques, audit, MC, allocations)
 ```
+
+## Processus détaillé de construction
+
+1. **Diagnostic amont** (multi-seed, multi-paramètres) pour extraire les survivants robustes.
+2. **Préparation des combos** (signaux + distances SL si dispo V5).
+3. **Déduplication corrélation** pour éviter les redondances (seuil corrélation max).
+4. **Sélection des 8 combos** les plus solides sur métriques de calibration.
+5. **Optimisation des poids** (Markowitz orienté Sharpe) sur la période de calibration.
+6. **Backtest multi-profils** avec mêmes combos/poids, seul le sizing change (`max_position_pct`).
+7. **Audit complet** (rolling Sharpe, mensuel, stress tests, concentration, corrélation).
+8. **Monte Carlo** block-bootstrap + score de confiance live.
+
+## Protocole train/validation
+
+- **Train / calibration**: pipeline walk-forward + sélection de combos + optimisation de poids.
+- **Validation**: exécution sur période holdout non vue pour mesurer robustesse réelle.
+- **Anti-fuite**: les décisions de sélection/poids/profil sont prises avant l'analyse finale holdout.
+
+## Périodes et fenêtres utilisées
+
+- **Fenêtre holdout finale**: 12 mois (fév. 2025 → fév. 2026).
+- **Rolling Sharpe audit**: fenêtre 60 barres.
+- **Analyse mensuelle**: agrégation par blocs ~30 barres.
+- **Horizons Monte Carlo**: 3M, 6M, 12M, 24M, 36M.
+- **Réoptimisation de référence** (méta-profils source): fréquence typique 1M à 3M selon profil.
 
 ## Comment ça marche : Position Sizing
 
@@ -136,8 +159,8 @@ python scripts/portfolio_v5b_final.py
 
 ### Voir les résultats
 
-- `docs/portfolio_v5b_final.md` : Rapport complet multi-profil
-- `results/portfolio_v5b_final_*.json` : Données brutes
+- `results/portfolio_v5b_final_*.json` : Données brutes (métriques, audit, MC, allocations)
+- `README.md` (ce fichier) : synthèse de référence (thèse, protocole, périodes, résultats)
 
 ---
 

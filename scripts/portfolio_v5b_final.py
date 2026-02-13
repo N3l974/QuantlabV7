@@ -1116,7 +1116,7 @@ def generate_full_report(all_profiles, elapsed):
     L.append(f"---")
     L.append(f"*Généré le {datetime.now().strftime('%d %B %Y %H:%M')}*")
 
-    report_path = Path("portfolio/v5b/docs/portfolio_v5b_final.md")
+    report_path = Path("portfolio/v5b/results/portfolio_v5b_final_report.md")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text("\n".join(L))
     return report_path

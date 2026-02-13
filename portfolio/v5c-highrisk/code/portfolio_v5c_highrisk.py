@@ -95,13 +95,11 @@ def split_combo_data(combo_data, test_bars=TEST_BARS):
 
 
 def save_outputs(best_cfg, train_best, test_result, selected, weights, ts):
-    """Persist JSON + markdown report in portfolio/v5c-highrisk/."""
+    """Persist outputs in portfolio/v5c-highrisk/ (results + code snapshot)."""
     out_dir = Path("portfolio/v5c-highrisk")
     code_dir = out_dir / "code"
-    docs_dir = out_dir / "docs"
     res_dir = out_dir / "results"
     code_dir.mkdir(parents=True, exist_ok=True)
-    docs_dir.mkdir(parents=True, exist_ok=True)
     res_dir.mkdir(parents=True, exist_ok=True)
 
     data = {
@@ -174,7 +172,7 @@ def save_outputs(best_cfg, train_best, test_result, selected, weights, ts):
             f"| {w*100:.1f}% | {combo} | {tm.get('sharpe', 0):.2f} | {tm.get('total_return', 0)*100:.1f}% | {tm.get('max_drawdown', 0)*100:.1f}% |"
         )
 
-    report_path = docs_dir / "portfolio_v5c_highrisk.md"
+    report_path = res_dir / f"portfolio_v5c_highrisk_{ts}.md"
     report_path.write_text("\n".join(lines))
 
     logger.info(f"JSON: {json_path}")
