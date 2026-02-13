@@ -50,6 +50,8 @@ def run_from_config(config_path: str):
         dry_run=dry_run,
         interval_seconds=interval_seconds,
         settings_path=settings_path,
+        portfolio_id=portfolio_id,
+        paper_capital=paper_capital,
     )
 
 
