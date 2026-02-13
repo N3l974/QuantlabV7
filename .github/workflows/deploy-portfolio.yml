@@ -73,9 +73,9 @@ jobs:
             set -e
             IMAGE="${{ needs.build-and-push.outputs.image }}"
             SERVICE="${{ github.event.inputs.portfolio_id }}"
+            GHCR_USER="${{ github.actor }}"
             BINANCE_API_KEY="${{ secrets.BINANCE_API_KEY }}"
             BINANCE_API_SECRET="${{ secrets.BINANCE_API_SECRET }}"
-            GHCR_USERNAME="${{ secrets.GHCR_USERNAME }}"
             GHCR_TOKEN="${{ secrets.GHCR_TOKEN }}"
 
             mkdir -p ~/quantlab-deploy/runtime/logs
@@ -87,7 +87,7 @@ jobs:
             BINANCE_API_KEY=${BINANCE_API_KEY}
             BINANCE_API_SECRET=${BINANCE_API_SECRET}
             EOF
-            docker login ghcr.io -u "${GHCR_USERNAME}" -p "${GHCR_TOKEN}"
+            docker login ghcr.io -u "${GHCR_USER}" -p "${GHCR_TOKEN}"
             docker compose -f docker-compose.portfolio.yml pull ${SERVICE}
             docker compose -f docker-compose.portfolio.yml up -d ${SERVICE}
             docker image prune -f
