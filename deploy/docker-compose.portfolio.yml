@@ -10,7 +10,7 @@ services:
     volumes:
       - ./runtime/logs:/app/logs
     healthcheck:
-      test: ["CMD", "python", "-c", "import pathlib; pathlib.Path('logs').mkdir(exist_ok=True); print('ok')"]
+      test: ["CMD", "python", "-c", "from pathlib import Path; from datetime import datetime, timezone; p=Path('logs/heartbeat.txt'); assert p.exists(); ts=datetime.fromisoformat(p.read_text().strip()); ts=ts if ts.tzinfo else ts.replace(tzinfo=timezone.utc); now=datetime.now(timezone.utc); assert (now-ts).total_seconds() < 180"]
       interval: 30s
       timeout: 5s
       retries: 3

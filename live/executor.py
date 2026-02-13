@@ -3,7 +3,6 @@ Live Executor — Runs validated meta-profiles in real-time.
 Connects to Binance Margin and executes signals.
 """
 
-import json
 import time
 import sys
 from datetime import datetime
@@ -21,6 +20,14 @@ from engine.backtester import backtest_strategy
 from engine.meta_optimizer import MetaProfile, load_profiles
 from engine.walk_forward import WalkForwardConfig, _optimize_on_window
 from strategies.registry import get_strategy
+
+
+HEARTBEAT_PATH = Path("logs/heartbeat.txt")
+
+
+def _write_heartbeat() -> None:
+    HEARTBEAT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    HEARTBEAT_PATH.write_text(datetime.utcnow().isoformat())
 
 
 class LiveExecutor:
@@ -149,12 +156,14 @@ class LiveExecutor:
                     f"Signal={signal}, Position={self.current_position}, "
                     f"Params={self.current_params}"
                 )
+                _write_heartbeat()
 
             except KeyboardInterrupt:
                 logger.info("Execution stopped by user.")
                 break
             except Exception as e:
                 logger.error(f"Error in execution loop: {e}")
+                _write_heartbeat()
 
             time.sleep(interval_seconds)
 
