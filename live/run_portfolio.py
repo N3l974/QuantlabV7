@@ -8,8 +8,6 @@ from pathlib import Path
 
 from loguru import logger
 
-from live.executor import run_live
-
 
 DEFAULT_CONFIG = "config/live/portfolios/v5c-highrisk-paper.json"
 
@@ -25,6 +23,19 @@ def run_from_config(config_path: str):
     cfg = load_portfolio_config(config_path)
 
     portfolio_id = cfg.get("portfolio_id", "unknown")
+    logger.info(f"Starting portfolio service: {portfolio_id}")
+    logger.info(f"  Reoptimization policy: {cfg.get('reoptimization_policy', {})}")
+
+    # Multi-combo mode (new PortfolioExecutor)
+    if "combos" in cfg:
+        from live.portfolio_executor import run_portfolio
+        logger.info(f"  Engine: PortfolioExecutor (multi-combo, {len(cfg['combos'])} combos)")
+        run_portfolio(config_path)
+        return
+
+    # Legacy mono-combo mode (old LiveExecutor)
+    from live.executor import run_live
+
     dry_run = bool(cfg.get("execution", {}).get("dry_run", True))
     paper_capital = float(cfg.get("paper_capital_usd", 0))
 
@@ -39,10 +50,9 @@ def run_from_config(config_path: str):
     if not profiles_file:
         raise ValueError("Missing profile_source.profiles_file in portfolio config")
 
-    logger.info(f"Starting portfolio service: {portfolio_id}")
+    logger.info(f"  Engine: LiveExecutor (legacy mono-combo)")
     logger.info(f"  Mode: {'PAPER' if dry_run else 'LIVE'}")
     logger.info(f"  Paper capital (tracking): ${paper_capital:.2f}")
-    logger.info(f"  Reoptimization policy: {cfg.get('reoptimization_policy', {})}")
 
     run_live(
         profiles_file=profiles_file,

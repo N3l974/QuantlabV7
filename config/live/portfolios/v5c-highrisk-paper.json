@@ -17,8 +17,76 @@
     "go_live_review_window_target_weeks": 12,
     "go_live_max_paper_drawdown_pct": 0.15
   },
-  "profile_source": {
-    "profiles_file": "config/live/profiles/v5c-highrisk-paper.meta_profiles.json",
-    "profile_index": 0
-  }
+  "risk_profile": {
+    "max_position_pct": 0.75,
+    "max_drawdown_pct": 0.30
+  },
+  "combos": [
+    {
+      "strategy_name": "breakout_regime",
+      "symbol": "ETHUSDT",
+      "timeframe": "1d",
+      "weight": 0.400,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    },
+    {
+      "strategy_name": "mtf_momentum_breakout",
+      "symbol": "SOLUSDT",
+      "timeframe": "1d",
+      "weight": 0.250,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    },
+    {
+      "strategy_name": "ema_ribbon",
+      "symbol": "ETHUSDT",
+      "timeframe": "1d",
+      "weight": 0.127,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    },
+    {
+      "strategy_name": "macd_crossover",
+      "symbol": "ETHUSDT",
+      "timeframe": "1d",
+      "weight": 0.119,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    },
+    {
+      "strategy_name": "trend_multi_factor",
+      "symbol": "ETHUSDT",
+      "timeframe": "1d",
+      "weight": 0.090,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    },
+    {
+      "strategy_name": "bollinger_breakout",
+      "symbol": "ETHUSDT",
+      "timeframe": "1d",
+      "weight": 0.014,
+      "reoptim_frequency": "1M",
+      "training_window": "1Y",
+      "param_bounds_scale": 1.0,
+      "optim_metric": "sharpe",
+      "n_optim_trials": 30
+    }
+  ]
 }
