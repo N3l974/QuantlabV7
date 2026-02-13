@@ -1,0 +1,81 @@
+meta_optimization:
+  # Outer loop search space
+  search_space:
+    reoptim_frequency:
+      type: categorical
+      choices: ["1W", "2W", "1M", "2M", "3M", "6M"]
+      description: "How often to re-optimize strategy parameters"
+
+    training_window:
+      type: categorical
+      choices: ["1M", "2M", "3M", "6M", "1Y", "2Y"]
+      description: "Size of the training window for inner optimization"
+
+    param_bounds_scale:
+      type: float
+      low: 0.3
+      high: 1.0
+      step: 0.1
+      description: "Scale factor for parameter bounds (1.0 = full default bounds, 0.3 = tight bounds around default)"
+
+    optim_metric:
+      type: categorical
+      choices: ["sharpe", "sortino", "calmar", "pnl_net"]
+      description: "Target metric for the inner loop optimizer"
+
+    n_optim_trials:
+      type: categorical
+      choices: [50, 100, 200, 500]
+      description: "Number of Optuna trials for the inner optimizer"
+
+    # V5: risk-based position sizing (0 = disabled, use max_position_pct)
+    risk_per_trade_pct:
+      type: categorical
+      choices: [0.0, 0.005, 0.01, 0.015, 0.02]
+      description: "Risk % per trade for position sizing (0 = disabled)"
+
+  # Strategies to include (all strategies — V5 diagnostic will filter survivors)
+  strategies:
+    - "supertrend"
+    - "trend_multi_factor"
+    - "macd_crossover"
+    - "bollinger_breakout"
+    - "ichimoku_cloud"
+    - "supertrend_adx"
+    - "ema_ribbon"
+    - "donchian_channel"
+    - "stochastic_oscillator"
+    - "atr_volatility_breakout"
+    - "rsi_mean_reversion"
+    - "keltner_channel"
+    - "volume_obv"
+    - "vwap_deviation"
+    - "williams_r"
+    - "momentum_roc"
+    - "mean_reversion_zscore"
+    - "adx_regime"
+    - "breakout_regime"
+    - "mtf_momentum_breakout"
+    - "mtf_trend_entry"
+    - "regime_adaptive"
+
+  # Outer loop settings
+  settings:
+    n_outer_trials: 200
+    pruning: true
+    pruner: "median"
+    pruner_n_warmup_steps: 5
+    direction: "maximize"
+    outer_metric: "sharpe"
+    n_jobs: 1              # Outer loop sequential (inner loop parallelized)
+    timeout_hours: 8
+
+  # Evaluation settings
+  evaluation:
+    min_trades: 30
+    min_oos_periods: 4
+    composite_weights:
+      sharpe: 0.35
+      sortino: 0.25
+      calmar: 0.20
+      stability: 0.20

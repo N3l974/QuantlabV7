@@ -1,0 +1,57 @@
+project:
+  name: "Quantlab-V7"
+  version: "7.0.0"
+  description: "Meta-optimizer for BTC trading strategies"
+
+data:
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "SOLUSDT"
+    - "BNBUSDT"
+    - "XRPUSDT"
+  symbol: "BTCUSDT"          # Legacy / default symbol
+  exchange: "binance"
+  market_type: "margin"
+  base_dir: "data"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  timeframes:
+    - "15m"
+    - "1h"
+    - "4h"
+    - "1d"
+  # Timeframes for meta-optimization (filtered from diagnostic)
+  meta_timeframes:
+    - "15m"
+    - "1h"
+    - "4h"
+    - "1d"
+  history:
+    short_tf_years: 3    # For 1m, 5m, 15m
+    long_tf_years: 7     # For 1h, 4h, 1d
+
+binance:
+  api_key: "${BINANCE_API_KEY}"
+  api_secret: "${BINANCE_API_SECRET}"
+
+engine:
+  n_jobs: -1             # Use all CPU cores
+  random_seed: 42
+  commission_rate: 0.001 # 0.1% per trade (Binance margin)
+  slippage_rate: 0.0005  # 0.05% base slippage (dynamic in backtest)
+
+risk:
+  max_position_pct: 0.25     # Max 25% of capital per trade
+  max_daily_loss_pct: 0.03   # Stop trading if daily loss > 3%
+  max_drawdown_pct: 0.15     # Circuit breaker at 15% drawdown from peak
+  dynamic_slippage: true     # Scale slippage with ATR volatility
+  base_slippage: 0.0005      # 0.05% base slippage
+  max_slippage: 0.005        # 0.5% max slippage in volatile markets
+  volatility_lookback: 20    # ATR lookback period
+  max_trades_per_day: 10     # Anti-overtrading
+  cooldown_after_loss: 0     # Bars to skip after a losing trade
+
+logging:
+  level: "INFO"
+  file: "logs/quantlab.log"

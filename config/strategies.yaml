@@ -1,0 +1,256 @@
+strategies:
+  rsi_mean_reversion:
+    name: "RSI Mean-Reversion"
+    type: "mean_reversion"
+    timeframes: ["1h", "4h", "1d"]
+    params:
+      rsi_period:
+        type: int
+        default: 14
+        bounds: [5, 50]
+      oversold:
+        type: int
+        default: 30
+        bounds: [15, 40]
+      overbought:
+        type: int
+        default: 70
+        bounds: [60, 85]
+      stop_loss_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+      take_profit_pct:
+        type: float
+        default: 0.04
+        bounds: [0.01, 0.10]
+
+  macd_crossover:
+    name: "MACD Crossover"
+    type: "trend_following"
+    timeframes: ["15m", "1h", "4h"]
+    params:
+      fast_period:
+        type: int
+        default: 12
+        bounds: [5, 30]
+      slow_period:
+        type: int
+        default: 26
+        bounds: [15, 60]
+      signal_period:
+        type: int
+        default: 9
+        bounds: [3, 20]
+      stop_loss_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+      take_profit_pct:
+        type: float
+        default: 0.04
+        bounds: [0.01, 0.10]
+
+  bollinger_breakout:
+    name: "Bollinger Band Breakout"
+    type: "breakout"
+    timeframes: ["1h", "4h", "1d"]
+    params:
+      bb_period:
+        type: int
+        default: 20
+        bounds: [10, 50]
+      bb_std:
+        type: float
+        default: 2.0
+        bounds: [1.0, 3.5]
+      confirmation_candles:
+        type: int
+        default: 1
+        bounds: [1, 5]
+      stop_loss_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+      take_profit_pct:
+        type: float
+        default: 0.04
+        bounds: [0.01, 0.10]
+
+  ema_ribbon:
+    name: "EMA Ribbon Trend"
+    type: "trend_following"
+    timeframes: ["5m", "15m", "1h"]
+    params:
+      fast_ema:
+        type: int
+        default: 8
+        bounds: [3, 20]
+      medium_ema:
+        type: int
+        default: 21
+        bounds: [15, 40]
+      slow_ema:
+        type: int
+        default: 55
+        bounds: [40, 100]
+      stop_loss_pct:
+        type: float
+        default: 0.015
+        bounds: [0.005, 0.04]
+      take_profit_pct:
+        type: float
+        default: 0.03
+        bounds: [0.01, 0.08]
+
+  vwap_deviation:
+    name: "VWAP Deviation"
+    type: "mean_reversion"
+    timeframes: ["1m", "5m", "15m"]
+    params:
+      vwap_period:
+        type: int
+        default: 20
+        bounds: [10, 60]
+      deviation_threshold:
+        type: float
+        default: 1.5
+        bounds: [0.5, 3.0]
+      stop_loss_pct:
+        type: float
+        default: 0.01
+        bounds: [0.003, 0.03]
+      take_profit_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+
+  donchian_channel:
+    name: "Donchian Channel"
+    type: "breakout"
+    timeframes: ["4h", "1d"]
+    params:
+      channel_period:
+        type: int
+        default: 20
+        bounds: [10, 55]
+      exit_period:
+        type: int
+        default: 10
+        bounds: [5, 30]
+      stop_loss_pct:
+        type: float
+        default: 0.025
+        bounds: [0.01, 0.06]
+      take_profit_pct:
+        type: float
+        default: 0.05
+        bounds: [0.02, 0.12]
+
+  stochastic_oscillator:
+    name: "Stochastic Oscillator"
+    type: "mean_reversion"
+    timeframes: ["5m", "15m", "1h"]
+    params:
+      k_period:
+        type: int
+        default: 14
+        bounds: [5, 30]
+      d_period:
+        type: int
+        default: 3
+        bounds: [2, 10]
+      oversold:
+        type: int
+        default: 20
+        bounds: [10, 35]
+      overbought:
+        type: int
+        default: 80
+        bounds: [65, 90]
+      stop_loss_pct:
+        type: float
+        default: 0.015
+        bounds: [0.005, 0.04]
+      take_profit_pct:
+        type: float
+        default: 0.03
+        bounds: [0.01, 0.08]
+
+  ichimoku_cloud:
+    name: "Ichimoku Cloud"
+    type: "trend_following"
+    timeframes: ["1h", "4h", "1d"]
+    params:
+      tenkan_period:
+        type: int
+        default: 9
+        bounds: [5, 20]
+      kijun_period:
+        type: int
+        default: 26
+        bounds: [15, 40]
+      senkou_b_period:
+        type: int
+        default: 52
+        bounds: [30, 80]
+      stop_loss_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+      take_profit_pct:
+        type: float
+        default: 0.04
+        bounds: [0.01, 0.10]
+
+  atr_volatility_breakout:
+    name: "ATR Volatility Breakout"
+    type: "volatility"
+    timeframes: ["15m", "1h", "4h"]
+    params:
+      atr_period:
+        type: int
+        default: 14
+        bounds: [7, 30]
+      atr_multiplier:
+        type: float
+        default: 2.0
+        bounds: [1.0, 4.0]
+      lookback_period:
+        type: int
+        default: 20
+        bounds: [10, 50]
+      stop_loss_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]
+      take_profit_pct:
+        type: float
+        default: 0.04
+        bounds: [0.01, 0.10]
+
+  volume_obv:
+    name: "Volume Profile + OBV"
+    type: "volume"
+    timeframes: ["1m", "5m", "15m"]
+    params:
+      obv_ema_period:
+        type: int
+        default: 20
+        bounds: [10, 50]
+      volume_spike_threshold:
+        type: float
+        default: 2.0
+        bounds: [1.2, 4.0]
+      confirmation_period:
+        type: int
+        default: 3
+        bounds: [1, 10]
+      stop_loss_pct:
+        type: float
+        default: 0.01
+        bounds: [0.003, 0.03]
+      take_profit_pct:
+        type: float
+        default: 0.02
+        bounds: [0.005, 0.05]

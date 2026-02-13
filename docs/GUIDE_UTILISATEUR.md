@@ -1,0 +1,102 @@
+# Guide Utilisateur — Workflow optimal (low-context)
+
+Ce guide explique comment travailler vite sur Quantlab V7 **sans gonfler le contexte**.
+
+---
+
+## 1) Règle d'or
+
+Toujours séparer:
+1. **Contexte actif** (court, actionnable)
+2. **Historique** (long, archivé)
+
+Le contexte actif vit dans `docs/context/ACTIVE_CONTEXT.md`.
+Tout le reste est référencé via `docs/context/ARCHIVE_INDEX.md`.
+
+---
+
+## 2) Démarrer une session (2 min)
+
+1. Lire:
+   - `docs/context/ACTIVE_CONTEXT.md`
+   - `portfolio/v5b/README.md` (si tâche portfolio)
+2. Copier le template:
+   - `docs/context/SESSION_TEMPLATE.md`
+3. Remplir seulement:
+   - objectif
+   - contraintes
+   - fichiers touchés
+   - succès attendu
+
+> Limite recommandée: 5 lignes d'état max.
+
+---
+
+## 3) Travailler sans perdre de détails
+
+### A. Pendant l'implémentation
+- Documenter les décisions en 1 ligne (quoi/pourquoi)
+- Éviter les copiers-collers de logs dans les prompts
+- Référencer les chemins de fichiers plutôt que le contenu complet
+
+### B. Après exécution
+- Garder dans le compte rendu:
+  - commande exécutée
+  - résultat clé (succès/échec)
+  - impact sur métriques
+- Archiver les détails longs dans:
+  - `docs/archive/`
+  - ou `docs/results/`
+
+### C. Mise à jour du contexte actif
+Mettre à jour `ACTIVE_CONTEXT.md` avec:
+- ce qui est validé
+- prochaine action
+- blocages
+
+Supprimer ce qui est obsolète.
+
+---
+
+## 4) Structure documentaire recommandée
+
+- `README.md` : vision + quick start
+- `docs/context/` : pilotage quotidien
+- `docs/knowledge_base/` : savoir technique stable
+- `docs/archive/` : historique long
+- `portfolio/v5b/` : docs/résultats portfolio
+
+---
+
+## 5) Workflow quotidien conseillé
+
+1. Préparer le mini-contexte (template session)
+2. Implémenter en petites étapes
+3. Valider par commande/test
+4. Mettre à jour docs minimales
+5. Archiver le bruit
+
+Format de sortie recommandé:
+- **Changements**
+- **Validation**
+- **Docs mises à jour**
+- **Next step**
+
+---
+
+## 6) Anti-patterns à éviter
+
+- Envoyer un historique complet en prompt à chaque session
+- Mélanger objectifs, logs, et décisions dans un seul fichier
+- Laisser `ACTIVE_CONTEXT.md` grossir sans nettoyage
+- Oublier de lier les archives dans `ARCHIVE_INDEX.md`
+
+---
+
+## 7) Checklist fin de session
+
+- [ ] Code validé
+- [ ] Résultat clé consigné
+- [ ] `ACTIVE_CONTEXT.md` à jour (<120 lignes)
+- [ ] Détails longs archivés
+- [ ] README(s) impactés mis à jour

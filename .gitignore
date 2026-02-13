@@ -1,0 +1,31 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local runtime data
+data/raw/
+data/processed/
+results/
+logs/
+.env
+.env.example
+
+# Local ML/Optuna artifacts
+*.db
+*.sqlite
