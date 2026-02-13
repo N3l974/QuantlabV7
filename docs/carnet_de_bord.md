@@ -281,7 +281,7 @@ Monte Carlo (positive_only_2x) :
 **Fichiers générés** :
 - `results/portfolio_v2_leverage_20260212_055734.json`
 - `results/portfolio_v2_leverage_20260212_055734.txt`
-- `docs/results/06_portfolio_v2_leverage_20260212.md`
+- `docs/archive/results/06_portfolio_v2_leverage_20260212.md`
 
 ### Session 3 — Audit critique + Base de connaissances
 
@@ -363,7 +363,7 @@ Monte Carlo (positive_only_2x) :
 
 **Fichiers générés** :
 - `results/test_ab_meta_vs_defaults_20260212_070723.json`
-- `docs/results/07_test_ab_meta_vs_defaults.md`
+- `docs/archive/results/07_test_ab_meta_vs_defaults.md`
 
 ---
 
@@ -432,7 +432,7 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 
 **Fichiers** :
 - `results/holdout_test_20260212_162618.json`
-- `docs/results/09_holdout_test.md`
+- `docs/archive/results/09_holdout_test.md`
 - `scripts/holdout_test.py`
 
 ### Session 8 — Stratégies multi-factor + test holdout
@@ -471,7 +471,7 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 
 **Fichiers** :
 - `results/multi_factor_test_20260212_165734.json`
-- `docs/results/10_multi_factor_test.md`
+- `docs/archive/results/10_multi_factor_test.md`
 - `scripts/test_multi_factor.py`
 
 ---
@@ -587,7 +587,7 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 
 **Fichiers** :
 - `results/portfolio_v3_20260212_174821.json`
-- `docs/results/11_portfolio_v3.md`
+- `docs/archive/results/11_portfolio_v3.md`
 - `scripts/portfolio_v3_markowitz.py`
 
 ---
@@ -624,7 +624,7 @@ Le paradoxe s'explique par :
 
 **Fichiers** :
 - `results/diagnostic_temporal_20260212_182223.json`
-- `docs/results/12_diagnostic_temporal.md`
+- `docs/archive/results/12_diagnostic_temporal.md`
 - `scripts/diagnostic_temporal.py`
 
 ---
@@ -701,7 +701,7 @@ Le paradoxe s'explique par :
 
 **Fichiers** :
 - `results/portfolio_v3b_20260212_182903.json`
-- `docs/results/13_portfolio_v3b.md`
+- `docs/archive/results/13_portfolio_v3b.md`
 - `scripts/portfolio_v3b_improved.py`
 
 ---
@@ -755,7 +755,7 @@ L'audit a révélé que :
 - **Prochaine étape** : diagnostic complet avec walk-forward + overlays intégrés
 
 **Fichiers** :
-- `docs/results/14_audit_edge_v4.md`
+- `docs/archive/results/14_audit_edge_v4.md`
 - `engine/regime.py`, `engine/overlays.py`
 - `strategies/regime_adaptive.py`, `strategies/mtf_trend_entry.py`, `strategies/mtf_momentum_breakout.py`
 
@@ -830,8 +830,8 @@ L'audit a révélé que :
 **Verdict** : V4 a un Sharpe et Calmar nettement supérieurs, un DD minimal (-0.8%), et une bien meilleure diversification (3 symbols). Le return est plus faible (+4.9% vs +9.8%) car V3b était essentiellement long ETH pendant un bull run — V4 est plus robuste.
 
 **Fichiers** :
-- `docs/results/15_diagnostic_v4_edge.md`
-- `docs/results/16_portfolio_v4.md`
+- `docs/archive/results/15_diagnostic_v4_edge.md`
+- `docs/archive/results/16_portfolio_v4.md`
 - `scripts/diagnostic_v4_fast.py`
 - `scripts/portfolio_v4.py`
 - `results/portfolio_v4_20260212_204205.json`
@@ -889,14 +889,14 @@ V4 conservateur : +4.9% (loin de l'objectif +15%). Cause : sur-diversification (
 ### Réorganisation dossier portfolio/
 
 - Supprimé V3b (archivé)
-- Structure : `portfolio/v4b/{code, docs, results}`
+- Structure (historique): `portfolio/v4b/{code, results}` (doc canonique déplacée ensuite dans `docs/portfolios/`)
 - Présentation investisseur V4b dédiée
 
 **Fichiers** :
 - `portfolio/v4b/` — dossier complet V4b
 - `docs/results/17_portfolio_v4b.md`
 - `scripts/portfolio_v4b_final.py`
-- `portfolio/v4b/README.md`
+- `docs/portfolios/v4b.md`
 
 ---
 
@@ -1081,7 +1081,7 @@ Script `scripts/diagnostic_v5b.py` avec 6 enrichissements :
 
 **Artefacts** :
 - `portfolio/v5c-highrisk/results/portfolio_v5c_highrisk_20260213_093913.json`
-- `portfolio/v5c-highrisk/docs/portfolio_v5c_highrisk.md`
+- `docs/portfolios/v5c-highrisk.md`
 - `docs/results/21_portfolio_v5c_highrisk_strict_oos_20260213.md`
 
 ## Session 18 — Méthode unique de traçabilité (anti-bloat)
