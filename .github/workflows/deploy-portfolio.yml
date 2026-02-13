@@ -65,20 +65,19 @@ jobs:
 
       - name: Deploy on VPS over SSH
         uses: appleboy/ssh-action@v1.0.3
-        env:
-          IMAGE: ${{ needs.build-and-push.outputs.image }}
-          SERVICE: ${{ github.event.inputs.portfolio_id }}
-          BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
-          BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          envs: IMAGE,SERVICE,BINANCE_API_KEY,BINANCE_API_SECRET,GHCR_USERNAME,GHCR_TOKEN
           script: |
             set -e
+            IMAGE="${{ needs.build-and-push.outputs.image }}"
+            SERVICE="${{ github.event.inputs.portfolio_id }}"
+            BINANCE_API_KEY="${{ secrets.BINANCE_API_KEY }}"
+            BINANCE_API_SECRET="${{ secrets.BINANCE_API_SECRET }}"
+            GHCR_USERNAME="${{ secrets.GHCR_USERNAME }}"
+            GHCR_TOKEN="${{ secrets.GHCR_TOKEN }}"
+
             mkdir -p ~/quantlab-deploy/runtime/logs
             cd ~/quantlab-deploy
             cp ~/quantlab-deploy/deploy/docker-compose.portfolio.yml ~/quantlab-deploy/docker-compose.portfolio.yml
