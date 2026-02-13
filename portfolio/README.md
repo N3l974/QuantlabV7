@@ -12,6 +12,7 @@ Seuls les portfolios ayant passé la validation complète (walk-forward + holdou
 | **[V5b Conservateur](v5b/)** | **+2.9%** | **2.48** | **-0.6%** | **4.37** | **✅ 95/100 GO** |
 | **[V5b Modéré](v5b/)** | **+7.4%** | **2.48** | **-1.6%** | **4.37** | **✅ 95/100 GO** |
 | **[V5b Agressif](v5b/)** | **+15.1%** | **2.49** | **-3.2%** | **4.39** | **✅ 95/100 GO** |
+| **[V5c HighRisk](v5c-highrisk/)** | **+12.1% (OOS)** | **3.93** | **-2.3%** | **31.27** | **⚠️ Spéculatif (court terme 1-2 mois)** |
 
 ## Structure
 
@@ -22,10 +23,14 @@ portfolio/
 │   ├── code/              # Scripts de construction et diagnostic
 │   ├── docs/              # Documentation et présentation investisseur
 │   └── results/           # Résultats JSON de validation
-└── v5b/                   # Portfolio V5b (actif — 3 profils de risque)
-    ├── code/              # portfolio_v5b_final.py, diagnostic_v5b.py
-    ├── docs/              # Rapport multi-profil + audit + confiance
-    └── results/           # Résultats JSON (métriques, audit, MC)
+├── v5b/                   # Portfolio V5b (actif — 3 profils de risque)
+│   ├── code/              # portfolio_v5b_final.py, diagnostic_v5b.py
+│   ├── docs/              # Rapport multi-profil + audit + confiance
+│   └── results/           # Résultats JSON (métriques, audit, MC)
+└── v5c-highrisk/          # Portfolio V5c (spéculatif court terme)
+    ├── code/              # portfolio_v5c_highrisk.py
+    ├── docs/              # Rapport high-risk
+    └── results/           # Résultats JSON
 ```
 
 ## Historique
@@ -37,6 +42,7 @@ portfolio/
 | V4 | Fév 2026 | +4.9% | 2.59 | -0.8% | Archivé | Trop conservateur (+4.9% vs objectif +15%) |
 | V4b | Fév 2026 | +19.8% | 1.35 | -8.5% | Archivé | Remplacé par V5b |
 | **V5b** | **Fév 2026** | **+2.9% → +15.1%** | **2.48-2.49** | **-0.6% → -3.2%** | **Actif** | **3 profils (sizing), audit complet, confiance 95/100** |
+| **V5c-highrisk** | **Fév 2026** | **+12.1% (OOS 60j)** | **3.93** | **-2.3%** | **Actif (spéculatif)** | **Validation stricte train/test, objectif 1-2 mois, capital 100$, DD max 30%** |
 
 ## Évolution technique
 

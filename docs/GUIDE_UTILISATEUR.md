@@ -13,6 +13,18 @@ Toujours séparer:
 Le contexte actif vit dans `docs/context/ACTIVE_CONTEXT.md`.
 Tout le reste est référencé via `docs/context/ARCHIVE_INDEX.md`.
 
+### Méthode unique (obligatoire)
+
+Pour **chaque run**, appliquer toujours ce contrat:
+
+1. **Raw outputs** (JSON/logs) dans `results/` (zone de travail, non versionnée)
+2. **Rapport court** dans `docs/results/` (1 fichier markdown par run significatif)
+3. **Carnet**: ajouter une entrée courte dans `docs/carnet_de_bord.md` (objectif, commande, résultat, lien rapport)
+4. **Portfolio canonique**: ne copier vers `portfolio/<version>/results` et `portfolio/<version>/docs` que les runs validés/finals
+5. **Index**: mettre à jour `docs/results/README.md` uniquement pour les runs importants
+
+Objectif: traçabilité complète sans dupliquer les artefacts partout.
+
 ---
 
 ## 2) Démarrer une session (2 min)
@@ -47,6 +59,11 @@ Tout le reste est référencé via `docs/context/ARCHIVE_INDEX.md`.
 - Archiver les détails longs dans:
   - `docs/archive/`
   - ou `docs/results/`
+
+Règle anti-bloat:
+- Ne pas créer de rapport pour un run mineur/non significatif
+- Éviter de versionner les JSON intermédiaires volumineux
+- Garder 1 artefact final par version de portfolio (ex: V5b final, V5c strict OOS)
 
 ### C. Mise à jour du contexte actif
 Mettre à jour `ACTIVE_CONTEXT.md` avec:
@@ -97,6 +114,8 @@ Format de sortie recommandé:
 
 - [ ] Code validé
 - [ ] Résultat clé consigné
+- [ ] Rapport run créé dans `docs/results/` (si run significatif)
+- [ ] Entrée ajoutée dans `docs/carnet_de_bord.md`
 - [ ] `ACTIVE_CONTEXT.md` à jour (<120 lignes)
 - [ ] Détails longs archivés
 - [ ] README(s) impactés mis à jour

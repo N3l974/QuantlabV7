@@ -163,6 +163,8 @@ def run_live(
     profiles_file: str,
     profile_index: int = 0,
     dry_run: bool = True,
+    interval_seconds: int = 60,
+    settings_path: str = "config/settings.yaml",
 ):
     """
     Start live execution for a specific profile.
@@ -173,7 +175,7 @@ def run_live(
         return
 
     profile = profiles[profile_index]
-    settings = load_settings()
+    settings = load_settings(settings_path)
 
     executor = LiveExecutor(profile, settings, dry_run=dry_run)
-    executor.run_loop()
+    executor.run_loop(interval_seconds=interval_seconds)

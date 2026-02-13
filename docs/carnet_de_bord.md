@@ -1062,4 +1062,65 @@ Script `scripts/diagnostic_v5b.py` avec 6 enrichissements :
 
 ---
 
-*Dernière mise à jour : 13 février 2026, 00:00*
+## Session 17 — V5c HighRisk (validation stricte OOS)
+
+**Date** : 13 février 2026
+
+**Objectif** : vérifier un portfolio high-risk court terme (1-2 mois) sans biais de calibration.
+
+**Actions** :
+- Refactor `scripts/portfolio_v5c_highrisk.py` en mode strict train/test.
+- Calibration sur TRAIN, test final sur les 60 dernières barres (OOS).
+- Mise à jour des docs V5c et index portfolio.
+
+**Résultat (OOS 60 barres)** :
+- Profil retenu (train) : HR-75
+- Return OOS 60j : +12.1%
+- Return OOS 30j : +12.7%
+- Max DD OOS : -2.3% (contrainte -30% respectée)
+
+**Artefacts** :
+- `portfolio/v5c-highrisk/results/portfolio_v5c_highrisk_20260213_093913.json`
+- `portfolio/v5c-highrisk/docs/portfolio_v5c_highrisk.md`
+- `docs/results/21_portfolio_v5c_highrisk_strict_oos_20260213.md`
+
+## Session 18 — Méthode unique de traçabilité (anti-bloat)
+
+**Décision** : adopter un workflow unique et stable pour tous les runs.
+
+1. Raw outputs dans `results/` (working zone)
+2. Rapport court dans `docs/results/` pour chaque run significatif
+3. Entrée synthèse dans `docs/carnet_de_bord.md`
+4. Copie dans `portfolio/<version>/` uniquement pour versions validées/finales
+5. Mise à jour `docs/results/README.md` uniquement pour runs importants
+
+**Doc de référence** : `docs/GUIDE_UTILISATEUR.md`.
+
+## Session 19 — Préparation déploiement VPS par portfolio (V5c paper)
+
+**Date** : 13 février 2026
+
+**Objectif** : préparer un déploiement VPS minimal pour `v5c-highrisk` en mode paper avec 1000 USD, en gardant un modèle extensible multi-portfolios.
+
+**Décisions** :
+- Déploiement par portfolio (1 service = 1 portfolio)
+- Registry: GHCR
+- Orchestration VPS: docker-compose
+- Réoptimisation: 1M (pause si échéance dépassée)
+- Passage paper -> réel: revue 8-12 semaines, DD paper max 15%
+
+**Implémentation** :
+- Ajout runner portfolio: `live/run_portfolio.py`
+- Ajout config portfolio paper: `config/live/portfolios/v5c-highrisk-paper.json`
+- Ajout profile source (MVP): `config/live/profiles/v5c-highrisk-paper.meta_profiles.json`
+- Ajout infra deploy: `deploy/Dockerfile`, `deploy/docker-compose.portfolio.yml`, `.dockerignore`
+- Ajout CI/CD: `.github/workflows/deploy-portfolio.yml`
+- Ajout doc ops: `deploy/README.md`
+
+**Limitation connue** : runtime live MVP mono-profile; moteur portfolio multi-combos natif à implémenter ensuite.
+
+**Rapport** : `docs/results/22_deploiement_v5c_paper_vps_20260213.md`
+
+---
+
+*Dernière mise à jour : 13 février 2026, 10:15*

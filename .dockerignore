@@ -1,0 +1,25 @@
+# Keep container context minimal
+.git
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local data and artifacts
+data/raw/
+data/processed/
+results/
+logs/
+
+# Dev/docs/test only
+docs/
+dashboard/
+tests/
+scripts/
+
+# Local env files
+.env
+.env.*
+!.env.example

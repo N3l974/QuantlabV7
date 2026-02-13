@@ -1,0 +1,18 @@
+[
+  {
+    "strategy_name": "breakout_regime",
+    "timeframe": "1d",
+    "symbol": "ETHUSDT",
+    "reoptim_frequency": "1M",
+    "training_window": "1Y",
+    "param_bounds_scale": 1.0,
+    "optim_metric": "sharpe",
+    "n_optim_trials": 30,
+    "score": 0.0,
+    "metrics": {
+      "source": "v5c-highrisk strict OOS context",
+      "note": "initial paper proxy profile for VPS pipeline"
+    },
+    "n_oos_periods": 1
+  }
+]

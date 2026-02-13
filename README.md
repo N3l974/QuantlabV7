@@ -515,6 +515,7 @@ La réoptimisation nécessite du calcul lourd (Optuna) qui ne peut pas tourner s
 | **V5b Conserv.** | **+2.9%** | **2.48** | **-0.6%** | **✅ 95/100 GO** |
 | **V5b Modéré** | **+7.4%** | **2.48** | **-1.6%** | **✅ 95/100 GO** |
 | **V5b Agressif** | **+15.1%** | **2.49** | **-3.2%** | **✅ 95/100 GO** |
+| **V5c HighRisk** | **+12.1% (OOS 60j)** | **3.93** | **-2.3%** | **⚠️ Spéculatif (1-2 mois, capital 100$)** |
 
 ---
 

@@ -1,0 +1,17 @@
+services:
+  v5c-highrisk-paper:
+    image: ${IMAGE_NAME:-ghcr.io/n3l974/quantlab-v7}:${IMAGE_TAG:-latest}
+    container_name: v5c-highrisk-paper
+    restart: unless-stopped
+    command: ["python", "-m", "live.run_portfolio", "--config", "config/live/portfolios/v5c-highrisk-paper.json"]
+    environment:
+      BINANCE_API_KEY: ${BINANCE_API_KEY}
+      BINANCE_API_SECRET: ${BINANCE_API_SECRET}
+    volumes:
+      - ./runtime/logs:/app/logs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import pathlib; pathlib.Path('logs').mkdir(exist_ok=True); print('ok')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
