@@ -118,6 +118,7 @@ def main() -> None:
     equity_series = [float(e.get("equity", 0.0)) for e in pnl if "equity" in e]
     start_eq = equity_series[0] if equity_series else 0.0
     last_eq = equity_series[-1] if equity_series else 0.0
+    initial_capital = float(state.get("paper_start_equity", start_eq))
     total_ret = ((last_eq / start_eq) - 1.0) if start_eq > 0 else 0.0
     dd = max_drawdown(equity_series)
 
@@ -148,7 +149,8 @@ def main() -> None:
     print(f"trades in window: {len(recent_trades)}")
     print()
     print("[Equity]")
-    print(f"start equity: {start_eq:.2f}")
+    print(f"initial capital (config): {initial_capital:.2f}")
+    print(f"start equity (first log): {start_eq:.2f}")
     print(f"last equity (mtm):      {last_eq:.2f}")
     print(f"realized base (flat):  {realized_eq:.2f}")
     print(f"floating pnl:          {floating_pnl:+.4f}")

@@ -138,5 +138,8 @@ Champs `pnl.jsonl` utiles:
 - `gross_exposure` / `net_exposure`: exposition instantanée
 
 Important:
+- Le rapport affiche deux baselines:
+  - `initial capital (config)` = capital de départ configuré (ex: 1000)
+  - `start equity (first log)` = première ligne de `pnl.jsonl` (peut inclure le coût du 1er rebalance)
 - Le `start equity` du rapport correspond à la **première ligne de `pnl.jsonl` encore présente**.
 - Pour repartir d'une baseline 1000 propre: purger `trades.jsonl`, `pnl.jsonl` et `state.json`.
