@@ -128,7 +128,14 @@ ssh <VPS_USER>@<VPS_HOST> "python3 ~/quantlab-deploy/paper_daily_report.py --log
 
 - `trades.jsonl`: exécutions nettes par symbole (ETHUSDT/SOLUSDT)
 - `trades.jsonl.metadata.combo_breakdown`: détail des contributions par combo (signal × poids)
-- `pnl.jsonl`: trajectoire d'equity
+- `pnl.jsonl`: trajectoire d'equity + métriques d'exposition
+
+Champs `pnl.jsonl` utiles:
+- `equity`: equity **MTM** (inclut PnL flottant)
+- `realized_equity`: baseline au dernier état totalement flat
+- `floating_pnl`: différence `equity - realized_equity`
+- `execution_cost`: coût de rééquilibrage (commission + slippage simulés)
+- `gross_exposure` / `net_exposure`: exposition instantanée
 
 Important:
 - Le `start equity` du rapport correspond à la **première ligne de `pnl.jsonl` encore présente**.

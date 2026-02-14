@@ -5,7 +5,7 @@ Tracks PnL, positions, and alerts.
 
 import json
 import os
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Optional
 
@@ -36,7 +36,7 @@ class LiveMonitor:
     ):
         """Log a trade execution."""
         trade = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(UTC).isoformat(),
             "strategy": strategy,
             "timeframe": timeframe,
             "side": side,
@@ -54,14 +54,34 @@ class LiveMonitor:
         with open(filepath, "a") as f:
             f.write(json.dumps(trade) + "\n")
 
-    def log_pnl(self, strategy: str, equity: float, daily_pnl: float):
+    def log_pnl(
+        self,
+        strategy: str,
+        equity: float,
+        daily_pnl: float,
+        execution_cost: Optional[float] = None,
+        realized_equity: Optional[float] = None,
+        floating_pnl: Optional[float] = None,
+        gross_exposure: Optional[float] = None,
+        net_exposure: Optional[float] = None,
+    ):
         """Log current PnL state."""
         entry = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(UTC).isoformat(),
             "strategy": strategy,
             "equity": equity,
             "daily_pnl": daily_pnl,
         }
+        if execution_cost is not None:
+            entry["execution_cost"] = execution_cost
+        if realized_equity is not None:
+            entry["realized_equity"] = realized_equity
+        if floating_pnl is not None:
+            entry["floating_pnl"] = floating_pnl
+        if gross_exposure is not None:
+            entry["gross_exposure"] = gross_exposure
+        if net_exposure is not None:
+            entry["net_exposure"] = net_exposure
         self.pnl_history.append(entry)
 
         filepath = os.path.join(self.log_dir, "pnl.jsonl")

@@ -87,12 +87,16 @@ class PortfolioExecutor:
         dry_run: bool = True,
         portfolio_id: str = "paper-service",
         paper_capital: float = 1000.0,
+        pause_on_expiry: bool = False,
     ):
         self.combos = combos
         self.risk_profile = risk_profile
         self.settings = settings
         self.dry_run = dry_run
         self.portfolio_id = portfolio_id
+        self.pause_on_expiry = pause_on_expiry
+        self.commission_rate = float(self.settings.get("engine", {}).get("commission_rate", 0.0))
+        self.slippage_rate = float(self.settings.get("engine", {}).get("slippage_rate", 0.0))
 
         self.client = get_binance_client(settings)
         self.monitor = LiveMonitor(log_dir=f"logs/{portfolio_id}")
@@ -100,6 +104,7 @@ class PortfolioExecutor:
         # Paper tracking
         self.paper_equity: float = paper_capital
         self.paper_start_equity: float = paper_capital
+        self.last_flat_equity: float = paper_capital
 
         # Per-symbol net position tracking (for mark-to-market)
         # net_position is a float in [-1, 1] representing fraction of equity
@@ -124,6 +129,11 @@ class PortfolioExecutor:
         logger.info(f"  Symbols: {self.symbols}")
         logger.info(f"  Risk: max_position={risk_profile.max_position_pct*100:.0f}%, "
                      f"max_dd={risk_profile.max_drawdown_pct*100:.0f}%")
+        logger.info(
+            f"  Costs: commission={self.commission_rate*100:.3f}% "
+            f"slippage={self.slippage_rate*100:.3f}%"
+        )
+        logger.info(f"  Pause on reopt expiry: {self.pause_on_expiry}")
         logger.info(f"  Dry run: {dry_run}, Paper capital: ${paper_capital:.2f}")
         for cs in self.combo_states:
             c = cs.config
@@ -137,11 +147,22 @@ class PortfolioExecutor:
     def _state_path(self) -> Path:
         return Path(f"logs/{self.portfolio_id}/state.json")
 
+    def _is_flat(self, positions: Optional[dict[str, float]] = None) -> bool:
+        pos = self.net_positions if positions is None else positions
+        return all(abs(float(pos.get(sym, 0.0))) < 1e-6 for sym in self.symbols)
+
+    def _gross_exposure(self) -> float:
+        return float(sum(abs(float(self.net_positions.get(sym, 0.0))) for sym in self.symbols))
+
+    def _net_exposure(self) -> float:
+        return float(sum(float(self.net_positions.get(sym, 0.0)) for sym in self.symbols))
+
     def _save_state(self) -> None:
         """Persist current runtime state to disk for crash/restart recovery."""
         state = {
             "paper_equity": self.paper_equity,
             "paper_start_equity": self.paper_start_equity,
+            "last_flat_equity": self.last_flat_equity,
             "net_positions": self.net_positions,
             "last_prices": self.last_prices,
             "combo_last_signals": {
@@ -176,6 +197,12 @@ class PortfolioExecutor:
             self.paper_start_equity = state["paper_start_equity"]
             self.net_positions = state.get("net_positions", {})
             self.last_prices = state.get("last_prices", {})
+            self.last_flat_equity = float(
+                state.get(
+                    "last_flat_equity",
+                    self.paper_equity if self._is_flat(self.net_positions) else self.paper_start_equity,
+                )
+            )
 
             signals = state.get("combo_last_signals", {})
             optim_dates = state.get("combo_last_optimization", {})
@@ -192,6 +219,7 @@ class PortfolioExecutor:
             logger.info(
                 f"State restored from {state.get('updated_at', '?')}: "
                 f"equity=${self.paper_equity:.2f}, "
+                f"last_flat=${self.last_flat_equity:.2f}, "
                 f"positions={self.net_positions}"
             )
         except Exception as e:
@@ -352,14 +380,24 @@ class PortfolioExecutor:
         new_positions: dict[str, float],
         prices: dict[str, float],
         combo_breakdown: dict[str, list[dict]],
-    ):
+    ) -> float:
         """Log position changes (paper) or execute orders (live)."""
+        total_execution_cost = 0.0
         for symbol in self.symbols:
             old_pos = self.net_positions.get(symbol, 0.0)
             new_pos = new_positions.get(symbol, 0.0)
 
             if abs(new_pos - old_pos) < 1e-4:
                 continue
+
+            delta_pos = float(new_pos - old_pos)
+            trade_size = abs(delta_pos)
+            # Approximation: trade notional is delta exposure fraction × current equity.
+            # Cost model intentionally pessimistic (commission + base slippage per rebalance).
+            execution_cost = self.paper_equity * trade_size * (self.commission_rate + self.slippage_rate)
+            if execution_cost > 0.0:
+                self.paper_equity -= execution_cost
+                total_execution_cost += execution_cost
 
             # Determine trade direction
             if new_pos > old_pos:
@@ -396,11 +434,13 @@ class PortfolioExecutor:
                     "old_position": float(old_pos),
                     "new_position": float(new_pos),
                     "delta_position": float(new_pos - old_pos),
+                    "execution_cost": float(execution_cost),
                     "combo_breakdown": combo_breakdown.get(symbol, []),
                 },
             )
 
         self.net_positions = new_positions.copy()
+        return total_execution_cost
 
     # ── Main loop ──
 
@@ -422,15 +462,36 @@ class PortfolioExecutor:
         while True:
             try:
                 current_prices: dict[str, float] = {}
+                reopt_blocked = False
 
                 # 1. Re-optimize + generate signals for each combo
                 for state in self.combo_states:
                     if self.should_reoptimize(state):
-                        self.reoptimize_combo(state)
+                        try:
+                            self.reoptimize_combo(state)
+                        except Exception as reopt_err:
+                            if self.pause_on_expiry:
+                                logger.error(
+                                    f"Reoptimization failed for {state.config.strategy_name}/"
+                                    f"{state.config.symbol}/{state.config.timeframe} with "
+                                    f"pause_on_expiry=True; stopping loop. Error: {reopt_err}"
+                                )
+                                reopt_blocked = True
+                                break
+                            logger.warning(
+                                f"Reoptimization failed for {state.config.strategy_name}/"
+                                f"{state.config.symbol}/{state.config.timeframe}; "
+                                f"keeping previous params. Error: {reopt_err}"
+                            )
 
                     signal, mark_price = self.get_combo_signal(state)
                     state.last_signal = signal
                     current_prices[state.config.symbol] = mark_price
+
+                if reopt_blocked:
+                    _write_heartbeat()
+                    self._save_state()
+                    break
 
                 # 2. Initialize last_prices on first iteration
                 if not self.last_prices:
@@ -444,14 +505,26 @@ class PortfolioExecutor:
                 combo_breakdown = self.build_combo_breakdown()
 
                 # 5. Execute position changes
-                self.execute_position_changes(new_positions, current_prices, combo_breakdown)
+                execution_cost = self.execute_position_changes(new_positions, current_prices, combo_breakdown)
+
+                if self._is_flat():
+                    self.last_flat_equity = self.paper_equity
 
                 # 6. Log portfolio-level PnL
+                net_interval_pnl = interval_pnl - execution_cost
                 total_return = (self.paper_equity / self.paper_start_equity) - 1.0
+                floating_pnl = self.paper_equity - self.last_flat_equity
+                gross_exposure = self._gross_exposure()
+                net_exposure = self._net_exposure()
                 self.monitor.log_pnl(
                     strategy=f"{self.portfolio_id}:portfolio",
                     equity=self.paper_equity,
-                    daily_pnl=interval_pnl,
+                    daily_pnl=net_interval_pnl,
+                    execution_cost=execution_cost,
+                    realized_equity=self.last_flat_equity,
+                    floating_pnl=floating_pnl,
+                    gross_exposure=gross_exposure,
+                    net_exposure=net_exposure,
                 )
                 self.monitor.check_alerts(
                     equity=self.paper_equity,
@@ -469,7 +542,10 @@ class PortfolioExecutor:
                 )
                 logger.debug(
                     f"Equity=${self.paper_equity:.2f} ({total_return:+.2%}) | "
-                    f"PnL={interval_pnl:+.4f} | Pos: {pos_str} | Sig: {combo_signals}"
+                    f"RealizedBase=${self.last_flat_equity:.2f} | Floating={floating_pnl:+.4f} | "
+                    f"Gross={gross_exposure:+.3f} Net={net_exposure:+.3f} | "
+                    f"PnLraw={interval_pnl:+.4f} Cost={execution_cost:+.4f} NetPnL={net_interval_pnl:+.4f} | "
+                    f"Pos: {pos_str} | Sig: {combo_signals}"
                 )
                 _write_heartbeat()
                 self._save_state()
@@ -540,6 +616,7 @@ def run_portfolio(
     paper_capital = float(config.get("paper_capital_usd", 1000.0))
     interval_seconds = int(config.get("runtime", {}).get("interval_seconds", 60))
     settings_path = config.get("runtime", {}).get("settings_path", settings_path)
+    pause_on_expiry = bool(config.get("reoptimization_policy", {}).get("pause_on_expiry", False))
 
     combos, risk_profile = load_portfolio_combos(config)
     settings = load_settings(settings_path)
@@ -551,5 +628,6 @@ def run_portfolio(
         dry_run=dry_run,
         portfolio_id=portfolio_id,
         paper_capital=paper_capital,
+        pause_on_expiry=pause_on_expiry,
     )
     executor.run_loop(interval_seconds=interval_seconds)
