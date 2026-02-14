@@ -84,7 +84,7 @@ Les multi-factor ont un taux de survie plus bas mais produisent des survivants *
 
 ## Fichiers générés
 
-- `results/multi_factor_test_20260212_165734.json`
+- `portfolio/archive/v4/multi_factor_test_20260212_165734.json`
 - `strategies/supertrend_adx.py`
 - `strategies/trend_multi_factor.py`
 - `strategies/breakout_regime.py`

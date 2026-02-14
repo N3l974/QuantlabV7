@@ -1,6 +1,6 @@
 # Rapport — Portfolio V2 : Sharpe-Weighted vs Positive-Only + Leverage
 **Date** : 12 February 2026 (05:57)
-**Fichier source** : `results/meta_profiles_v3_20260211_195716.json`
+**Fichier source** : `portfolio/archive/v3/meta_profiles_v3_20260211_195716.json`
 **Statut** : ✅ VALIDE
 
 ---
