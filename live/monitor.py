@@ -24,8 +24,16 @@ class LiveMonitor:
         self.trades: list[dict] = []
         self.pnl_history: list[dict] = []
 
-    def log_trade(self, strategy: str, timeframe: str, side: str,
-                  price: float, size: float, pnl: Optional[float] = None):
+    def log_trade(
+        self,
+        strategy: str,
+        timeframe: str,
+        side: str,
+        price: float,
+        size: float,
+        pnl: Optional[float] = None,
+        metadata: Optional[dict] = None,
+    ):
         """Log a trade execution."""
         trade = {
             "timestamp": datetime.utcnow().isoformat(),
@@ -36,6 +44,8 @@ class LiveMonitor:
             "size": size,
             "pnl": pnl,
         }
+        if metadata is not None:
+            trade["metadata"] = metadata
         self.trades.append(trade)
         logger.info(f"TRADE: {side} {size} @ {price} | {strategy}/{timeframe} | PnL: {pnl}")
 

@@ -10,6 +10,7 @@ Binance Cross Margin constraints:
 - Equity is shared across all positions
 """
 
+import json
 import time
 import sys
 from collections import defaultdict
@@ -128,6 +129,74 @@ class PortfolioExecutor:
             c = cs.config
             logger.info(f"  [{c.weight*100:.1f}%] {c.strategy_name}/{c.symbol}/{c.timeframe}")
 
+        self._restore_state()
+
+    # ── State persistence ──
+
+    @property
+    def _state_path(self) -> Path:
+        return Path(f"logs/{self.portfolio_id}/state.json")
+
+    def _save_state(self) -> None:
+        """Persist current runtime state to disk for crash/restart recovery."""
+        state = {
+            "paper_equity": self.paper_equity,
+            "paper_start_equity": self.paper_start_equity,
+            "net_positions": self.net_positions,
+            "last_prices": self.last_prices,
+            "combo_last_signals": {
+                s.config.strategy_name: s.last_signal
+                for s in self.combo_states
+            },
+            "combo_last_optimization": {
+                s.config.strategy_name: s.last_optimization.isoformat()
+                for s in self.combo_states
+                if s.last_optimization is not None
+            },
+            "combo_current_params": {
+                s.config.strategy_name: s.current_params
+                for s in self.combo_states
+                if s.current_params
+            },
+            "updated_at": datetime.utcnow().isoformat(),
+        }
+        self._state_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = self._state_path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(state, indent=2))
+        tmp.rename(self._state_path)
+
+    def _restore_state(self) -> None:
+        """Restore runtime state from disk if available (survives restarts)."""
+        if not self._state_path.exists():
+            logger.info("No state.json found — fresh start")
+            return
+        try:
+            state = json.loads(self._state_path.read_text())
+            self.paper_equity = state["paper_equity"]
+            self.paper_start_equity = state["paper_start_equity"]
+            self.net_positions = state.get("net_positions", {})
+            self.last_prices = state.get("last_prices", {})
+
+            signals = state.get("combo_last_signals", {})
+            optim_dates = state.get("combo_last_optimization", {})
+            saved_params = state.get("combo_current_params", {})
+            for s in self.combo_states:
+                name = s.config.strategy_name
+                if name in signals:
+                    s.last_signal = signals[name]
+                if name in optim_dates:
+                    s.last_optimization = datetime.fromisoformat(optim_dates[name])
+                if name in saved_params:
+                    s.current_params = saved_params[name]
+
+            logger.info(
+                f"State restored from {state.get('updated_at', '?')}: "
+                f"equity=${self.paper_equity:.2f}, "
+                f"positions={self.net_positions}"
+            )
+        except Exception as e:
+            logger.error(f"Failed to restore state: {e} — fresh start")
+
     # ── Data fetching ──
 
     def fetch_data(self, symbol: str, timeframe: str, n_candles: int = 1000) -> pd.DataFrame:
@@ -230,6 +299,24 @@ class PortfolioExecutor:
 
         return net
 
+    def build_combo_breakdown(self) -> dict[str, list[dict]]:
+        """Build per-symbol combo contributions used for trade explainability logs."""
+        breakdown: dict[str, list[dict]] = defaultdict(list)
+        for state in self.combo_states:
+            c = state.config
+            contribution = float(state.last_signal * c.weight)
+            breakdown[c.symbol].append(
+                {
+                    "strategy_name": c.strategy_name,
+                    "symbol": c.symbol,
+                    "timeframe": c.timeframe,
+                    "weight": float(c.weight),
+                    "signal": int(state.last_signal),
+                    "contribution": contribution,
+                }
+            )
+        return dict(breakdown)
+
     # ── Mark-to-market ──
 
     def mark_to_market(self, current_prices: dict[str, float]) -> float:
@@ -260,7 +347,12 @@ class PortfolioExecutor:
 
     # ── Execution ──
 
-    def execute_position_changes(self, new_positions: dict[str, float], prices: dict[str, float]):
+    def execute_position_changes(
+        self,
+        new_positions: dict[str, float],
+        prices: dict[str, float],
+        combo_breakdown: dict[str, list[dict]],
+    ):
         """Log position changes (paper) or execute orders (live)."""
         for symbol in self.symbols:
             old_pos = self.net_positions.get(symbol, 0.0)
@@ -299,6 +391,13 @@ class PortfolioExecutor:
                 price=price,
                 size=abs(new_pos - old_pos),
                 pnl=0.0,  # PnL tracked via mark-to-market
+                metadata={
+                    "symbol": symbol,
+                    "old_position": float(old_pos),
+                    "new_position": float(new_pos),
+                    "delta_position": float(new_pos - old_pos),
+                    "combo_breakdown": combo_breakdown.get(symbol, []),
+                },
             )
 
         self.net_positions = new_positions.copy()
@@ -342,9 +441,10 @@ class PortfolioExecutor:
 
                 # 4. Compute new net positions
                 new_positions = self.compute_net_positions()
+                combo_breakdown = self.build_combo_breakdown()
 
                 # 5. Execute position changes
-                self.execute_position_changes(new_positions, current_prices)
+                self.execute_position_changes(new_positions, current_prices, combo_breakdown)
 
                 # 6. Log portfolio-level PnL
                 total_return = (self.paper_equity / self.paper_start_equity) - 1.0
@@ -372,6 +472,7 @@ class PortfolioExecutor:
                     f"PnL={interval_pnl:+.4f} | Pos: {pos_str} | Sig: {combo_signals}"
                 )
                 _write_heartbeat()
+                self._save_state()
 
             except KeyboardInterrupt:
                 logger.info("Portfolio execution stopped by user.")
@@ -431,8 +532,6 @@ def run_portfolio(
     Start portfolio execution from a config file.
     Entry point for run_portfolio.py.
     """
-    import json
-
     with open(config_path) as f:
         config = json.load(f)
 
