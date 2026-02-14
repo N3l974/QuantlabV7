@@ -14,17 +14,10 @@ Portfolio V4b est le portefeuille de trading quantitatif validé de QuantLab V7.
 - **Probabilité de gain (12M)** : 86%
 - **Probabilité de ruine** : 0.0%
 
-## Structure
+## Artefacts techniques
 
-```
-v4b/
-├── README.md                          # Documentation de référence
-├── code/
-│   ├── portfolio_v4b_final.py         # Script de validation complète
-│   └── diagnostic_v4_fast.py          # Diagnostic des stratégies (2 phases)
-└── results/
-    └── portfolio_v4b_final_*.json     # Résultats de validation (métriques, MC, stress)
-```
+- Code : `portfolio/v4b/code/`
+- Résultats : `portfolio/v4b/results/`
 
 ## Processus de construction et validation
 
@@ -95,17 +88,11 @@ v4b/
 
 ## Utilisation
 
-### Rejouer la validation
-
 ```bash
-cd /path/to/Quantlab-V7
-python scripts/portfolio_v4b_final.py
+python portfolio/v4b/code/portfolio_v4b_final.py
 ```
 
-### Voir les résultats
-
-- `results/portfolio_v4b_final_*.json` : Données brutes (métriques, MC, stress tests)
-- `README.md` (ce fichier) : synthèse de référence (thèse, protocole, performances)
+- Résultats: `portfolio/v4b/results/portfolio_v4b_final_*.json`
 
 ## Évolution des versions
 
@@ -116,7 +103,3 @@ python scripts/portfolio_v4b_final.py
 | Max DD | -4.9% | -0.8% | **-8.5%** |
 | Calmar | 1.91 | 5.99 | **2.17** |
 | Objectif +15% | ❌ | ❌ | **✅** |
-
----
-
-*Portfolio V4b — QuantLab V7 — Février 2026*

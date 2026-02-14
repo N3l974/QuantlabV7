@@ -1,0 +1,386 @@
+{
+  "timestamp": "20260212_070723",
+  "n_seeds": 5,
+  "defaults_params": {
+    "reoptim_frequency": "3M",
+    "training_window": "1Y",
+    "param_bounds_scale": 1.0,
+    "optim_metric": "sharpe",
+    "n_optim_trials": 100
+  },
+  "conservative_params": {
+    "reoptim_frequency": "6M",
+    "training_window": "2Y",
+    "param_bounds_scale": 0.8,
+    "optim_metric": "sharpe",
+    "n_optim_trials": 100
+  },
+  "summary": {
+    "n_combos": 5,
+    "n_seeds": 5,
+    "elapsed_seconds": 2009.5,
+    "meta_avg_sharpe": 0.12,
+    "defaults_avg_sharpe": 0.2222,
+    "conservative_avg_sharpe": -0.1792,
+    "meta_wins_sharpe": 1,
+    "defaults_wins_sharpe": 3,
+    "conservative_wins_sharpe": 1,
+    "meta_wins_composite": 1,
+    "defaults_wins_composite": 3,
+    "conservative_wins_composite": 1,
+    "sharpe_diff_meta_vs_defaults": -0.1022,
+    "verdict": "DEFAULTS font MIEUX que la m\u00e9ta-optimisation"
+  },
+  "combos": [
+    {
+      "symbol": "XRPUSDT",
+      "strategy": "stochastic_oscillator",
+      "timeframe": "1d",
+      "meta_params": {
+        "reoptim_frequency": "2M",
+        "training_window": "2Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sortino",
+        "n_optim_trials": 200
+      },
+      "defaults_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "1Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "conservative_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "meta": {
+        "sharpe": 0.6065029644216721,
+        "sortino": 0.40966824454717826,
+        "total_return": 0.19521548467415287,
+        "max_drawdown": -0.0559322009256308,
+        "win_rate": 0.5806451612903226,
+        "profit_factor": 2.0022519510259063,
+        "n_trades": 31,
+        "composite": 0.4596730177788698,
+        "robust_sharpe_std": 0.24435392415912138,
+        "robust_sharpe_min": 0.06848356066716992,
+        "robust_sharpe_max": 0.742155895098018,
+        "robust_consistency": 0.5473283679940972
+      },
+      "defaults": {
+        "sharpe": 0.44513080306414377,
+        "sortino": 0.4745581937444756,
+        "total_return": 0.3411811842947753,
+        "max_drawdown": -0.2093914505421751,
+        "win_rate": 0.41818181818181815,
+        "profit_factor": 1.4391670465677613,
+        "n_trades": 55,
+        "composite": 0.3294054072839523,
+        "robust_sharpe_std": 0.29170318629170344,
+        "robust_sharpe_min": -0.22202934121220222,
+        "robust_sharpe_max": 0.4820332817783467,
+        "robust_consistency": -0.265359076182732
+      },
+      "conservative": {
+        "sharpe": 0.11969105356969288,
+        "sortino": 0.09086719125221296,
+        "total_return": 0.03756482261267738,
+        "max_drawdown": -0.20828330597519662,
+        "win_rate": 0.44776119402985076,
+        "profit_factor": 1.0789789733029767,
+        "n_trades": 67,
+        "composite": 0.07790137131012258,
+        "robust_sharpe_std": 0.39689804790649286,
+        "robust_sharpe_min": -0.888134744595519,
+        "robust_sharpe_max": 0.14930435369587108,
+        "robust_consistency": -2.371399360559093
+      },
+      "winner_sharpe": "meta",
+      "winner_composite": "meta"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "strategy": "atr_volatility_breakout",
+      "timeframe": "1d",
+      "meta_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 200
+      },
+      "defaults_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "1Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "conservative_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "meta": {
+        "sharpe": 0.09363326445283554,
+        "sortino": 0.05105865472829037,
+        "total_return": 0.019782461555391272,
+        "max_drawdown": -0.08660029088302462,
+        "win_rate": 0.5128205128205128,
+        "profit_factor": 1.0593460498470375,
+        "n_trades": 39,
+        "composite": 0.059582029410974346,
+        "robust_sharpe_std": 0.20091034244098824,
+        "robust_sharpe_min": -0.21352778595412147,
+        "robust_sharpe_max": 0.3033018151017517,
+        "robust_consistency": -6.066160590267238
+      },
+      "defaults": {
+        "sharpe": 0.07826340056504298,
+        "sortino": 0.04906257089715849,
+        "total_return": 0.018286750000030223,
+        "max_drawdown": -0.24772072106321133,
+        "win_rate": 0.37735849056603776,
+        "profit_factor": 1.0334137602800166,
+        "n_trades": 53,
+        "composite": 0.044955666459291256,
+        "robust_sharpe_std": 0.19489069964363237,
+        "robust_sharpe_min": -0.10550656452736727,
+        "robust_sharpe_max": 0.36135540143158107,
+        "robust_consistency": -0.5682686433955857
+      },
+      "conservative": {
+        "sharpe": 0.17594545476128803,
+        "sortino": 0.10662773201179039,
+        "total_return": 0.05307455316683718,
+        "max_drawdown": -0.12093778116819745,
+        "win_rate": 0.5616438356164384,
+        "profit_factor": 1.090397533078564,
+        "n_trades": 73,
+        "composite": 0.11037315019008825,
+        "robust_sharpe_std": 0.2691228470194067,
+        "robust_sharpe_min": -0.04444473793611008,
+        "robust_sharpe_max": 0.7023315989747255,
+        "robust_consistency": -0.15361995382237748
+      },
+      "winner_sharpe": "conservative",
+      "winner_composite": "conservative"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "strategy": "donchian_channel",
+      "timeframe": "1d",
+      "meta_params": {
+        "reoptim_frequency": "2M",
+        "training_window": "6M",
+        "param_bounds_scale": 0.4,
+        "optim_metric": "sortino",
+        "n_optim_trials": 200
+      },
+      "defaults_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "1Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "conservative_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "meta": {
+        "sharpe": 0.3099638976789107,
+        "sortino": 0.2225191574376655,
+        "total_return": 0.16707700914506093,
+        "max_drawdown": -0.15968450242840937,
+        "win_rate": 0.504424778761062,
+        "profit_factor": 1.1609483046319193,
+        "n_trades": 113,
+        "composite": 0.19941877461457097,
+        "robust_sharpe_std": 0.035225781099011616,
+        "robust_sharpe_min": 0.2592787857445443,
+        "robust_sharpe_max": 0.36532965531200334,
+        "robust_consistency": 0.8852520930996208
+      },
+      "defaults": {
+        "sharpe": 0.7076892450279199,
+        "sortino": 0.47870848638854707,
+        "total_return": 0.3890503206087718,
+        "max_drawdown": -0.09033866044258464,
+        "win_rate": 0.5510204081632653,
+        "profit_factor": 1.7755211319387019,
+        "n_trades": 49,
+        "composite": 0.49810044405631043,
+        "robust_sharpe_std": 0.1836281148480487,
+        "robust_sharpe_min": 0.4699371343118989,
+        "robust_sharpe_max": 1.0185048809835258,
+        "robust_consistency": 0.7559548790610617
+      },
+      "conservative": {
+        "sharpe": -0.09008969285415076,
+        "sortino": -0.061784120191804105,
+        "total_return": -0.05948439941297911,
+        "max_drawdown": -0.20750949457416776,
+        "win_rate": 0.5176470588235295,
+        "profit_factor": 0.9427152364098954,
+        "n_trades": 85,
+        "composite": -0.05493095337172083,
+        "robust_sharpe_std": 0.1606770382511225,
+        "robust_sharpe_min": -0.3958480044450276,
+        "robust_sharpe_max": 0.06961804247582384,
+        "robust_consistency": -0.04988520291016996
+      },
+      "winner_sharpe": "defaults",
+      "winner_composite": "defaults"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "strategy": "ema_ribbon",
+      "timeframe": "1d",
+      "meta_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "1Y",
+        "param_bounds_scale": 0.9000000000000001,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 200
+      },
+      "defaults_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "1Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "conservative_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "meta": {
+        "sharpe": -0.17032849402947411,
+        "sortino": -0.12578424813596648,
+        "total_return": -0.08067856911371182,
+        "max_drawdown": -0.22400701691806904,
+        "win_rate": 0.37777777777777777,
+        "profit_factor": 0.9106141216580053,
+        "n_trades": 90,
+        "composite": -0.10161586939503975,
+        "robust_sharpe_std": 0.1430013593978203,
+        "robust_sharpe_min": -0.35497493373872896,
+        "robust_sharpe_max": 0.039519127962297326,
+        "robust_consistency": 0.2261043930311798
+      },
+      "defaults": {
+        "sharpe": -0.0842036599357936,
+        "sortino": -0.03266509453754016,
+        "total_return": -0.023906700708351308,
+        "max_drawdown": -0.0779516769436506,
+        "win_rate": 0.37037037037037035,
+        "profit_factor": 0.9188163884187006,
+        "n_trades": 27,
+        "composite": -0.046148521574945915,
+        "robust_sharpe_std": 0.2257181567906822,
+        "robust_sharpe_min": -0.3395663005523764,
+        "robust_sharpe_max": 0.2773751022530076,
+        "robust_consistency": -1.4105419415883027
+      },
+      "conservative": {
+        "sharpe": -0.4339254885001639,
+        "sortino": -0.3740279418773927,
+        "total_return": -0.1895372824100841,
+        "max_drawdown": -0.23352000752205618,
+        "win_rate": 0.35185185185185186,
+        "profit_factor": 0.816427070569602,
+        "n_trades": 108,
+        "composite": -0.23666285771440232,
+        "robust_sharpe_std": 0.14486107847830337,
+        "robust_sharpe_min": -0.5247271244276308,
+        "robust_sharpe_max": -0.15465917287430728,
+        "robust_consistency": 0.6165352846627534
+      },
+      "winner_sharpe": "defaults",
+      "winner_composite": "defaults"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "strategy": "donchian_channel",
+      "timeframe": "1d",
+      "meta_params": {
+        "reoptim_frequency": "2M",
+        "training_window": "6M",
+        "param_bounds_scale": 0.3,
+        "optim_metric": "sortino",
+        "n_optim_trials": 50
+      },
+      "defaults_params": {
+        "reoptim_frequency": "3M",
+        "training_window": "1Y",
+        "param_bounds_scale": 1.0,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "conservative_params": {
+        "reoptim_frequency": "6M",
+        "training_window": "2Y",
+        "param_bounds_scale": 0.8,
+        "optim_metric": "sharpe",
+        "n_optim_trials": 100
+      },
+      "meta": {
+        "sharpe": -0.2396985046924105,
+        "sortino": -0.16353281684004006,
+        "total_return": -0.12235882783471898,
+        "max_drawdown": -0.2661357788330324,
+        "win_rate": 0.3333333333333333,
+        "profit_factor": 0.8601739167508006,
+        "n_trades": 90,
+        "composite": -0.1380778514945852,
+        "robust_sharpe_std": 0.1821594677748897,
+        "robust_sharpe_min": -0.4244033076652624,
+        "robust_sharpe_max": 0.08775849087357301,
+        "robust_consistency": 0.17752647276874145
+      },
+      "defaults": {
+        "sharpe": -0.03594471148714741,
+        "sortino": -0.022747912812397318,
+        "total_return": -0.022952476460211983,
+        "max_drawdown": -0.2591402054339671,
+        "win_rate": 0.3333333333333333,
+        "profit_factor": 0.9728831208966494,
+        "n_trades": 39,
+        "composite": -0.01992477858207933,
+        "robust_sharpe_std": 0.18653078534459006,
+        "robust_sharpe_min": -0.20287875178525155,
+        "robust_sharpe_max": 0.2479822689358554,
+        "robust_consistency": -8.384595924019889
+      },
+      "conservative": {
+        "sharpe": -0.6677539722053508,
+        "sortino": -0.5252763878478655,
+        "total_return": -0.2335898675278713,
+        "max_drawdown": -0.31936441906197344,
+        "win_rate": 0.36,
+        "profit_factor": 0.6881950717009728,
+        "n_trades": 75,
+        "composite": -0.3970251119409412,
+        "robust_sharpe_std": 0.1906930578538306,
+        "robust_sharpe_min": -0.9056355698614011,
+        "robust_sharpe_max": -0.39361977967906137,
+        "robust_consistency": 0.7055297835319041
+      },
+      "winner_sharpe": "defaults",
+      "winner_composite": "defaults"
+    }
+  ]
+}

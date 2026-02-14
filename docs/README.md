@@ -2,11 +2,17 @@
 
 ## Navigation rapide
 
+- `portfolios/` : index de compatibilité vers les README portfolio (legacy)
 - `context/` : contexte actif, template de session, index d'archives
 - `knowledge_base/` : documentation technique de fond
-- `results/` : sorties de rapports
+- `results/` : index de compatibilité des rapports migrés
 - `archive/` : contenus historiques et documents longs
 - `GUIDE_UTILISATEUR.md` : méthode optimale de travail (low-context)
+
+## Règle documentaire
+
+- Les portfolios sont auto-contenus dans `portfolio/<version>/` (README + code + results).
+- `docs/portfolios/` et `docs/results/` restent comme index de navigation.
 
 ## Parcours conseillé
 

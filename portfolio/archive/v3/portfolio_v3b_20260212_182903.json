@@ -1,0 +1,687 @@
+{
+  "timestamp": "20260212_182903",
+  "config": {
+    "initial_capital": 10000.0,
+    "cutoff_date": "2025-02-01",
+    "n_seeds": 3,
+    "n_monte_carlo": 2000,
+    "max_weight_per_symbol": 0.5,
+    "max_weight_per_combo": 0.25,
+    "min_ho_sharpe": -0.2,
+    "max_seed_std": 1.5
+  },
+  "filtering": {
+    "total_input": 8,
+    "retained": 8,
+    "removed": []
+  },
+  "combos": [
+    {
+      "combo": {
+        "symbol": "ETHUSDT",
+        "strategy": "breakout_regime",
+        "timeframe": "4h"
+      },
+      "ho_metrics": {
+        "sharpe": 0.9348347551445743,
+        "sortino": 0.6599510586030737,
+        "max_drawdown": -0.07781915173431701,
+        "calmar": 0.9022675755627594,
+        "total_return": 0.07168431798038437,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 20,
+        "win_rate": 0.5,
+        "profit_factor": 1.5543010043156174
+      },
+      "ho_sharpe_seeds": [
+        0.126,
+        1.2337,
+        0.9348
+      ],
+      "ho_sharpe_std": 0.4679
+    },
+    {
+      "combo": {
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d"
+      },
+      "ho_metrics": {
+        "sharpe": 0.778995734065908,
+        "sortino": 0.9308412816686031,
+        "max_drawdown": -0.13488228455949702,
+        "calmar": 0.8770265414134871,
+        "total_return": 0.11583937706290963,
+        "stability": 0.0,
+        "n_periods": 376,
+        "n_trades": 11,
+        "win_rate": 0.36363636363636365,
+        "profit_factor": 1.693079102018157
+      },
+      "ho_sharpe_seeds": [
+        -0.3182,
+        1.7844,
+        0.779
+      ],
+      "ho_sharpe_std": 0.8586
+    },
+    {
+      "combo": {
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "4h"
+      },
+      "ho_metrics": {
+        "sharpe": 0.6944392347777371,
+        "sortino": 0.6805784303969935,
+        "max_drawdown": -0.1344337605893636,
+        "calmar": 0.6252746625374881,
+        "total_return": 0.08201177979725326,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 33,
+        "win_rate": 0.36363636363636365,
+        "profit_factor": 1.404944464385534
+      },
+      "ho_sharpe_seeds": [
+        -0.869,
+        1.8185,
+        0.6944
+      ],
+      "ho_sharpe_std": 1.102
+    },
+    {
+      "combo": {
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h"
+      },
+      "ho_metrics": {
+        "sharpe": 0.18048375044759554,
+        "sortino": 0.24667196601995497,
+        "max_drawdown": -0.14589280365731674,
+        "calmar": 0.20526472255004236,
+        "total_return": 0.01676566244296573,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 28,
+        "win_rate": 0.35714285714285715,
+        "profit_factor": 1.1284371531492994
+      },
+      "ho_sharpe_seeds": [
+        0.1805,
+        -0.0932,
+        0.184
+      ],
+      "ho_sharpe_std": 0.1298
+    },
+    {
+      "combo": {
+        "symbol": "SOLUSDT",
+        "strategy": "breakout_regime",
+        "timeframe": "1d"
+      },
+      "ho_metrics": {
+        "sharpe": 0.014561847895519816,
+        "sortino": 0.01104754512872281,
+        "max_drawdown": -0.08107705712476328,
+        "calmar": 0.012894045579033443,
+        "total_return": -0.0015627774731949103,
+        "stability": 0.0,
+        "n_periods": 376,
+        "n_trades": 9,
+        "win_rate": 0.4444444444444444,
+        "profit_factor": 0.9999392966096415
+      },
+      "ho_sharpe_seeds": [
+        -0.0024,
+        0.0513,
+        0.0146
+      ],
+      "ho_sharpe_std": 0.0224
+    },
+    {
+      "combo": {
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d"
+      },
+      "ho_metrics": {
+        "sharpe": 0.3205704767932707,
+        "sortino": 0.44181483994429643,
+        "max_drawdown": -0.06226938735403768,
+        "calmar": 0.5165814711039912,
+        "total_return": 0.028266408685615533,
+        "stability": 0.0,
+        "n_periods": 376,
+        "n_trades": 6,
+        "win_rate": 0.5,
+        "profit_factor": 1.4024575608609278
+      },
+      "ho_sharpe_seeds": [
+        0.6744,
+        0.3206,
+        -0.604
+      ],
+      "ho_sharpe_std": 0.539
+    },
+    {
+      "combo": {
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "4h"
+      },
+      "ho_metrics": {
+        "sharpe": 0.1939233365326609,
+        "sortino": 0.27057725869955346,
+        "max_drawdown": -0.11112124737550175,
+        "calmar": 0.17536203871985545,
+        "total_return": 0.01494385940834618,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 21,
+        "win_rate": 0.38095238095238093,
+        "profit_factor": 1.282260826509634
+      },
+      "ho_sharpe_seeds": [
+        0.2187,
+        -1.1766,
+        0.1939
+      ],
+      "ho_sharpe_std": 0.652
+    },
+    {
+      "combo": {
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "4h"
+      },
+      "ho_metrics": {
+        "sharpe": 0.6973362066666028,
+        "sortino": 0.9380333186789621,
+        "max_drawdown": -0.14542720889838676,
+        "calmar": 0.7943654842508168,
+        "total_return": 0.1102278107392407,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 26,
+        "win_rate": 0.3076923076923077,
+        "profit_factor": 1.357082726112163
+      },
+      "ho_sharpe_seeds": [
+        0.4443,
+        0.6973,
+        0.7039
+      ],
+      "ho_sharpe_std": 0.1208
+    }
+  ],
+  "correlation_matrix": [
+    [
+      1.0,
+      -0.002637709596436563,
+      0.5457084871196886,
+      0.41416906227931133,
+      0.010712511015581424,
+      0.0011484392527359843,
+      0.3310391509215849,
+      0.40871008194629754
+    ],
+    [
+      -0.0026377095964365636,
+      1.0,
+      0.026820105846364843,
+      -0.007438340429432717,
+      0.20844681658393485,
+      0.5512843150643739,
+      0.023021191267983562,
+      0.00238605348142724
+    ],
+    [
+      0.5457084871196886,
+      0.026820105846364843,
+      0.9999999999999998,
+      0.6480583177376117,
+      0.05035376990977872,
+      0.038521393099208524,
+      0.5329405594922783,
+      0.6381470833870426
+    ],
+    [
+      0.41416906227931133,
+      -0.007438340429432717,
+      0.6480583177376116,
+      0.9999999999999999,
+      0.014411884272208464,
+      -0.0023476203187838243,
+      0.624655444864283,
+      0.8937067163665513
+    ],
+    [
+      0.010712511015581424,
+      0.20844681658393485,
+      0.050353769909778724,
+      0.014411884272208464,
+      1.0,
+      0.16937616572067224,
+      0.05466339609557749,
+      0.01022504340068642
+    ],
+    [
+      0.0011484392527359843,
+      0.5512843150643739,
+      0.038521393099208524,
+      -0.0023476203187838243,
+      0.16937616572067224,
+      1.0,
+      0.050991586114826785,
+      -0.003250011190099295
+    ],
+    [
+      0.3310391509215849,
+      0.023021191267983562,
+      0.5329405594922784,
+      0.624655444864283,
+      0.054663396095577486,
+      0.050991586114826785,
+      1.0,
+      0.6125634068879855
+    ],
+    [
+      0.40871008194629754,
+      0.00238605348142724,
+      0.6381470833870426,
+      0.8937067163665513,
+      0.01022504340068642,
+      -0.003250011190099295,
+      0.6125634068879856,
+      0.9999999999999999
+    ]
+  ],
+  "portfolios": {
+    "markowitz_constrained": {
+      "weights": [
+        0.32728663377503037,
+        0.32728663377503037,
+        0.042226785516369846,
+        0.011772893469234193,
+        0.021709046899059017,
+        0.030600249756281332,
+        0.0016909061746599125,
+        0.23742685063433497
+      ],
+      "method": "Markowitz constrained (sym\u226450%)",
+      "ho_metrics": {
+        "sharpe": 1.1879878024579555,
+        "sortino": 1.5734730981485487,
+        "max_drawdown": -0.049359270923599916,
+        "calmar": 1.9053964490402673,
+        "total_return": 0.09788437334260652,
+        "stability": 0.05421578127804916,
+        "n_periods": 2252,
+        "n_trades": 0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      }
+    },
+    "ho_sharpe_constrained": {
+      "weights": [
+        0.2227138577520857,
+        0.1855869651309713,
+        0.16544233095809263,
+        0.042998221987940836,
+        0.005976228586850649,
+        0.1315631409734553,
+        0.07958675270880354,
+        0.1661325019018001
+      ],
+      "method": "HO-Sharpe weighted (sym\u226450%)",
+      "ho_metrics": {
+        "sharpe": 1.031094269436479,
+        "sortino": 1.416033863785282,
+        "max_drawdown": -0.06261270912866643,
+        "calmar": 1.2418494343681736,
+        "total_return": 0.07998637717697857,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      }
+    },
+    "risk_parity_constrained": {
+      "weights": [
+        0.2151184148473413,
+        0.043485025658843775,
+        0.13348106211952973,
+        0.09737657655427194,
+        0.11924496495597021,
+        0.08531410579484289,
+        0.2084492800730955,
+        0.09753056999610465
+      ],
+      "method": "Risk parity (sym\u226450%)",
+      "ho_metrics": {
+        "sharpe": 0.7334185243404018,
+        "sortino": 1.0196990795864138,
+        "max_drawdown": -0.06514653374421779,
+        "calmar": 0.8070867779031576,
+        "total_return": 0.05271181310292977,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      }
+    },
+    "equal_weight": {
+      "weights": [
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "method": "Equal weight (1/N)",
+      "ho_metrics": {
+        "sharpe": 0.8034097522233216,
+        "sortino": 1.1108396395425388,
+        "max_drawdown": -0.061462822850296334,
+        "calmar": 0.9572205785461708,
+        "total_return": 0.05937456426666813,
+        "stability": 0.0,
+        "n_periods": 2252,
+        "n_trades": 0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      }
+    }
+  },
+  "monte_carlo": {
+    "markowitz_constrained": {
+      "projections": {
+        "3M": {
+          "median_return": 0.0223,
+          "mean_return": 0.0225,
+          "p5_return": -0.0422,
+          "p25_return": -0.0048,
+          "p75_return": 0.0483,
+          "p95_return": 0.0917,
+          "median_dd": -0.0336,
+          "p5_dd": -0.0679,
+          "prob_positive": 0.709,
+          "prob_gt_5pct": 0.237,
+          "prob_gt_10pct": 0.0305
+        },
+        "6M": {
+          "median_return": 0.0471,
+          "mean_return": 0.0476,
+          "p5_return": -0.0475,
+          "p25_return": 0.0091,
+          "p75_return": 0.086,
+          "p95_return": 0.1466,
+          "median_dd": -0.0453,
+          "p5_dd": -0.0888,
+          "prob_positive": 0.7955,
+          "prob_gt_5pct": 0.4805,
+          "prob_gt_10pct": 0.177
+        },
+        "12M": {
+          "median_return": 0.0947,
+          "mean_return": 0.0972,
+          "p5_return": -0.0395,
+          "p25_return": 0.0345,
+          "p75_return": 0.1554,
+          "p95_return": 0.2489,
+          "median_dd": -0.0593,
+          "p5_dd": -0.1122,
+          "prob_positive": 0.8585,
+          "prob_gt_5pct": 0.692,
+          "prob_gt_10pct": 0.4735
+        },
+        "24M": {
+          "median_return": 0.1928,
+          "mean_return": 0.2008,
+          "p5_return": -0.0003,
+          "p25_return": 0.1114,
+          "p75_return": 0.2835,
+          "p95_return": 0.4373,
+          "median_dd": -0.0754,
+          "p5_dd": -0.1369,
+          "prob_positive": 0.9495,
+          "prob_gt_5pct": 0.89,
+          "prob_gt_10pct": 0.775
+        },
+        "36M": {
+          "median_return": 0.3137,
+          "mean_return": 0.3211,
+          "p5_return": 0.0413,
+          "p25_return": 0.1988,
+          "p75_return": 0.4332,
+          "p95_return": 0.6329,
+          "median_dd": -0.0841,
+          "p5_dd": -0.147,
+          "prob_positive": 0.9745,
+          "prob_gt_5pct": 0.945,
+          "prob_gt_10pct": 0.8915
+        }
+      },
+      "ruin_probability_50pct": 0.0
+    },
+    "ho_sharpe_constrained": {
+      "projections": {
+        "3M": {
+          "median_return": 0.0182,
+          "mean_return": 0.0184,
+          "p5_return": -0.0444,
+          "p25_return": -0.0073,
+          "p75_return": 0.0431,
+          "p95_return": 0.0797,
+          "median_dd": -0.0334,
+          "p5_dd": -0.0657,
+          "prob_positive": 0.677,
+          "prob_gt_5pct": 0.196,
+          "prob_gt_10pct": 0.0185
+        },
+        "6M": {
+          "median_return": 0.0381,
+          "mean_return": 0.0409,
+          "p5_return": -0.0455,
+          "p25_return": 0.001,
+          "p75_return": 0.0759,
+          "p95_return": 0.1361,
+          "median_dd": -0.0433,
+          "p5_dd": -0.0844,
+          "prob_positive": 0.756,
+          "prob_gt_5pct": 0.429,
+          "prob_gt_10pct": 0.1405
+        },
+        "12M": {
+          "median_return": 0.0776,
+          "mean_return": 0.0817,
+          "p5_return": -0.0507,
+          "p25_return": 0.0271,
+          "p75_return": 0.1354,
+          "p95_return": 0.2209,
+          "median_dd": -0.0578,
+          "p5_dd": -0.1111,
+          "prob_positive": 0.8405,
+          "prob_gt_5pct": 0.6475,
+          "prob_gt_10pct": 0.396
+        },
+        "24M": {
+          "median_return": 0.165,
+          "mean_return": 0.1722,
+          "p5_return": -0.0153,
+          "p25_return": 0.0828,
+          "p75_return": 0.2477,
+          "p95_return": 0.3934,
+          "median_dd": -0.0743,
+          "p5_dd": -0.1343,
+          "prob_positive": 0.9305,
+          "prob_gt_5pct": 0.835,
+          "prob_gt_10pct": 0.7025
+        },
+        "36M": {
+          "median_return": 0.2383,
+          "mean_return": 0.2556,
+          "p5_return": 0.0091,
+          "p25_return": 0.1401,
+          "p75_return": 0.3642,
+          "p95_return": 0.549,
+          "median_dd": -0.0868,
+          "p5_dd": -0.1545,
+          "prob_positive": 0.957,
+          "prob_gt_5pct": 0.897,
+          "prob_gt_10pct": 0.827
+        }
+      },
+      "ruin_probability_50pct": 0.0
+    },
+    "risk_parity_constrained": {
+      "projections": {
+        "3M": {
+          "median_return": 0.0118,
+          "mean_return": 0.0123,
+          "p5_return": -0.0444,
+          "p25_return": -0.0129,
+          "p75_return": 0.035,
+          "p95_return": 0.0734,
+          "median_dd": -0.0331,
+          "p5_dd": -0.0665,
+          "prob_positive": 0.625,
+          "prob_gt_5pct": 0.1415,
+          "prob_gt_10pct": 0.012
+        },
+        "6M": {
+          "median_return": 0.0222,
+          "mean_return": 0.0244,
+          "p5_return": -0.055,
+          "p25_return": -0.0114,
+          "p75_return": 0.0573,
+          "p95_return": 0.115,
+          "median_dd": -0.0459,
+          "p5_dd": -0.0897,
+          "prob_positive": 0.6805,
+          "prob_gt_5pct": 0.292,
+          "prob_gt_10pct": 0.083
+        },
+        "12M": {
+          "median_return": 0.0519,
+          "mean_return": 0.0567,
+          "p5_return": -0.0604,
+          "p25_return": 0.0043,
+          "p75_return": 0.1045,
+          "p95_return": 0.1877,
+          "median_dd": -0.0595,
+          "p5_dd": -0.1153,
+          "prob_positive": 0.772,
+          "prob_gt_5pct": 0.5135,
+          "prob_gt_10pct": 0.268
+        },
+        "24M": {
+          "median_return": 0.101,
+          "mean_return": 0.109,
+          "p5_return": -0.0606,
+          "p25_return": 0.0327,
+          "p75_return": 0.1757,
+          "p95_return": 0.3067,
+          "median_dd": -0.0795,
+          "p5_dd": -0.1455,
+          "prob_positive": 0.8475,
+          "prob_gt_5pct": 0.693,
+          "prob_gt_10pct": 0.504
+        },
+        "36M": {
+          "median_return": 0.1617,
+          "mean_return": 0.1697,
+          "p5_return": -0.0471,
+          "p25_return": 0.0703,
+          "p75_return": 0.261,
+          "p95_return": 0.4181,
+          "median_dd": -0.0918,
+          "p5_dd": -0.1617,
+          "prob_positive": 0.895,
+          "prob_gt_5pct": 0.7965,
+          "prob_gt_10pct": 0.6635
+        }
+      },
+      "ruin_probability_50pct": 0.0
+    },
+    "equal_weight": {
+      "projections": {
+        "3M": {
+          "median_return": 0.0148,
+          "mean_return": 0.0158,
+          "p5_return": -0.0432,
+          "p25_return": -0.0093,
+          "p75_return": 0.04,
+          "p95_return": 0.077,
+          "median_dd": -0.0334,
+          "p5_dd": -0.0649,
+          "prob_positive": 0.6635,
+          "prob_gt_5pct": 0.175,
+          "prob_gt_10pct": 0.015
+        },
+        "6M": {
+          "median_return": 0.0278,
+          "mean_return": 0.0294,
+          "p5_return": -0.0545,
+          "p25_return": -0.0061,
+          "p75_return": 0.0627,
+          "p95_return": 0.1177,
+          "median_dd": -0.0456,
+          "p5_dd": -0.087,
+          "prob_positive": 0.71,
+          "prob_gt_5pct": 0.337,
+          "prob_gt_10pct": 0.097
+        },
+        "12M": {
+          "median_return": 0.0577,
+          "mean_return": 0.0604,
+          "p5_return": -0.0643,
+          "p25_return": 0.0117,
+          "p75_return": 0.1101,
+          "p95_return": 0.1886,
+          "median_dd": -0.0609,
+          "p5_dd": -0.1157,
+          "prob_positive": 0.792,
+          "prob_gt_5pct": 0.5405,
+          "prob_gt_10pct": 0.285
+        },
+        "24M": {
+          "median_return": 0.1162,
+          "mean_return": 0.1241,
+          "p5_return": -0.0567,
+          "p25_return": 0.0407,
+          "p75_return": 0.1966,
+          "p95_return": 0.3303,
+          "median_dd": -0.0785,
+          "p5_dd": -0.148,
+          "prob_positive": 0.855,
+          "prob_gt_5pct": 0.721,
+          "prob_gt_10pct": 0.5565
+        },
+        "36M": {
+          "median_return": 0.1829,
+          "mean_return": 0.1911,
+          "p5_return": -0.0347,
+          "p25_return": 0.084,
+          "p75_return": 0.2808,
+          "p95_return": 0.4514,
+          "median_dd": -0.0918,
+          "p5_dd": -0.1653,
+          "prob_positive": 0.9105,
+          "prob_gt_5pct": 0.8285,
+          "prob_gt_10pct": 0.7105
+        }
+      },
+      "ruin_probability_50pct": 0.0
+    }
+  },
+  "best_portfolio": "markowitz_constrained"
+}

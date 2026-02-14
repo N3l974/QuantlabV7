@@ -64,8 +64,24 @@ REGIME_CFG = RegimeOverlayConfig(
 VOL_CFG = VolTargetConfig(target_vol_annual=0.40)
 OVERLAY_CFG = OverlayPipelineConfig(regime_config=REGIME_CFG, vol_config=VOL_CFG)
 
+DIAG_SEARCH_DIRS = [
+    Path("portfolio/v5b/results"),
+    Path("results"),  # legacy fallback
+]
+
+
+def find_latest_diagnostic() -> Path:
+    for base in DIAG_SEARCH_DIRS:
+        files = sorted(base.glob("diagnostic_v5b_*.json"))
+        if files:
+            return files[-1]
+    raise FileNotFoundError(
+        "No diagnostic_v5b_*.json found in portfolio/v5b/results or results"
+    )
+
+
 # Diagnostic
-DIAG_PATH = sorted(Path("results").glob("diagnostic_v5b_*.json"))[-1]
+DIAG_PATH = find_latest_diagnostic()
 
 # Risk profiles — same combos & weights, different position sizing
 # max_position_pct is the PRIMARY sizing lever (% of equity per trade)

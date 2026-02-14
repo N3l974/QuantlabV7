@@ -1,6 +1,6 @@
 # Quantlab V7 — Système de Trading Algorithmique Multi-Actif
 
-*Dernière mise à jour : 13 février 2026*
+*Dernière mise à jour : 14 février 2026*
 
 ---
 
@@ -86,7 +86,31 @@ streamlit run dashboard/app.py
 
 # Live (dry run)
 python -c "from live.executor import run_live; run_live('results/meta_profiles_XXXXXX.json', dry_run=True)"
+
+# Service portfolio live/paper (config JSON)
+python -m live.run_portfolio --config config/live/portfolios/v5c-highrisk-paper.json
 ```
+
+### Exploitation paper (Makefile)
+
+```bash
+# Rapport complet depuis le début des logs (par défaut)
+make paper-report
+
+# Rapport fenêtre glissante
+make paper-report-window HOURS=24
+make paper-report-48h
+
+# État VPS
+make vps-status
+make vps-logs
+make vps-tail
+```
+
+Notes:
+- `make paper-report` utilise `--since-start` (historique complet).
+- Le "start equity" affiché correspond à la première ligne de `pnl.jsonl` encore présente.
+- Pour repartir d'une baseline propre (ex: 1000), purger `trades.jsonl`, `pnl.jsonl` et `state.json`.
 
 ### CLI
 
@@ -217,7 +241,7 @@ Scan robuste de l'univers pour identifier les combos viables.
 - Min 3 trades en holdout
 - Seed std < 0.3 → robuste
 
-**Output** : `results/diagnostic_v5b_{timestamp}.json` + rapport markdown
+**Output** : `portfolio/v5b/results/diagnostic_v5b_{timestamp}.json` + rapport markdown
 
 ### 4.3 Méta-optimisation (abandonnée)
 
@@ -340,12 +364,11 @@ Quantlab-V7/
 │   ├── portfolio_v3_markowitz.py   # Portfolio V3 (archivé)
 │   └── push_profiles.py            # Push vers cloud
 ├── live/                           # CLOUD ONLY
-│   ├── signal_runner.py            # Génération de signaux
-│   ├── executor.py                 # Exécution ordres Binance
-│   ├── position_tracker.py         # Suivi positions
-│   ├── scheduler.py                # Scheduler réoptimisation
-│   ├── monitor.py                  # Monitoring + alertes
-│   └── alerter.py                  # Telegram bot
+│   ├── executor.py                 # Exécution legacy mono-combo
+│   ├── portfolio_executor.py       # Exécution multi-combos (agrégation par symbole)
+│   ├── run_portfolio.py            # Entrée service portfolio (auto multi/legacy)
+│   ├── monitor.py                  # Logs trades/pnl + metadata
+│   └── ...
 ├── deploy/
 │   ├── Dockerfile
 │   ├── docker-compose.yml
@@ -353,14 +376,19 @@ Quantlab-V7/
 ├── dashboard/
 │   └── app.py                      # Streamlit dashboard
 ├── docs/
-│   ├── carnet_de_bord.md           # Journal chronologique (16 sessions)
+│   ├── carnet_de_bord.md           # Journal chronologique (sessions)
 │   ├── presentation_investisseur.md # Présentation investisseur V4b
 │   ├── knowledge_base/             # 5 fichiers techniques
-│   └── results/                    # 18+ rapports de diagnostic/portfolio
+│   ├── portfolios/                 # Index de compatibilité (legacy)
+│   └── results/                    # Index de compatibilité des rapports migrés
 ├── portfolio/
-│   └── v4b/                        # Portfolio actif (code, docs, results)
+│   ├── ftmo-v1/                    # Portfolio FTMO (README + code + config + results)
+│   ├── v4b/                        # Portfolio V4b (README + code + results)
+│   ├── v5b/                        # Portfolio V5b (README + code + results)
+│   └── v5c-highrisk/               # Portfolio V5c high-risk (README + code + results)
 ├── tests/                          # 98 tests
-├── .github/workflows/deploy.yml    # CI/CD
+├── Makefile                        # Commandes rapides (report, status, deploy)
+├── .github/workflows/deploy-portfolio.yml # CI/CD portfolio
 ├── main.py                         # CLI entry point
 ├── requirements.txt
 └── README.md                       # Ce document
@@ -378,6 +406,18 @@ Le **Dockerfile** ne copie que ce qui est nécessaire au cloud :
 ```
 git push main → GitHub Actions → Build Docker → SSH deploy VPS → Restart service
 ```
+
+### Runtime paper portfolio (V5c)
+
+- Service: `v5c-highrisk-paper`
+- Exécution: `live.run_portfolio` + `PortfolioExecutor` multi-combos
+- Contraintes Binance Cross Margin simulées: 1 position nette par symbole
+- Persistance d'état: `runtime/logs/v5c-highrisk-paper/state.json`
+  - restauré au boot (equity, positions nettes, derniers prix, signaux/params)
+  - évite le reset d'equity à chaque patch/restart
+- Logs:
+  - `trades.jsonl` (inclut `metadata.combo_breakdown`)
+  - `pnl.jsonl`
 
 ---
 

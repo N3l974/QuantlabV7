@@ -1,0 +1,1299 @@
+{
+  "A_concentrated_sharpe": {
+    "metrics": {
+      "sharpe": 1.4500811311100943,
+      "sortino": 2.0929979662190155,
+      "max_drawdown": -0.04286386338297436,
+      "calmar": 2.2812334337587044,
+      "total_return": 0.10302245107924646,
+      "stability": 0.44592049276191426,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.24999999999999997,
+      0.05999999999999994,
+      0.24999999999999997,
+      0.020000000000000018,
+      0.25,
+      0.13,
+      0.02000000000000001,
+      0.020000000000000025
+    ],
+    "allocations": [
+      {
+        "weight": 0.24999999999999997,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.05999999999999994,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.24999999999999997,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.020000000000000018,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.13,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.02000000000000001,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.020000000000000025,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "A_concentrated_retdd": {
+    "metrics": {
+      "sharpe": 0.9720019846526192,
+      "sortino": 1.4572676721877347,
+      "max_drawdown": -0.037565879552352424,
+      "calmar": 1.0830715655241179,
+      "total_return": 0.04172106218854369,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.02,
+      0.020000000000000004,
+      0.19757827377718562,
+      0.10953854153609342,
+      0.20092402953337526,
+      0.09288318468672102,
+      0.25,
+      0.10907597046662469
+    ],
+    "allocations": [
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.19757827377718562,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.10953854153609342,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.20092402953337526,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.09288318468672102,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.10907597046662469,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "A_concentrated_maxret": {
+    "metrics": {
+      "sharpe": 1.4136312962526008,
+      "sortino": 2.0644657629592293,
+      "max_drawdown": -0.03488814682016228,
+      "calmar": 2.3086335942751823,
+      "total_return": 0.084397732473199,
+      "stability": 0.4427523516170112,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.18889961198735256,
+      0.039049912105899386,
+      0.25,
+      0.02000000000000001,
+      0.25,
+      0.13,
+      0.10205047590674808,
+      0.02
+    ],
+    "allocations": [
+      {
+        "weight": 0.18889961198735256,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.039049912105899386,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.02000000000000001,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.13,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.10205047590674808,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "B_selective": {
+    "metrics": {
+      "sharpe": 1.2635472623737736,
+      "sortino": 2.2089498333687465,
+      "max_drawdown": -0.01694202907565692,
+      "calmar": 1.6179716181277874,
+      "total_return": 0.028294916402999297,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.021171358206551683,
+      0.09127343602137873,
+      0.25000000000000006,
+      0.023498591100375804,
+      0.07782205228022702,
+      0.020000000000000004,
+      0.08985143332922334,
+      0.020000000000000004,
+      0.1065014088996241,
+      0.0298817201626192,
+      0.020000000000000004,
+      0.25000000000000006
+    ],
+    "allocations": [
+      {
+        "weight": 0.021171358206551683,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.09127343602137873,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.25000000000000006,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.023498591100375804,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.07782205228022702,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.08985143332922334,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      },
+      {
+        "weight": 0.1065014088996241,
+        "symbol": "BTCUSDT",
+        "strategy": "keltner_channel",
+        "timeframe": "1d",
+        "ho_return": 0.05606332069675573,
+        "ho_dd": -0.017499418559859668,
+        "last_params": {
+          "ema_period": 36,
+          "atr_period": 6,
+          "atr_multiplier": 2.515237019464754,
+          "stop_loss_pct": 0.10514556267267948,
+          "take_profit_pct": 0.1592280170150861
+        }
+      },
+      {
+        "weight": 0.0298817201626192,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "4h",
+        "ho_return": 0.05512175487449076,
+        "ho_dd": -0.07036609206774713,
+        "last_params": {
+          "atr_period": 17,
+          "st_multiplier": 14.18108318388388,
+          "adx_period": 22,
+          "adx_threshold": 27,
+          "stop_loss_pct": 0.05324064687233234,
+          "take_profit_pct": 0.33070124719629795,
+          "cooldown_bars": 6
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "atr_volatility_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.0474582003167543,
+        "ho_dd": -0.0668656506856256,
+        "last_params": {
+          "atr_period": 26,
+          "atr_multiplier": 2.8292947431145623,
+          "lookback_period": 28,
+          "stop_loss_pct": 0.012854468719064566,
+          "take_profit_pct": 0.047457697964194454
+        }
+      },
+      {
+        "weight": 0.25000000000000006,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.045754981364671765,
+        "ho_dd": -0.15387594579908467,
+        "last_params": {
+          "atr_period": 9,
+          "st_multiplier": 6.735210768522686,
+          "obv_slope_period": 11,
+          "roc_period": 24,
+          "roc_threshold": 3.0638323514167554,
+          "stop_loss_pct": 0.14908787269654444,
+          "take_profit_pct": 0.2787497165410176
+        }
+      }
+    ]
+  },
+  "C_lev_1.5x": {
+    "metrics": {
+      "sharpe": 0.9720019846525771,
+      "sortino": 1.457267672187676,
+      "max_drawdown": -0.05607512591060359,
+      "calmar": 1.0883578587568032,
+      "total_return": 0.0625148253385516,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.02,
+      0.020000000000000004,
+      0.19757827377718562,
+      0.10953854153609342,
+      0.20092402953337526,
+      0.09288318468672102,
+      0.25,
+      0.10907597046662469
+    ],
+    "allocations": [
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.19757827377718562,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.10953854153609342,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.20092402953337526,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.09288318468672102,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.10907597046662469,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "C_lev_2.0x": {
+    "metrics": {
+      "sharpe": 0.9720019846525945,
+      "sortino": 1.4572676721877065,
+      "max_drawdown": -0.07439803509828767,
+      "calmar": 1.093752971387067,
+      "total_return": 0.08323870674787777,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.02,
+      0.020000000000000004,
+      0.19757827377718562,
+      0.10953854153609342,
+      0.20092402953337526,
+      0.09288318468672102,
+      0.25,
+      0.10907597046662469
+    ],
+    "allocations": [
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.19757827377718562,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.10953854153609342,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.20092402953337526,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.09288318468672102,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.10907597046662469,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "C_lev_2.5x": {
+    "metrics": {
+      "sharpe": 0.9720019846526119,
+      "sortino": 1.4572676721877305,
+      "max_drawdown": -0.0925318828865367,
+      "calmar": 1.099257215670912,
+      "total_return": 0.10387334189093926,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.02,
+      0.020000000000000004,
+      0.19757827377718562,
+      0.10953854153609342,
+      0.20092402953337526,
+      0.09288318468672102,
+      0.25,
+      0.10907597046662469
+    ],
+    "allocations": [
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.19757827377718562,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.10953854153609342,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.20092402953337526,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.09288318468672102,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.10907597046662469,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "C_lev_3.0x": {
+    "metrics": {
+      "sharpe": 0.9720019846525934,
+      "sortino": 1.457267672187703,
+      "max_drawdown": -0.1104740894687014,
+      "calmar": 1.104870911524898,
+      "total_return": 0.1243991296782966,
+      "stability": 0.0,
+      "n_periods": 376,
+      "n_trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0
+    },
+    "weights": [
+      0.02,
+      0.020000000000000004,
+      0.19757827377718562,
+      0.10953854153609342,
+      0.20092402953337526,
+      0.09288318468672102,
+      0.25,
+      0.10907597046662469
+    ],
+    "allocations": [
+      {
+        "weight": 0.02,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.26693562658095726,
+        "ho_dd": -0.1333957145694366,
+        "last_params": {
+          "atr_period": 7,
+          "multiplier": 5.338504708014541,
+          "stop_loss_pct": 0.1870030814583122,
+          "take_profit_pct": 0.3600092586199771
+        }
+      },
+      {
+        "weight": 0.020000000000000004,
+        "symbol": "ETHUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.19989329221517327,
+        "ho_dd": -0.11228232036349753,
+        "last_params": {
+          "atr_period": 4,
+          "st_multiplier": 6.988320415150147,
+          "obv_slope_period": 13,
+          "roc_period": 34,
+          "roc_threshold": 4.942760461108255,
+          "stop_loss_pct": 0.10298156073262725,
+          "take_profit_pct": 0.3497385876883957
+        }
+      },
+      {
+        "weight": 0.19757827377718562,
+        "symbol": "SOLUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "4h",
+        "ho_return": 0.12794379764540337,
+        "ho_dd": -0.11699522205460652,
+        "last_params": {
+          "atr_period": 13,
+          "st_multiplier": 4.391771307174672,
+          "obv_slope_period": 18,
+          "roc_period": 11,
+          "roc_threshold": 2.5584861751016854,
+          "stop_loss_pct": 0.1671139685358551,
+          "take_profit_pct": 0.333722127040378
+        }
+      },
+      {
+        "weight": 0.10953854153609342,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "ho_return": 0.08161855354199651,
+        "ho_dd": -0.04329920070747035,
+        "last_params": {
+          "atr_period": 23,
+          "multiplier": 7.20288418788169,
+          "stop_loss_pct": 0.08837387381366772,
+          "take_profit_pct": 0.34888955060882615
+        }
+      },
+      {
+        "weight": 0.20092402953337526,
+        "symbol": "ETHUSDT",
+        "strategy": "macd_crossover",
+        "timeframe": "1d",
+        "ho_return": 0.07421350270023122,
+        "ho_dd": -0.07796583468708006,
+        "last_params": {
+          "fast_period": 12,
+          "slow_period": 47,
+          "signal_period": 25,
+          "stop_loss_pct": 0.007378747614561195,
+          "take_profit_pct": 0.19919660327872127
+        }
+      },
+      {
+        "weight": 0.09288318468672102,
+        "symbol": "BTCUSDT",
+        "strategy": "trend_multi_factor",
+        "timeframe": "1d",
+        "ho_return": 0.0628583702337557,
+        "ho_dd": -0.03911094681600921,
+        "last_params": {
+          "atr_period": 3,
+          "st_multiplier": 7.771718498976119,
+          "obv_slope_period": 26,
+          "roc_period": 42,
+          "roc_threshold": 2.4782489149127813,
+          "stop_loss_pct": 0.0711914269535979,
+          "take_profit_pct": 0.22240404553214374
+        }
+      },
+      {
+        "weight": 0.25,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "ho_return": 0.06090663874795737,
+        "ho_dd": -0.04564549263752746,
+        "last_params": {
+          "tenkan_period": 17,
+          "kijun_period": 34,
+          "senkou_b_period": 35,
+          "stop_loss_pct": 0.09903565217253629,
+          "take_profit_pct": 0.10579395974755987
+        }
+      },
+      {
+        "weight": 0.10907597046662469,
+        "symbol": "ETHUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "1d",
+        "ho_return": 0.060271170302296014,
+        "ho_dd": -0.07710254184473508,
+        "last_params": {
+          "bb_period": 52,
+          "bb_std": 1.7779987527904468,
+          "confirmation_candles": 2,
+          "stop_loss_pct": 0.08759740078779951,
+          "take_profit_pct": 0.11083077170582362
+        }
+      }
+    ]
+  },
+  "recommended": "C_lev_3.0x",
+  "monte_carlo": {
+    "C_lev_3.0x": {
+      "3": {
+        "p5": 9262.279061464506,
+        "median": 10182.829261359166,
+        "p95": 11257.34941568937,
+        "prob_pos": 0.612
+      },
+      "6": {
+        "p5": 9117.489669252202,
+        "median": 10383.72836708634,
+        "p95": 11842.223950498346,
+        "prob_pos": 0.6685
+      },
+      "12": {
+        "p5": 8828.576383117914,
+        "median": 10770.737425995656,
+        "p95": 13290.662290890556,
+        "prob_pos": 0.72
+      },
+      "24": {
+        "p5": 8980.789774697421,
+        "median": 10829.00364264741,
+        "p95": 13360.218901962777,
+        "prob_pos": 0.7395
+      }
+    }
+  }
+}

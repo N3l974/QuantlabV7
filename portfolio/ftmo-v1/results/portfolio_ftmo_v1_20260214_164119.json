@@ -1,0 +1,1407 @@
+{
+  "generated": "20260214_164119",
+  "diagnostic": "results/diagnostic_v5b_20260213_015039.json",
+  "mode": "swing",
+  "objective": "max_return",
+  "ftmo_rules": {
+    "phase1_target": 0.1,
+    "phase2_target": 0.05,
+    "max_daily_loss": 0.05,
+    "max_total_loss": 0.1
+  },
+  "challenge_aggressive": {
+    "config": {
+      "label": "Challenge Aggressive",
+      "description": "Phase 1 orient\u00e9e passage rapide, garde-fous FTMO conserv\u00e9s",
+      "risk_per_trade_pct": 0.0125,
+      "max_position_pct": 0.2,
+      "max_drawdown_pct": 0.085,
+      "max_daily_loss_pct": 0.045,
+      "max_trades_per_day": 6,
+      "cooldown_after_loss": 1,
+      "dd_warning_pct": 0.06,
+      "dd_reduce_pct": 0.06,
+      "dd_emergency_pct": 0.08,
+      "profit_lock_pct": 0.1
+    },
+    "metrics": {
+      "sharpe": 3.056360435961008,
+      "sortino": 3.0321305187929144,
+      "max_drawdown": -0.005928608325089129,
+      "calmar": 16.898748916863855,
+      "total_return": 0.017197641990315607,
+      "stability": 0.43619910697972164,
+      "n_periods": 376,
+      "n_trades": 81,
+      "win_rate": 0.4567901234567901,
+      "profit_factor": 2.832022036823899,
+      "ftmo_max_daily_loss": -0.005815390186197384,
+      "ftmo_daily_loss_safe": true,
+      "ftmo_total_loss_safe": true,
+      "ftmo_avg_daily_return": 4.571574880771594e-05,
+      "ftmo_daily_std": 0.0006992817165389758,
+      "ftmo_pct_positive_days": 0.26666666666666666,
+      "ftmo_est_days_phase1": 2188,
+      "ftmo_est_days_phase2": 1094,
+      "ftmo_max_losing_streak": 6,
+      "ftmo_max_losing_days": 6
+    },
+    "audit": {
+      "rolling_sharpe": {
+        "mean": 1.0057298129420056,
+        "std": 3.0628315956710748,
+        "min": -5.646425934337173,
+        "max": 5.8846416514019735,
+        "pct_positive": 0.7238095238095238,
+        "first_half_mean": 0.218014873722463,
+        "second_half_mean": 1.7884592145715514
+      },
+      "daily": {
+        "worst_day": -0.005815390186197384,
+        "best_day": 0.007660477973183758,
+        "avg_day": 4.571574880771594e-05,
+        "std_day": 0.0006992817165389758,
+        "pct_positive_days": 0.26666666666666666,
+        "n_days": 375,
+        "days_below_3pct": 0,
+        "days_below_4pct": 0,
+        "days_below_5pct": 0
+      },
+      "monthly": {
+        "worst_month": -0.0010094014426011064,
+        "best_month": 0.013317880372097777,
+        "avg_month": 0.0013187235232994983,
+        "pct_positive": 0.5384615384615384,
+        "n_months": 13
+      },
+      "concentration": {
+        "hhi_symbol": 0.4471999999999996,
+        "n_effective_symbols": 2.2361359570661916,
+        "hhi_strategy": 0.2097999999999998,
+        "n_effective_strategies": 4.766444232602483,
+        "symbol_allocation": {
+          "ETHUSDT": 0.43999999999999984,
+          "SOLUSDT": 0.060000000000000456,
+          "BTCUSDT": 0.49999999999999967
+        },
+        "strategy_allocation": {
+          "breakout_regime": 0.029999999999999992,
+          "supertrend": 0.24999999999999994,
+          "mtf_momentum_breakout": 0.030000000000000464,
+          "ichimoku_cloud": 0.059999999999999984,
+          "keltner_channel": 0.12999999999999995,
+          "momentum_roc": 0.24999999999999975,
+          "supertrend_adx": 0.2499999999999999
+        }
+      },
+      "correlation": {
+        "avg_abs_correlation": 0.21960828002763108,
+        "max_correlation": 0.6249848536742851
+      },
+      "stress": {
+        "max_losing_streak": 6,
+        "recovery_from_max_dd": 1,
+        "var_95": -0.0005640048727399954,
+        "cvar_95": -0.001358082775904241
+      }
+    },
+    "monte_carlo": {
+      "phase1": {
+        "pass_rate": 0.0016,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 154.66666666666669,
+        "p25_days": 148.20833333333334,
+        "p75_days": 167.91666666666669,
+        "median_final_equity": 10282.833299375292,
+        "median_max_dd": -0.007436639490936759,
+        "p5_max_dd": -0.012134492337349326
+      },
+      "phase2": {
+        "pass_rate": 0.1494,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 149.66666666666666,
+        "p25_days": 122.66666666666667,
+        "p75_days": 165.83333333333334,
+        "median_final_equity": 10283.098412623876,
+        "median_max_dd": -0.007419211668261328,
+        "p5_max_dd": -0.011856908754844063
+      },
+      "funded_monthly": {
+        "pass_rate": 0.5356,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 119.5,
+        "p25_days": 89.5,
+        "p75_days": 147.5,
+        "median_final_equity": 10284.266698122841,
+        "median_max_dd": -0.0073736759440710216,
+        "p5_max_dd": -0.011748290539764141
+      },
+      "3M": {
+        "p5": 9992.39115668416,
+        "p25": 10063.91306063686,
+        "median": 10130.786671484206,
+        "p75": 10217.441630752064,
+        "p95": 10364.98063845098,
+        "prob_pos": 0.9342,
+        "prob_ruin": 0.0,
+        "dd_median": -0.006085408967007076,
+        "dd_p5": -0.010231816289395276
+      },
+      "6M": {
+        "p5": 10057.01710278783,
+        "p25": 10179.24106276061,
+        "median": 10286.210506088613,
+        "p75": 10406.31188101289,
+        "p95": 10608.095983535293,
+        "prob_pos": 0.9854,
+        "prob_ruin": 0.0,
+        "dd_median": -0.0074650468895994925,
+        "dd_p5": -0.011775673827445154
+      },
+      "12M": {
+        "p5": 10068.451863012653,
+        "p25": 10192.390641053666,
+        "median": 10293.635873427655,
+        "p75": 10419.272953099215,
+        "p95": 10632.395392340024,
+        "prob_pos": 0.9886,
+        "prob_ruin": 0.0,
+        "dd_median": -0.007590762261097981,
+        "dd_p5": -0.012089786372969338
+      }
+    },
+    "confidence_score": 83,
+    "confidence_verdict": "GO FTMO \u2705",
+    "confidence_checks": [
+      [
+        "Sharpe \u2265 1.5",
+        15,
+        "\u2705"
+      ],
+      [
+        "DD < -4%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Daily loss > -3%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Win rate \u2265 45%",
+        10,
+        "\u2705"
+      ],
+      [
+        "PF \u2265 1.5",
+        10,
+        "\u2705"
+      ],
+      [
+        "Rolling Sharpe >0 \u2265 65%",
+        10,
+        "\u2705"
+      ],
+      [
+        "MC P(pass Phase1) < 60%",
+        0,
+        "\u274c"
+      ],
+      [
+        "Multi-seed STRONG",
+        5,
+        "\u2705"
+      ],
+      [
+        "Max losing streak \u2264 8",
+        3,
+        "\u26a0\ufe0f"
+      ]
+    ],
+    "weights": [
+      0.029999999999999992,
+      0.24999999999999994,
+      0.030000000000000464,
+      0.029999999999999992,
+      0.12999999999999995,
+      0.24999999999999975,
+      0.2499999999999999,
+      0.029999999999999992
+    ],
+    "allocations": [
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "breakout_regime",
+        "timeframe": "1d",
+        "risk_key": "r2.0",
+        "overlay": false,
+        "ho_sharpe": 1.8027030664242252,
+        "ho_return": 0.024231203187880964,
+        "ho_dd": -0.0010249033487622265,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.0072322503722693,
+        "ftmo_dd": -0.00010127346490538957,
+        "ftmo_win_rate": 1.0,
+        "ftmo_pf": Infinity,
+        "last_params": {
+          "atr_period": 30,
+          "atr_multiplier": 3.521591192882333,
+          "lookback_period": 42,
+          "adx_period": 15,
+          "adx_threshold": 8,
+          "vol_ma_period": 35,
+          "vol_spike_ratio": 1.0924417675682625,
+          "stop_loss_pct": 0.10452080619713373,
+          "take_profit_pct": 0.08274659414285736,
+          "atr_sl_mult": 3.872343627591326,
+          "atr_tp_mult": 0.004582409281991773,
+          "trailing_atr_mult": 1.0405323636202413,
+          "max_holding_bars": 6,
+          "breakeven_trigger_pct": 0.03721978560031316,
+          "cooldown_bars": 16
+        }
+      },
+      {
+        "weight": 0.24999999999999994,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 1.691368092908569,
+        "ho_return": 0.08593335899525263,
+        "ho_dd": -0.019147344007283944,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.749633433169753,
+        "ftmo_dd": -0.005350374369367377,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 11.06204566430939,
+        "last_params": {
+          "atr_period": 10,
+          "multiplier": 6.492284074806412,
+          "stop_loss_pct": 0.04896391380238574,
+          "take_profit_pct": 0.2991392533345414,
+          "atr_sl_mult": 2.8832594913922582,
+          "atr_tp_mult": 4.367229378180393,
+          "trailing_atr_mult": 3.6122499051636514,
+          "max_holding_bars": 69,
+          "breakeven_trigger_pct": 0.014803040578054526
+        }
+      },
+      {
+        "weight": 0.030000000000000464,
+        "symbol": "SOLUSDT",
+        "strategy": "mtf_momentum_breakout",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": false,
+        "ho_sharpe": 1.6572779274435436,
+        "ho_return": 0.09702164533535397,
+        "ho_dd": -0.035044339160511064,
+        "ho_trades": 5,
+        "ftmo_sharpe": 1.3862614329682548,
+        "ftmo_dd": -0.0007847566695723799,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 5.532278105089373,
+        "last_params": {
+          "roc_period": 60,
+          "roc_threshold": 1.9232784514393337,
+          "adx_period": 5,
+          "adx_threshold": 47,
+          "donchian_period": 42,
+          "vol_ma_period": 60,
+          "vol_spike_ratio": 1.305488891674417,
+          "stop_loss_pct": 0.09290015176335978,
+          "take_profit_pct": 0.0785904002311894,
+          "atr_sl_mult": 3.7341713601018998,
+          "atr_tp_mult": 1.6719298240529525,
+          "trailing_atr_mult": 1.6611596855695128,
+          "max_holding_bars": 17,
+          "breakeven_trigger_pct": 0.049494460604158595,
+          "cooldown_bars": 10
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9474846806016498,
+        "ho_return": 0.035807866855156134,
+        "ho_dd": -0.020337851135860424,
+        "ho_trades": 32,
+        "ftmo_sharpe": 0.8266891484117348,
+        "ftmo_dd": -0.01764970607259555,
+        "ftmo_win_rate": 0.3870967741935484,
+        "ftmo_pf": 1.4038723430512394,
+        "last_params": {
+          "tenkan_period": 25,
+          "kijun_period": 73,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.056516122430616086,
+          "take_profit_pct": 0.0770536707246613,
+          "atr_sl_mult": 2.351856923086021,
+          "atr_tp_mult": 4.173898717143756,
+          "atr_period": 15,
+          "trailing_atr_mult": 4.369137603188084,
+          "max_holding_bars": 48,
+          "breakeven_trigger_pct": 0.03800605924564132
+        }
+      },
+      {
+        "weight": 0.12999999999999995,
+        "symbol": "ETHUSDT",
+        "strategy": "keltner_channel",
+        "timeframe": "4h",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.9067176694012662,
+        "ho_return": 0.042902023473244295,
+        "ho_dd": -0.0369987884097967,
+        "ho_trades": 19,
+        "ftmo_sharpe": 1.0940675363456625,
+        "ftmo_dd": -0.026550954524315436,
+        "ftmo_win_rate": 0.3684210526315789,
+        "ftmo_pf": 2.0393406992301766,
+        "last_params": {
+          "ema_period": 42,
+          "atr_period": 22,
+          "atr_multiplier": 4.392274227476484,
+          "stop_loss_pct": 0.09100115560443339,
+          "take_profit_pct": 0.07492949397416901,
+          "atr_sl_mult": 1.8758603734171646,
+          "atr_tp_mult": 5.9567429275235435,
+          "trailing_atr_mult": 3.7046343611331976,
+          "max_holding_bars": 113,
+          "breakeven_trigger_pct": 0.02719659202876617
+        }
+      },
+      {
+        "weight": 0.24999999999999975,
+        "symbol": "BTCUSDT",
+        "strategy": "momentum_roc",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9011212311238649,
+        "ho_return": 0.023129840523589153,
+        "ho_dd": -0.011081893373526015,
+        "ho_trades": 6,
+        "ftmo_sharpe": 0.5043001040220023,
+        "ftmo_dd": -0.008559025940331436,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.781003032315478,
+        "last_params": {
+          "fast_roc_period": 8,
+          "slow_roc_period": 73,
+          "entry_threshold": 4.239479070882769,
+          "exit_threshold": 0.1839195328840001,
+          "stop_loss_pct": 0.04760633369143248,
+          "take_profit_pct": 0.01615814281445542,
+          "atr_sl_mult": 2.3117372434816974,
+          "atr_tp_mult": 5.341186893923813,
+          "atr_period": 7,
+          "trailing_atr_mult": 2.6696047650394483,
+          "max_holding_bars": 115,
+          "breakeven_trigger_pct": 0.024815413733548952
+        }
+      },
+      {
+        "weight": 0.2499999999999999,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.8603076302477141,
+        "ho_return": 0.04735947730326352,
+        "ho_dd": -0.02622060628477724,
+        "ho_trades": 9,
+        "ftmo_sharpe": 0.5762081793471349,
+        "ftmo_dd": -0.007235498023217051,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.1783137825739423,
+        "last_params": {
+          "atr_period": 8,
+          "st_multiplier": 14.96015929932485,
+          "adx_period": 24,
+          "adx_threshold": 17,
+          "stop_loss_pct": 0.08110271224505075,
+          "take_profit_pct": 0.380203120803277,
+          "atr_sl_mult": 3.4883811155422473,
+          "atr_tp_mult": 6.7261445577838295,
+          "trailing_atr_mult": 2.7468338222297675,
+          "max_holding_bars": 151,
+          "breakeven_trigger_pct": 0.007815678487599472,
+          "cooldown_bars": 7
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "SOLUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.837476382718889,
+        "ho_return": 0.006998835915542076,
+        "ho_dd": -0.003830792772858385,
+        "ho_trades": 5,
+        "ftmo_sharpe": 0.6626861335269453,
+        "ftmo_dd": -0.004256492948513187,
+        "ftmo_win_rate": 0.4,
+        "ftmo_pf": 2.1796699429776356,
+        "last_params": {
+          "tenkan_period": 10,
+          "kijun_period": 20,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.0835306257220115,
+          "take_profit_pct": 0.09872784271885461,
+          "atr_sl_mult": 2.540208366609702,
+          "atr_tp_mult": 2.373215351638921,
+          "atr_period": 38,
+          "trailing_atr_mult": 2.3395315065482283,
+          "max_holding_bars": 130,
+          "breakeven_trigger_pct": 0.022138434012143215
+        }
+      }
+    ]
+  },
+  "challenge": {
+    "config": {
+      "label": "Challenge",
+      "description": "Phase 1+2 \u2014 sizing mod\u00e9r\u00e9, DD strict (8% CB)",
+      "risk_per_trade_pct": 0.01,
+      "max_position_pct": 0.15,
+      "max_drawdown_pct": 0.08,
+      "max_daily_loss_pct": 0.04,
+      "max_trades_per_day": 5,
+      "cooldown_after_loss": 2,
+      "dd_warning_pct": 0.06,
+      "dd_reduce_pct": 0.06,
+      "dd_emergency_pct": 0.075,
+      "profit_lock_pct": 0.08
+    },
+    "metrics": {
+      "sharpe": 2.671844741524758,
+      "sortino": 2.593943762780213,
+      "max_drawdown": -0.00478569596706762,
+      "calmar": 13.35311122213512,
+      "total_return": 0.010945496020962309,
+      "stability": 0.3808850104572251,
+      "n_periods": 376,
+      "n_trades": 80,
+      "win_rate": 0.45,
+      "profit_factor": 2.5841488859837156,
+      "ftmo_max_daily_loss": -0.004186937263424556,
+      "ftmo_daily_loss_safe": true,
+      "ftmo_total_loss_safe": true,
+      "ftmo_avg_daily_return": 2.9159904414139412e-05,
+      "ftmo_daily_std": 0.000510229756155448,
+      "ftmo_pct_positive_days": 0.264,
+      "ftmo_est_days_phase1": 3430,
+      "ftmo_est_days_phase2": 1715,
+      "ftmo_max_losing_streak": 6,
+      "ftmo_max_losing_days": 6
+    },
+    "audit": {
+      "rolling_sharpe": {
+        "mean": 0.817701117070602,
+        "std": 3.092912619071776,
+        "min": -5.635573124265125,
+        "max": 5.844688920280498,
+        "pct_positive": 0.6793650793650794,
+        "first_half_mean": 0.010658410584247073,
+        "second_half_mean": 1.6196359583260302
+      },
+      "daily": {
+        "worst_day": -0.004186937263424556,
+        "best_day": 0.005477294427182916,
+        "avg_day": 2.9159904414139412e-05,
+        "std_day": 0.000510229756155448,
+        "pct_positive_days": 0.264,
+        "n_days": 375,
+        "days_below_3pct": 0,
+        "days_below_4pct": 0,
+        "days_below_5pct": 0
+      },
+      "monthly": {
+        "worst_month": -0.0008072456392778674,
+        "best_month": 0.008467549441086863,
+        "avg_month": 0.0008411510888694065,
+        "pct_positive": 0.46153846153846156,
+        "n_months": 13
+      },
+      "concentration": {
+        "hhi_symbol": 0.4471999999999996,
+        "n_effective_symbols": 2.2361359570661916,
+        "hhi_strategy": 0.2097999999999998,
+        "n_effective_strategies": 4.766444232602483,
+        "symbol_allocation": {
+          "ETHUSDT": 0.43999999999999984,
+          "SOLUSDT": 0.060000000000000456,
+          "BTCUSDT": 0.49999999999999967
+        },
+        "strategy_allocation": {
+          "breakout_regime": 0.029999999999999992,
+          "supertrend": 0.24999999999999994,
+          "mtf_momentum_breakout": 0.030000000000000464,
+          "ichimoku_cloud": 0.059999999999999984,
+          "keltner_channel": 0.12999999999999995,
+          "momentum_roc": 0.24999999999999975,
+          "supertrend_adx": 0.2499999999999999
+        }
+      },
+      "correlation": {
+        "avg_abs_correlation": 0.21334479880636195,
+        "max_correlation": 0.6425602677622742
+      },
+      "stress": {
+        "max_losing_streak": 6,
+        "recovery_from_max_dd": 2,
+        "var_95": -0.0003962262706005244,
+        "cvar_95": -0.0010538224725712398
+      }
+    },
+    "monte_carlo": {
+      "phase1": {
+        "pass_rate": 0.0,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": Infinity,
+        "p25_days": Infinity,
+        "p75_days": Infinity,
+        "median_final_equity": 10175.85579184409,
+        "median_max_dd": -0.006138002556753928,
+        "p5_max_dd": -0.010028369845153916
+      },
+      "phase2": {
+        "pass_rate": 0.0152,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 162.58333333333331,
+        "p25_days": 146.45833333333334,
+        "p75_days": 173.875,
+        "median_final_equity": 10179.70675603423,
+        "median_max_dd": -0.006153598641776279,
+        "p5_max_dd": -0.009859049478455504
+      },
+      "funded_monthly": {
+        "pass_rate": 0.21,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 139.91666666666669,
+        "p25_days": 112.66666666666667,
+        "p75_days": 161.79166666666669,
+        "median_final_equity": 10180.414556228763,
+        "median_max_dd": -0.00616710175989999,
+        "p5_max_dd": -0.009926719292440515
+      },
+      "3M": {
+        "p5": 9980.91963949158,
+        "p25": 10037.786901991865,
+        "median": 10084.005057576074,
+        "p75": 10143.460279575116,
+        "p95": 10238.409332944908,
+        "prob_pos": 0.9054,
+        "prob_ruin": 0.0,
+        "dd_median": -0.00499153477447103,
+        "dd_p5": -0.008353981105035685
+      },
+      "6M": {
+        "p5": 10024.872401438839,
+        "p25": 10108.056109103178,
+        "median": 10178.768043862407,
+        "p75": 10256.80057457097,
+        "p95": 10389.977256445185,
+        "prob_pos": 0.9742,
+        "prob_ruin": 0.0,
+        "dd_median": -0.006143999397823062,
+        "dd_p5": -0.01002266500638876
+      },
+      "12M": {
+        "p5": 10025.40342203579,
+        "p25": 10113.030592685622,
+        "median": 10184.166299527158,
+        "p75": 10265.766459218812,
+        "p95": 10397.782662060486,
+        "prob_pos": 0.9744,
+        "prob_ruin": 0.0,
+        "dd_median": -0.006204934508844826,
+        "dd_p5": -0.010217438119045479
+      }
+    },
+    "confidence_score": 83,
+    "confidence_verdict": "GO FTMO \u2705",
+    "confidence_checks": [
+      [
+        "Sharpe \u2265 1.5",
+        15,
+        "\u2705"
+      ],
+      [
+        "DD < -4%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Daily loss > -3%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Win rate \u2265 45%",
+        10,
+        "\u2705"
+      ],
+      [
+        "PF \u2265 1.5",
+        10,
+        "\u2705"
+      ],
+      [
+        "Rolling Sharpe >0 \u2265 65%",
+        10,
+        "\u2705"
+      ],
+      [
+        "MC P(pass Phase1) < 60%",
+        0,
+        "\u274c"
+      ],
+      [
+        "Multi-seed STRONG",
+        5,
+        "\u2705"
+      ],
+      [
+        "Max losing streak \u2264 8",
+        3,
+        "\u26a0\ufe0f"
+      ]
+    ],
+    "weights": [
+      0.029999999999999992,
+      0.24999999999999994,
+      0.030000000000000464,
+      0.029999999999999992,
+      0.12999999999999995,
+      0.24999999999999975,
+      0.2499999999999999,
+      0.029999999999999992
+    ],
+    "allocations": [
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "breakout_regime",
+        "timeframe": "1d",
+        "risk_key": "r2.0",
+        "overlay": false,
+        "ho_sharpe": 1.8027030664242252,
+        "ho_return": 0.024231203187880964,
+        "ho_dd": -0.0010249033487622265,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.0072322503722693,
+        "ftmo_dd": -0.00010127346490538957,
+        "ftmo_win_rate": 1.0,
+        "ftmo_pf": Infinity,
+        "last_params": {
+          "atr_period": 30,
+          "atr_multiplier": 3.521591192882333,
+          "lookback_period": 42,
+          "adx_period": 15,
+          "adx_threshold": 8,
+          "vol_ma_period": 35,
+          "vol_spike_ratio": 1.0924417675682625,
+          "stop_loss_pct": 0.10452080619713373,
+          "take_profit_pct": 0.08274659414285736,
+          "atr_sl_mult": 3.872343627591326,
+          "atr_tp_mult": 0.004582409281991773,
+          "trailing_atr_mult": 1.0405323636202413,
+          "max_holding_bars": 6,
+          "breakeven_trigger_pct": 0.03721978560031316,
+          "cooldown_bars": 16
+        }
+      },
+      {
+        "weight": 0.24999999999999994,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 1.691368092908569,
+        "ho_return": 0.08593335899525263,
+        "ho_dd": -0.019147344007283944,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.749633433169753,
+        "ftmo_dd": -0.005350374369367377,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 11.06204566430939,
+        "last_params": {
+          "atr_period": 10,
+          "multiplier": 6.492284074806412,
+          "stop_loss_pct": 0.04896391380238574,
+          "take_profit_pct": 0.2991392533345414,
+          "atr_sl_mult": 2.8832594913922582,
+          "atr_tp_mult": 4.367229378180393,
+          "trailing_atr_mult": 3.6122499051636514,
+          "max_holding_bars": 69,
+          "breakeven_trigger_pct": 0.014803040578054526
+        }
+      },
+      {
+        "weight": 0.030000000000000464,
+        "symbol": "SOLUSDT",
+        "strategy": "mtf_momentum_breakout",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": false,
+        "ho_sharpe": 1.6572779274435436,
+        "ho_return": 0.09702164533535397,
+        "ho_dd": -0.035044339160511064,
+        "ho_trades": 5,
+        "ftmo_sharpe": 1.3862614329682548,
+        "ftmo_dd": -0.0007847566695723799,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 5.532278105089373,
+        "last_params": {
+          "roc_period": 60,
+          "roc_threshold": 1.9232784514393337,
+          "adx_period": 5,
+          "adx_threshold": 47,
+          "donchian_period": 42,
+          "vol_ma_period": 60,
+          "vol_spike_ratio": 1.305488891674417,
+          "stop_loss_pct": 0.09290015176335978,
+          "take_profit_pct": 0.0785904002311894,
+          "atr_sl_mult": 3.7341713601018998,
+          "atr_tp_mult": 1.6719298240529525,
+          "trailing_atr_mult": 1.6611596855695128,
+          "max_holding_bars": 17,
+          "breakeven_trigger_pct": 0.049494460604158595,
+          "cooldown_bars": 10
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9474846806016498,
+        "ho_return": 0.035807866855156134,
+        "ho_dd": -0.020337851135860424,
+        "ho_trades": 32,
+        "ftmo_sharpe": 0.8266891484117348,
+        "ftmo_dd": -0.01764970607259555,
+        "ftmo_win_rate": 0.3870967741935484,
+        "ftmo_pf": 1.4038723430512394,
+        "last_params": {
+          "tenkan_period": 25,
+          "kijun_period": 73,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.056516122430616086,
+          "take_profit_pct": 0.0770536707246613,
+          "atr_sl_mult": 2.351856923086021,
+          "atr_tp_mult": 4.173898717143756,
+          "atr_period": 15,
+          "trailing_atr_mult": 4.369137603188084,
+          "max_holding_bars": 48,
+          "breakeven_trigger_pct": 0.03800605924564132
+        }
+      },
+      {
+        "weight": 0.12999999999999995,
+        "symbol": "ETHUSDT",
+        "strategy": "keltner_channel",
+        "timeframe": "4h",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.9067176694012662,
+        "ho_return": 0.042902023473244295,
+        "ho_dd": -0.0369987884097967,
+        "ho_trades": 19,
+        "ftmo_sharpe": 1.0940675363456625,
+        "ftmo_dd": -0.026550954524315436,
+        "ftmo_win_rate": 0.3684210526315789,
+        "ftmo_pf": 2.0393406992301766,
+        "last_params": {
+          "ema_period": 42,
+          "atr_period": 22,
+          "atr_multiplier": 4.392274227476484,
+          "stop_loss_pct": 0.09100115560443339,
+          "take_profit_pct": 0.07492949397416901,
+          "atr_sl_mult": 1.8758603734171646,
+          "atr_tp_mult": 5.9567429275235435,
+          "trailing_atr_mult": 3.7046343611331976,
+          "max_holding_bars": 113,
+          "breakeven_trigger_pct": 0.02719659202876617
+        }
+      },
+      {
+        "weight": 0.24999999999999975,
+        "symbol": "BTCUSDT",
+        "strategy": "momentum_roc",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9011212311238649,
+        "ho_return": 0.023129840523589153,
+        "ho_dd": -0.011081893373526015,
+        "ho_trades": 6,
+        "ftmo_sharpe": 0.5043001040220023,
+        "ftmo_dd": -0.008559025940331436,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.781003032315478,
+        "last_params": {
+          "fast_roc_period": 8,
+          "slow_roc_period": 73,
+          "entry_threshold": 4.239479070882769,
+          "exit_threshold": 0.1839195328840001,
+          "stop_loss_pct": 0.04760633369143248,
+          "take_profit_pct": 0.01615814281445542,
+          "atr_sl_mult": 2.3117372434816974,
+          "atr_tp_mult": 5.341186893923813,
+          "atr_period": 7,
+          "trailing_atr_mult": 2.6696047650394483,
+          "max_holding_bars": 115,
+          "breakeven_trigger_pct": 0.024815413733548952
+        }
+      },
+      {
+        "weight": 0.2499999999999999,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.8603076302477141,
+        "ho_return": 0.04735947730326352,
+        "ho_dd": -0.02622060628477724,
+        "ho_trades": 9,
+        "ftmo_sharpe": 0.5762081793471349,
+        "ftmo_dd": -0.007235498023217051,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.1783137825739423,
+        "last_params": {
+          "atr_period": 8,
+          "st_multiplier": 14.96015929932485,
+          "adx_period": 24,
+          "adx_threshold": 17,
+          "stop_loss_pct": 0.08110271224505075,
+          "take_profit_pct": 0.380203120803277,
+          "atr_sl_mult": 3.4883811155422473,
+          "atr_tp_mult": 6.7261445577838295,
+          "trailing_atr_mult": 2.7468338222297675,
+          "max_holding_bars": 151,
+          "breakeven_trigger_pct": 0.007815678487599472,
+          "cooldown_bars": 7
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "SOLUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.837476382718889,
+        "ho_return": 0.006998835915542076,
+        "ho_dd": -0.003830792772858385,
+        "ho_trades": 5,
+        "ftmo_sharpe": 0.6626861335269453,
+        "ftmo_dd": -0.004256492948513187,
+        "ftmo_win_rate": 0.4,
+        "ftmo_pf": 2.1796699429776356,
+        "last_params": {
+          "tenkan_period": 10,
+          "kijun_period": 20,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.0835306257220115,
+          "take_profit_pct": 0.09872784271885461,
+          "atr_sl_mult": 2.540208366609702,
+          "atr_tp_mult": 2.373215351638921,
+          "atr_period": 38,
+          "trailing_atr_mult": 2.3395315065482283,
+          "max_holding_bars": 130,
+          "breakeven_trigger_pct": 0.022138434012143215
+        }
+      }
+    ]
+  },
+  "funded": {
+    "config": {
+      "label": "Funded",
+      "description": "FTMO Account \u2014 sizing conservateur, DD tr\u00e8s strict (7% CB)",
+      "risk_per_trade_pct": 0.0075,
+      "max_position_pct": 0.1,
+      "max_drawdown_pct": 0.07,
+      "max_daily_loss_pct": 0.035,
+      "max_trades_per_day": 4,
+      "cooldown_after_loss": 3,
+      "dd_warning_pct": 0.05,
+      "dd_reduce_pct": 0.05,
+      "dd_emergency_pct": 0.065,
+      "profit_lock_pct": null
+    },
+    "metrics": {
+      "sharpe": 2.5664562811587097,
+      "sortino": 2.4915300592615908,
+      "max_drawdown": -0.0036205570062096655,
+      "calmar": 12.732589483412559,
+      "total_return": 0.0078916508274413,
+      "stability": 0.36838861347333984,
+      "n_periods": 376,
+      "n_trades": 79,
+      "win_rate": 0.45569620253164556,
+      "profit_factor": 2.5652513089656535,
+      "ftmo_max_daily_loss": -0.0031579382821426564,
+      "ftmo_daily_loss_safe": true,
+      "ftmo_total_loss_safe": true,
+      "ftmo_avg_daily_return": 2.1035394050358733e-05,
+      "ftmo_daily_std": 0.00038318428186095944,
+      "ftmo_pct_positive_days": 0.2613333333333333,
+      "ftmo_est_days_phase1": 4754,
+      "ftmo_est_days_phase2": 2377,
+      "ftmo_max_losing_streak": 6,
+      "ftmo_max_losing_days": 6
+    },
+    "audit": {
+      "rolling_sharpe": {
+        "mean": 0.7771018702314089,
+        "std": 3.0628601330831735,
+        "min": -5.618329653849726,
+        "max": 5.76260907442234,
+        "pct_positive": 0.6730158730158731,
+        "first_half_mean": 0.01962075016094513,
+        "second_half_mean": 1.529788805997629
+      },
+      "daily": {
+        "worst_day": -0.0031579382821426564,
+        "best_day": 0.004126179337091685,
+        "avg_day": 2.1035394050358733e-05,
+        "std_day": 0.00038318428186095944,
+        "pct_positive_days": 0.2613333333333333,
+        "n_days": 375,
+        "days_below_3pct": 0,
+        "days_below_4pct": 0,
+        "days_below_5pct": 0
+      },
+      "monthly": {
+        "worst_month": -0.00060442897523336,
+        "best_month": 0.006227068325903946,
+        "avg_month": 0.0006067902129911173,
+        "pct_positive": 0.46153846153846156,
+        "n_months": 13
+      },
+      "concentration": {
+        "hhi_symbol": 0.4471999999999996,
+        "n_effective_symbols": 2.2361359570661916,
+        "hhi_strategy": 0.2097999999999998,
+        "n_effective_strategies": 4.766444232602483,
+        "symbol_allocation": {
+          "ETHUSDT": 0.43999999999999984,
+          "SOLUSDT": 0.060000000000000456,
+          "BTCUSDT": 0.49999999999999967
+        },
+        "strategy_allocation": {
+          "breakout_regime": 0.029999999999999992,
+          "supertrend": 0.24999999999999994,
+          "mtf_momentum_breakout": 0.030000000000000464,
+          "ichimoku_cloud": 0.059999999999999984,
+          "keltner_channel": 0.12999999999999995,
+          "momentum_roc": 0.24999999999999975,
+          "supertrend_adx": 0.2499999999999999
+        }
+      },
+      "correlation": {
+        "avg_abs_correlation": 0.2073008343678445,
+        "max_correlation": 0.6418738160839728
+      },
+      "stress": {
+        "max_losing_streak": 6,
+        "recovery_from_max_dd": 1,
+        "var_95": -0.00028571100805322347,
+        "cvar_95": -0.0007889171952479347
+      }
+    },
+    "monte_carlo": {
+      "phase1": {
+        "pass_rate": 0.0,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": Infinity,
+        "p25_days": Infinity,
+        "p75_days": Infinity,
+        "median_final_equity": 10124.024854633619,
+        "median_max_dd": -0.004687243098074214,
+        "p5_max_dd": -0.007611608051618529
+      },
+      "phase2": {
+        "pass_rate": 0.0006,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 176.33333333333334,
+        "p25_days": 146.0,
+        "p75_days": 176.66666666666669,
+        "median_final_equity": 10125.927789193272,
+        "median_max_dd": -0.004630990836080206,
+        "p5_max_dd": -0.007468889997823321
+      },
+      "funded_monthly": {
+        "pass_rate": 0.0522,
+        "fail_dd_rate": 0.0,
+        "fail_daily_rate": 0.0,
+        "median_days_to_pass": 151.16666666666666,
+        "p25_days": 130.16666666666666,
+        "p75_days": 166.16666666666666,
+        "median_final_equity": 10124.438706122011,
+        "median_max_dd": -0.00466662943310985,
+        "p5_max_dd": -0.0076746448353123345
+      },
+      "3M": {
+        "p5": 9986.510411216681,
+        "p25": 10025.000110915022,
+        "median": 10058.541360012016,
+        "p75": 10099.09084985176,
+        "p95": 10170.831572314668,
+        "prob_pos": 0.899,
+        "prob_ruin": 0.0,
+        "dd_median": -0.003708211749034515,
+        "dd_p5": -0.006187091836050329
+      },
+      "6M": {
+        "p5": 10010.665613842026,
+        "p25": 10074.828193382735,
+        "median": 10127.059136833279,
+        "p75": 10183.92497573491,
+        "p95": 10281.828000730067,
+        "prob_pos": 0.9644,
+        "prob_ruin": 0.0,
+        "dd_median": -0.004637570034858263,
+        "dd_p5": -0.0076498079497432855
+      },
+      "12M": {
+        "p5": 10016.476975745069,
+        "p25": 10080.061243910406,
+        "median": 10132.862591394945,
+        "p75": 10191.343522455707,
+        "p95": 10286.028796937524,
+        "prob_pos": 0.973,
+        "prob_ruin": 0.0,
+        "dd_median": -0.004680956337686654,
+        "dd_p5": -0.007662507439836218
+      }
+    },
+    "confidence_score": 83,
+    "confidence_verdict": "GO FTMO \u2705",
+    "confidence_checks": [
+      [
+        "Sharpe \u2265 1.5",
+        15,
+        "\u2705"
+      ],
+      [
+        "DD < -4%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Daily loss > -3%",
+        15,
+        "\u2705"
+      ],
+      [
+        "Win rate \u2265 45%",
+        10,
+        "\u2705"
+      ],
+      [
+        "PF \u2265 1.5",
+        10,
+        "\u2705"
+      ],
+      [
+        "Rolling Sharpe >0 \u2265 65%",
+        10,
+        "\u2705"
+      ],
+      [
+        "MC P(pass Phase1) < 60%",
+        0,
+        "\u274c"
+      ],
+      [
+        "Multi-seed STRONG",
+        5,
+        "\u2705"
+      ],
+      [
+        "Max losing streak \u2264 8",
+        3,
+        "\u26a0\ufe0f"
+      ]
+    ],
+    "weights": [
+      0.029999999999999992,
+      0.24999999999999994,
+      0.030000000000000464,
+      0.029999999999999992,
+      0.12999999999999995,
+      0.24999999999999975,
+      0.2499999999999999,
+      0.029999999999999992
+    ],
+    "allocations": [
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "breakout_regime",
+        "timeframe": "1d",
+        "risk_key": "r2.0",
+        "overlay": false,
+        "ho_sharpe": 1.8027030664242252,
+        "ho_return": 0.024231203187880964,
+        "ho_dd": -0.0010249033487622265,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.0072322503722693,
+        "ftmo_dd": -0.00010127346490538957,
+        "ftmo_win_rate": 1.0,
+        "ftmo_pf": Infinity,
+        "last_params": {
+          "atr_period": 30,
+          "atr_multiplier": 3.521591192882333,
+          "lookback_period": 42,
+          "adx_period": 15,
+          "adx_threshold": 8,
+          "vol_ma_period": 35,
+          "vol_spike_ratio": 1.0924417675682625,
+          "stop_loss_pct": 0.10452080619713373,
+          "take_profit_pct": 0.08274659414285736,
+          "atr_sl_mult": 3.872343627591326,
+          "atr_tp_mult": 0.004582409281991773,
+          "trailing_atr_mult": 1.0405323636202413,
+          "max_holding_bars": 6,
+          "breakeven_trigger_pct": 0.03721978560031316,
+          "cooldown_bars": 16
+        }
+      },
+      {
+        "weight": 0.24999999999999994,
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 1.691368092908569,
+        "ho_return": 0.08593335899525263,
+        "ho_dd": -0.019147344007283944,
+        "ho_trades": 6,
+        "ftmo_sharpe": 1.749633433169753,
+        "ftmo_dd": -0.005350374369367377,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 11.06204566430939,
+        "last_params": {
+          "atr_period": 10,
+          "multiplier": 6.492284074806412,
+          "stop_loss_pct": 0.04896391380238574,
+          "take_profit_pct": 0.2991392533345414,
+          "atr_sl_mult": 2.8832594913922582,
+          "atr_tp_mult": 4.367229378180393,
+          "trailing_atr_mult": 3.6122499051636514,
+          "max_holding_bars": 69,
+          "breakeven_trigger_pct": 0.014803040578054526
+        }
+      },
+      {
+        "weight": 0.030000000000000464,
+        "symbol": "SOLUSDT",
+        "strategy": "mtf_momentum_breakout",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": false,
+        "ho_sharpe": 1.6572779274435436,
+        "ho_return": 0.09702164533535397,
+        "ho_dd": -0.035044339160511064,
+        "ho_trades": 5,
+        "ftmo_sharpe": 1.3862614329682548,
+        "ftmo_dd": -0.0007847566695723799,
+        "ftmo_win_rate": 0.6666666666666666,
+        "ftmo_pf": 5.532278105089373,
+        "last_params": {
+          "roc_period": 60,
+          "roc_threshold": 1.9232784514393337,
+          "adx_period": 5,
+          "adx_threshold": 47,
+          "donchian_period": 42,
+          "vol_ma_period": 60,
+          "vol_spike_ratio": 1.305488891674417,
+          "stop_loss_pct": 0.09290015176335978,
+          "take_profit_pct": 0.0785904002311894,
+          "atr_sl_mult": 3.7341713601018998,
+          "atr_tp_mult": 1.6719298240529525,
+          "trailing_atr_mult": 1.6611596855695128,
+          "max_holding_bars": 17,
+          "breakeven_trigger_pct": 0.049494460604158595,
+          "cooldown_bars": 10
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "ETHUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "4h",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9474846806016498,
+        "ho_return": 0.035807866855156134,
+        "ho_dd": -0.020337851135860424,
+        "ho_trades": 32,
+        "ftmo_sharpe": 0.8266891484117348,
+        "ftmo_dd": -0.01764970607259555,
+        "ftmo_win_rate": 0.3870967741935484,
+        "ftmo_pf": 1.4038723430512394,
+        "last_params": {
+          "tenkan_period": 25,
+          "kijun_period": 73,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.056516122430616086,
+          "take_profit_pct": 0.0770536707246613,
+          "atr_sl_mult": 2.351856923086021,
+          "atr_tp_mult": 4.173898717143756,
+          "atr_period": 15,
+          "trailing_atr_mult": 4.369137603188084,
+          "max_holding_bars": 48,
+          "breakeven_trigger_pct": 0.03800605924564132
+        }
+      },
+      {
+        "weight": 0.12999999999999995,
+        "symbol": "ETHUSDT",
+        "strategy": "keltner_channel",
+        "timeframe": "4h",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.9067176694012662,
+        "ho_return": 0.042902023473244295,
+        "ho_dd": -0.0369987884097967,
+        "ho_trades": 19,
+        "ftmo_sharpe": 1.0940675363456625,
+        "ftmo_dd": -0.026550954524315436,
+        "ftmo_win_rate": 0.3684210526315789,
+        "ftmo_pf": 2.0393406992301766,
+        "last_params": {
+          "ema_period": 42,
+          "atr_period": 22,
+          "atr_multiplier": 4.392274227476484,
+          "stop_loss_pct": 0.09100115560443339,
+          "take_profit_pct": 0.07492949397416901,
+          "atr_sl_mult": 1.8758603734171646,
+          "atr_tp_mult": 5.9567429275235435,
+          "trailing_atr_mult": 3.7046343611331976,
+          "max_holding_bars": 113,
+          "breakeven_trigger_pct": 0.02719659202876617
+        }
+      },
+      {
+        "weight": 0.24999999999999975,
+        "symbol": "BTCUSDT",
+        "strategy": "momentum_roc",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.9011212311238649,
+        "ho_return": 0.023129840523589153,
+        "ho_dd": -0.011081893373526015,
+        "ho_trades": 6,
+        "ftmo_sharpe": 0.5043001040220023,
+        "ftmo_dd": -0.008559025940331436,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.781003032315478,
+        "last_params": {
+          "fast_roc_period": 8,
+          "slow_roc_period": 73,
+          "entry_threshold": 4.239479070882769,
+          "exit_threshold": 0.1839195328840001,
+          "stop_loss_pct": 0.04760633369143248,
+          "take_profit_pct": 0.01615814281445542,
+          "atr_sl_mult": 2.3117372434816974,
+          "atr_tp_mult": 5.341186893923813,
+          "atr_period": 7,
+          "trailing_atr_mult": 2.6696047650394483,
+          "max_holding_bars": 115,
+          "breakeven_trigger_pct": 0.024815413733548952
+        }
+      },
+      {
+        "weight": 0.2499999999999999,
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend_adx",
+        "timeframe": "1d",
+        "risk_key": "flat",
+        "overlay": true,
+        "ho_sharpe": 0.8603076302477141,
+        "ho_return": 0.04735947730326352,
+        "ho_dd": -0.02622060628477724,
+        "ho_trades": 9,
+        "ftmo_sharpe": 0.5762081793471349,
+        "ftmo_dd": -0.007235498023217051,
+        "ftmo_win_rate": 0.5,
+        "ftmo_pf": 2.1783137825739423,
+        "last_params": {
+          "atr_period": 8,
+          "st_multiplier": 14.96015929932485,
+          "adx_period": 24,
+          "adx_threshold": 17,
+          "stop_loss_pct": 0.08110271224505075,
+          "take_profit_pct": 0.380203120803277,
+          "atr_sl_mult": 3.4883811155422473,
+          "atr_tp_mult": 6.7261445577838295,
+          "trailing_atr_mult": 2.7468338222297675,
+          "max_holding_bars": 151,
+          "breakeven_trigger_pct": 0.007815678487599472,
+          "cooldown_bars": 7
+        }
+      },
+      {
+        "weight": 0.029999999999999992,
+        "symbol": "SOLUSDT",
+        "strategy": "ichimoku_cloud",
+        "timeframe": "1d",
+        "risk_key": "r1.0",
+        "overlay": true,
+        "ho_sharpe": 0.837476382718889,
+        "ho_return": 0.006998835915542076,
+        "ho_dd": -0.003830792772858385,
+        "ho_trades": 5,
+        "ftmo_sharpe": 0.6626861335269453,
+        "ftmo_dd": -0.004256492948513187,
+        "ftmo_win_rate": 0.4,
+        "ftmo_pf": 2.1796699429776356,
+        "last_params": {
+          "tenkan_period": 10,
+          "kijun_period": 20,
+          "senkou_b_period": 31,
+          "stop_loss_pct": 0.0835306257220115,
+          "take_profit_pct": 0.09872784271885461,
+          "atr_sl_mult": 2.540208366609702,
+          "atr_tp_mult": 2.373215351638921,
+          "atr_period": 38,
+          "trailing_atr_mult": 2.3395315065482283,
+          "max_holding_bars": 130,
+          "breakeven_trigger_pct": 0.022138434012143215
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,582 @@
+{
+  "version": "holdout_v1",
+  "timestamp": "20260212_162618",
+  "config": {
+    "cutoff_date": "2025-02-01",
+    "n_seeds": 5,
+    "base_seed": 42,
+    "combos": [
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "supertrend",
+        "timeframe": "4h"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "strategy": "bollinger_breakout",
+        "timeframe": "4h"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "strategy": "momentum_roc",
+        "timeframe": "1d"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "atr_volatility_breakout",
+        "timeframe": "1d"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "strategy": "volume_obv",
+        "timeframe": "4h"
+      }
+    ],
+    "tf_configs": {
+      "4h": {
+        "training_window": "6M",
+        "reoptim_frequency": "3M",
+        "n_optim_trials": 100
+      },
+      "1d": {
+        "training_window": "1Y",
+        "reoptim_frequency": "3M",
+        "n_optim_trials": 100
+      }
+    }
+  },
+  "summary": {
+    "total": 5,
+    "strong_survivors": 1,
+    "weak_survivors": 2,
+    "fails": 2,
+    "elapsed_min": 9.3
+  },
+  "results": [
+    {
+      "symbol": "ETHUSDT",
+      "strategy": "supertrend",
+      "timeframe": "4h",
+      "cutoff": "2025-02-01",
+      "in_sample_bars": 13076,
+      "holdout_bars": 2252,
+      "n_seeds": 5,
+      "is_sharpe_median": 0.0539,
+      "is_sharpe_mean": 0.0504,
+      "is_sharpe_std": 0.2195,
+      "ho_sharpe_median": 0.4443,
+      "ho_sharpe_mean": 0.3372,
+      "ho_sharpe_std": 0.3481,
+      "ho_sharpe_min": -0.2469,
+      "ho_sharpe_max": 0.7039,
+      "ho_return_median": 0.0647,
+      "ho_dd_median": -0.1362,
+      "sharpe_degradation": -0.3904,
+      "degradation_pct": -723.7,
+      "survives": true,
+      "strong_survive": true,
+      "seeds": [
+        {
+          "seed": 42,
+          "is_sharpe": 0.0135,
+          "ho_sharpe": 0.4443,
+          "ho_return": 0.0647,
+          "ho_dd": -0.1342,
+          "ho_pf": 1.2962,
+          "ho_trades": 30,
+          "last_params": {
+            "atr_period": 16,
+            "multiplier": 4.791828,
+            "stop_loss_pct": 0.190268,
+            "take_profit_pct": 0.374566
+          }
+        },
+        {
+          "seed": 43,
+          "is_sharpe": 0.2547,
+          "ho_sharpe": 0.6298,
+          "ho_return": 0.0975,
+          "ho_dd": -0.145,
+          "ho_pf": 1.3733,
+          "ho_trades": 28,
+          "last_params": {
+            "atr_period": 20,
+            "multiplier": 5.090329,
+            "stop_loss_pct": 0.119716,
+            "take_profit_pct": 0.360958
+          }
+        },
+        {
+          "seed": 44,
+          "is_sharpe": -0.3377,
+          "ho_sharpe": 0.7039,
+          "ho_return": 0.1132,
+          "ho_dd": -0.1241,
+          "ho_pf": 1.4329,
+          "ho_trades": 32,
+          "last_params": {
+            "atr_period": 16,
+            "multiplier": 4.543951,
+            "stop_loss_pct": 0.081814,
+            "take_profit_pct": 0.333213
+          }
+        },
+        {
+          "seed": 45,
+          "is_sharpe": 0.2675,
+          "ho_sharpe": 0.155,
+          "ho_return": 0.0123,
+          "ho_dd": -0.1362,
+          "ho_pf": 1.1036,
+          "ho_trades": 34,
+          "last_params": {
+            "atr_period": 14,
+            "multiplier": 4.814682,
+            "stop_loss_pct": 0.094221,
+            "take_profit_pct": 0.304803
+          }
+        },
+        {
+          "seed": 46,
+          "is_sharpe": 0.0539,
+          "ho_sharpe": -0.2469,
+          "ho_return": -0.0544,
+          "ho_dd": -0.1517,
+          "ho_pf": 0.9178,
+          "ho_trades": 28,
+          "last_params": {
+            "atr_period": 4,
+            "multiplier": 5.23903,
+            "stop_loss_pct": 0.179464,
+            "take_profit_pct": 0.35712
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "ETHUSDT",
+      "strategy": "atr_volatility_breakout",
+      "timeframe": "1d",
+      "cutoff": "2025-02-01",
+      "in_sample_bars": 2180,
+      "holdout_bars": 376,
+      "n_seeds": 5,
+      "is_sharpe_median": 0.3143,
+      "is_sharpe_mean": 0.2577,
+      "is_sharpe_std": 0.2453,
+      "ho_sharpe_median": 0.3969,
+      "ho_sharpe_mean": -0.0385,
+      "ho_sharpe_std": 0.8374,
+      "ho_sharpe_min": -1.1876,
+      "ho_sharpe_max": 0.9523,
+      "ho_return_median": 0.0298,
+      "ho_dd_median": -0.0601,
+      "sharpe_degradation": -0.0825,
+      "degradation_pct": -26.3,
+      "survives": true,
+      "strong_survive": false,
+      "seeds": [
+        {
+          "seed": 42,
+          "is_sharpe": 0.3143,
+          "ho_sharpe": 0.9523,
+          "ho_return": 0.0483,
+          "ho_dd": -0.0304,
+          "ho_pf": 1.9267,
+          "ho_trades": 12,
+          "last_params": {
+            "atr_period": 10,
+            "atr_multiplier": 3.356441,
+            "lookback_period": 23,
+            "stop_loss_pct": 0.03304,
+            "take_profit_pct": 0.029143
+          }
+        },
+        {
+          "seed": 43,
+          "is_sharpe": 0.4581,
+          "ho_sharpe": -1.1876,
+          "ho_return": -0.0786,
+          "ho_dd": -0.0893,
+          "ho_pf": 0.495,
+          "ho_trades": 16,
+          "last_params": {
+            "atr_period": 25,
+            "atr_multiplier": 4.608797,
+            "lookback_period": 53,
+            "stop_loss_pct": 0.037695,
+            "take_profit_pct": 0.025614
+          }
+        },
+        {
+          "seed": 44,
+          "is_sharpe": 0.5374,
+          "ho_sharpe": 0.5215,
+          "ho_return": 0.0355,
+          "ho_dd": -0.047,
+          "ho_pf": 1.5892,
+          "ho_trades": 7,
+          "last_params": {
+            "atr_period": 22,
+            "atr_multiplier": 3.248983,
+            "lookback_period": 19,
+            "stop_loss_pct": 0.02823,
+            "take_profit_pct": 0.112072
+          }
+        },
+        {
+          "seed": 45,
+          "is_sharpe": 0.1224,
+          "ho_sharpe": 0.3969,
+          "ho_return": 0.0298,
+          "ho_dd": -0.0787,
+          "ho_pf": 1.3755,
+          "ho_trades": 9,
+          "last_params": {
+            "atr_period": 40,
+            "atr_multiplier": 2.97347,
+            "lookback_period": 22,
+            "stop_loss_pct": 0.019012,
+            "take_profit_pct": 0.11687
+          }
+        },
+        {
+          "seed": 46,
+          "is_sharpe": -0.1437,
+          "ho_sharpe": -0.8757,
+          "ho_return": -0.0388,
+          "ho_dd": -0.0601,
+          "ho_pf": 0.372,
+          "ho_trades": 6,
+          "last_params": {
+            "atr_period": 34,
+            "atr_multiplier": 4.90295,
+            "lookback_period": 26,
+            "stop_loss_pct": 0.035175,
+            "take_profit_pct": 0.023135
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "BTCUSDT",
+      "strategy": "momentum_roc",
+      "timeframe": "1d",
+      "cutoff": "2025-02-01",
+      "in_sample_bars": 2182,
+      "holdout_bars": 376,
+      "n_seeds": 5,
+      "is_sharpe_median": 0.328,
+      "is_sharpe_mean": 0.3972,
+      "is_sharpe_std": 0.196,
+      "ho_sharpe_median": -0.0283,
+      "ho_sharpe_mean": 0.2852,
+      "ho_sharpe_std": 0.4337,
+      "ho_sharpe_min": -0.0532,
+      "ho_sharpe_max": 1.0539,
+      "ho_return_median": -0.0018,
+      "ho_dd_median": -0.0338,
+      "sharpe_degradation": 0.3562,
+      "degradation_pct": 108.6,
+      "survives": true,
+      "strong_survive": false,
+      "seeds": [
+        {
+          "seed": 42,
+          "is_sharpe": 0.7769,
+          "ho_sharpe": -0.0283,
+          "ho_return": -0.0018,
+          "ho_dd": -0.0338,
+          "ho_pf": 0.9554,
+          "ho_trades": 3,
+          "last_params": {
+            "fast_roc_period": 4,
+            "slow_roc_period": 97,
+            "entry_threshold": 9.781154,
+            "exit_threshold": 0.209697,
+            "stop_loss_pct": 0.067816,
+            "take_profit_pct": 0.044229
+          }
+        },
+        {
+          "seed": 43,
+          "is_sharpe": 0.3794,
+          "ho_sharpe": 1.0539,
+          "ho_return": 0.0685,
+          "ho_dd": -0.0648,
+          "ho_pf": 2.0124,
+          "ho_trades": 12,
+          "last_params": {
+            "fast_roc_period": 10,
+            "slow_roc_period": 88,
+            "entry_threshold": 5.981564,
+            "exit_threshold": 0.054158,
+            "stop_loss_pct": 0.078288,
+            "take_profit_pct": 0.130076
+          }
+        },
+        {
+          "seed": 44,
+          "is_sharpe": 0.247,
+          "ho_sharpe": 0.4818,
+          "ho_return": 0.0323,
+          "ho_dd": -0.0572,
+          "ho_pf": 1.5004,
+          "ho_trades": 12,
+          "last_params": {
+            "fast_roc_period": 10,
+            "slow_roc_period": 96,
+            "entry_threshold": 5.624408,
+            "exit_threshold": 0.352724,
+            "stop_loss_pct": 0.081483,
+            "take_profit_pct": 0.143587
+          }
+        },
+        {
+          "seed": 45,
+          "is_sharpe": 0.2549,
+          "ho_sharpe": -0.0532,
+          "ho_return": -0.0028,
+          "ho_dd": -0.0338,
+          "ho_pf": 0.9332,
+          "ho_trades": 4,
+          "last_params": {
+            "fast_roc_period": 4,
+            "slow_roc_period": 53,
+            "entry_threshold": 9.887876,
+            "exit_threshold": 0.030544,
+            "stop_loss_pct": 0.083636,
+            "take_profit_pct": 0.064346
+          }
+        },
+        {
+          "seed": 46,
+          "is_sharpe": 0.328,
+          "ho_sharpe": -0.0283,
+          "ho_return": -0.0018,
+          "ho_dd": -0.0338,
+          "ho_pf": 0.9554,
+          "ho_trades": 3,
+          "last_params": {
+            "fast_roc_period": 4,
+            "slow_roc_period": 101,
+            "entry_threshold": 9.995744,
+            "exit_threshold": 0.06281,
+            "stop_loss_pct": 0.024706,
+            "take_profit_pct": 0.068819
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "ETHUSDT",
+      "strategy": "volume_obv",
+      "timeframe": "4h",
+      "cutoff": "2025-02-01",
+      "in_sample_bars": 13076,
+      "holdout_bars": 2252,
+      "n_seeds": 5,
+      "is_sharpe_median": 0.037,
+      "is_sharpe_mean": 0.0951,
+      "is_sharpe_std": 0.2706,
+      "ho_sharpe_median": -0.9016,
+      "ho_sharpe_mean": -0.729,
+      "ho_sharpe_std": 0.4685,
+      "ho_sharpe_min": -1.2146,
+      "ho_sharpe_max": 0.1086,
+      "ho_return_median": -0.0387,
+      "ho_dd_median": -0.0571,
+      "sharpe_degradation": 0.9386,
+      "degradation_pct": 2537.1,
+      "survives": false,
+      "strong_survive": false,
+      "seeds": [
+        {
+          "seed": 42,
+          "is_sharpe": 0.0246,
+          "ho_sharpe": 0.1086,
+          "ho_return": 0.0044,
+          "ho_dd": -0.0521,
+          "ho_pf": 1.0633,
+          "ho_trades": 13,
+          "last_params": {
+            "obv_ema_period": 21,
+            "volume_spike_threshold": 3.838929,
+            "confirmation_period": 1,
+            "stop_loss_pct": 0.01486,
+            "take_profit_pct": 0.094883
+          }
+        },
+        {
+          "seed": 43,
+          "is_sharpe": 0.477,
+          "ho_sharpe": -1.2146,
+          "ho_return": -0.0594,
+          "ho_dd": -0.0842,
+          "ho_pf": 0.5479,
+          "ho_trades": 20,
+          "last_params": {
+            "obv_ema_period": 32,
+            "volume_spike_threshold": 3.656542,
+            "confirmation_period": 1,
+            "stop_loss_pct": 0.00916,
+            "take_profit_pct": 0.052447
+          }
+        },
+        {
+          "seed": 44,
+          "is_sharpe": 0.037,
+          "ho_sharpe": -1.0576,
+          "ho_return": -0.0537,
+          "ho_dd": -0.0701,
+          "ho_pf": 0.5841,
+          "ho_trades": 19,
+          "last_params": {
+            "obv_ema_period": 33,
+            "volume_spike_threshold": 3.816795,
+            "confirmation_period": 1,
+            "stop_loss_pct": 0.045719,
+            "take_profit_pct": 0.032014
+          }
+        },
+        {
+          "seed": 45,
+          "is_sharpe": 0.2684,
+          "ho_sharpe": -0.9016,
+          "ho_return": -0.0387,
+          "ho_dd": -0.0563,
+          "ho_pf": 0.5976,
+          "ho_trades": 15,
+          "last_params": {
+            "obv_ema_period": 57,
+            "volume_spike_threshold": 3.776069,
+            "confirmation_period": 2,
+            "stop_loss_pct": 0.007524,
+            "take_profit_pct": 0.067023
+          }
+        },
+        {
+          "seed": 46,
+          "is_sharpe": -0.3315,
+          "ho_sharpe": -0.5798,
+          "ho_return": -0.0253,
+          "ho_dd": -0.0571,
+          "ho_pf": 0.7131,
+          "ho_trades": 14,
+          "last_params": {
+            "obv_ema_period": 32,
+            "volume_spike_threshold": 3.911332,
+            "confirmation_period": 1,
+            "stop_loss_pct": 0.011719,
+            "take_profit_pct": 0.054062
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "SOLUSDT",
+      "strategy": "bollinger_breakout",
+      "timeframe": "4h",
+      "cutoff": "2025-02-01",
+      "in_sample_bars": 9809,
+      "holdout_bars": 2252,
+      "n_seeds": 5,
+      "is_sharpe_median": 0.3908,
+      "is_sharpe_mean": 0.4112,
+      "is_sharpe_std": 0.2153,
+      "ho_sharpe_median": -1.354,
+      "ho_sharpe_mean": -0.9495,
+      "ho_sharpe_std": 0.6177,
+      "ho_sharpe_min": -1.5249,
+      "ho_sharpe_max": -0.0227,
+      "ho_return_median": -0.1022,
+      "ho_dd_median": -0.1508,
+      "sharpe_degradation": 1.7448,
+      "degradation_pct": 446.5,
+      "survives": false,
+      "strong_survive": false,
+      "seeds": [
+        {
+          "seed": 42,
+          "is_sharpe": 0.1395,
+          "ho_sharpe": -0.3975,
+          "ho_return": -0.0492,
+          "ho_dd": -0.121,
+          "ho_pf": 0.8155,
+          "ho_trades": 30,
+          "last_params": {
+            "bb_period": 57,
+            "bb_std": 1.867316,
+            "confirmation_candles": 4,
+            "stop_loss_pct": 0.030574,
+            "take_profit_pct": 0.126954
+          }
+        },
+        {
+          "seed": 43,
+          "is_sharpe": 0.4268,
+          "ho_sharpe": -0.0227,
+          "ho_return": -0.0065,
+          "ho_dd": -0.098,
+          "ho_pf": 0.9934,
+          "ho_trades": 45,
+          "last_params": {
+            "bb_period": 28,
+            "bb_std": 2.193644,
+            "confirmation_candles": 2,
+            "stop_loss_pct": 0.030541,
+            "take_profit_pct": 0.049438
+          }
+        },
+        {
+          "seed": 44,
+          "is_sharpe": 0.3908,
+          "ho_sharpe": -1.5249,
+          "ho_return": -0.1194,
+          "ho_dd": -0.1584,
+          "ho_pf": 0.1609,
+          "ho_trades": 15,
+          "last_params": {
+            "bb_period": 33,
+            "bb_std": 2.063561,
+            "confirmation_candles": 4,
+            "stop_loss_pct": 0.045236,
+            "take_profit_pct": 0.190351
+          }
+        },
+        {
+          "seed": 45,
+          "is_sharpe": 0.7935,
+          "ho_sharpe": -1.354,
+          "ho_return": -0.1055,
+          "ho_dd": -0.1528,
+          "ho_pf": 0.3208,
+          "ho_trades": 8,
+          "last_params": {
+            "bb_period": 28,
+            "bb_std": 2.344339,
+            "confirmation_candles": 2,
+            "stop_loss_pct": 0.090185,
+            "take_profit_pct": 0.189978
+          }
+        },
+        {
+          "seed": 46,
+          "is_sharpe": 0.3056,
+          "ho_sharpe": -1.4485,
+          "ho_return": -0.1022,
+          "ho_dd": -0.1508,
+          "ho_pf": 0.4148,
+          "ho_trades": 18,
+          "last_params": {
+            "bb_period": 28,
+            "bb_std": 1.651927,
+            "confirmation_candles": 4,
+            "stop_loss_pct": 0.063756,
+            "take_profit_pct": 0.111937
+          }
+        }
+      ]
+    }
+  ]
+}

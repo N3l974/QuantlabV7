@@ -39,6 +39,11 @@ RISK = RiskConfig()
 LEVERAGE = 1.5
 N_MONTE_CARLO = 5000
 
+DIAG_SEARCH_DIRS = [
+    Path("portfolio/v4b/results"),
+    Path("results"),  # legacy fallback
+]
+
 # Top 8 combos by return + weights (top3_heavy)
 COMBOS = [
     {"symbol": "ETHUSDT", "strategy": "supertrend",          "timeframe": "1d", "weight": 0.25},
@@ -52,7 +57,17 @@ COMBOS = [
 ]
 
 # Load last WF params from diagnostic
-DIAG_PATH = sorted(Path("results").glob("diagnostic_v4_fast_*.json"))[-1]
+def find_latest_diagnostic() -> Path:
+    for base in DIAG_SEARCH_DIRS:
+        files = sorted(base.glob("diagnostic_v4_fast_*.json"))
+        if files:
+            return files[-1]
+    raise FileNotFoundError(
+        "No diagnostic_v4_fast_*.json found in portfolio/v4b/results or results"
+    )
+
+
+DIAG_PATH = find_latest_diagnostic()
 
 
 def load_params():
@@ -301,7 +316,8 @@ def main():
 
     # 7. Save results
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    Path("results").mkdir(exist_ok=True)
+    out_dir = Path("portfolio/v4b/results")
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     save_data = {
         "portfolio_name": "V4b_top3_heavy_1.5x",
@@ -333,7 +349,7 @@ def main():
         "stress_tests": stress,
     }
 
-    results_path = f"results/portfolio_v4b_final_{ts}.json"
+    results_path = out_dir / f"portfolio_v4b_final_{ts}.json"
     with open(results_path, "w") as f:
         json.dump(save_data, f, indent=2, default=str)
     logger.info(f"\nSaved: {results_path}")

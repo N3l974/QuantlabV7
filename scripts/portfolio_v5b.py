@@ -67,8 +67,22 @@ REGIME_CFG = RegimeOverlayConfig(
 VOL_CFG = VolTargetConfig(target_vol_annual=0.40)  # Higher = less aggressive
 OVERLAY_CFG = OverlayPipelineConfig(regime_config=REGIME_CFG, vol_config=VOL_CFG)
 
+RESULTS_DIR = Path("portfolio/v5b/results")
+DIAG_SEARCH_DIRS = [RESULTS_DIR, Path("results")]
+
+
+def find_latest_diagnostic() -> Path:
+    for base in DIAG_SEARCH_DIRS:
+        files = sorted(base.glob("diagnostic_v5b_*.json"))
+        if files:
+            return files[-1]
+    raise FileNotFoundError(
+        "No diagnostic_v5b_*.json found in portfolio/v5b/results or results"
+    )
+
+
 # Load diagnostic V5b
-DIAG_PATH = sorted(Path("results").glob("diagnostic_v5b_*.json"))[-1]
+DIAG_PATH = find_latest_diagnostic()
 logger.info(f"Using diagnostic: {DIAG_PATH}")
 
 
@@ -496,7 +510,8 @@ def generate_report(portfolios, best_name, best, mc, sym_alloc, elapsed):
     lines.append("---")
     lines.append(f"*Généré le {datetime.now().strftime('%d %B %Y %H:%M')}*")
 
-    report_path = Path("docs/results/20_portfolio_v5b.md")
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    report_path = RESULTS_DIR / "20_portfolio_v5b.md"
     report_path.write_text("\n".join(lines))
     logger.info(f"Report: {report_path}")
     return report_path
@@ -672,7 +687,7 @@ def main():
 
     # ── Save JSON ──
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    Path("results").mkdir(exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     save_data = {}
     for name, p in portfolios.items():
         save_data[name] = {
@@ -712,7 +727,7 @@ def main():
         "cutoff_date": CUTOFF_DATE,
     }
 
-    json_path = f"results/portfolio_v5b_{ts}.json"
+    json_path = RESULTS_DIR / f"portfolio_v5b_{ts}.json"
     with open(json_path, "w") as f:
         json.dump(save_data, f, indent=2, default=str)
     logger.info(f"\nJSON: {json_path}")

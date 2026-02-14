@@ -56,21 +56,15 @@ V5c-HighRisk est une version opportuniste de V5, conçue pour capter des impulsi
 | 9.0% | ETHUSDT/trend_multi_factor/1d | 1.19 | 3.5% | -2.3% |
 | 1.4% | ETHUSDT/bollinger_breakout/1d | 1.10 | 7.5% | -5.0% |
 
-## Structure
+## Artefacts techniques
 
-```
-v5c-highrisk/
-├── README.md
-├── code/
-│   └── portfolio_v5c_highrisk.py
-└── results/
-    └── portfolio_v5c_highrisk_*.json
-```
+- Code : `portfolio/v5c-highrisk/code/`
+- Résultats : `portfolio/v5c-highrisk/results/`
 
 ## Exécution
 
 ```bash
-python scripts/portfolio_v5c_highrisk.py
+python portfolio/v5c-highrisk/code/portfolio_v5c_highrisk.py
 ```
 
 ## Déploiement VPS (paper)
@@ -78,6 +72,8 @@ python scripts/portfolio_v5c_highrisk.py
 - **Service**: `v5c-highrisk-paper`
 - **Mode**: paper (`dry_run=true`)
 - **Capital paper de suivi**: **1000 USD**
+- **Moteur live**: `live.run_portfolio` + `PortfolioExecutor` (multi-combos)
+- **Modèle d'exécution**: agrégation des 6 combos en **position nette par symbole** (simulation Cross Margin)
 - **Fréquence de réoptimisation**: **1M** (pause si échéance dépassée)
 - **Fenêtre avant passage réel**: **8 à 12 semaines** de paper stable
 - **Garde-fou GO live réel**: DD paper max **15%**
@@ -85,17 +81,55 @@ python scripts/portfolio_v5c_highrisk.py
 Configuration source:
 - `config/live/portfolios/v5c-highrisk-paper.json`
 
-### Reporting quotidien (paper)
+État runtime persisté:
+- `runtime/logs/v5c-highrisk-paper/state.json`
+- Contient: equity, positions nettes, derniers prix, signaux/params combos
+- Restauré automatiquement au redémarrage (évite le reset de suivi après patch)
+
+## Reporting quotidien (paper)
+
+### Option A — Makefile (recommandé)
 
 ```bash
-python scripts/paper_daily_report.py \
-  --log-dir runtime/logs/v5c-highrisk-paper \
-  --hours 24
+# Rapport complet depuis le début des logs
+make paper-report
+
+# Rapport fenêtre glissante
+make paper-report-window HOURS=24
+make paper-report-48h
 ```
 
-Ce rapport synthétise:
-- nombre de trades (total + fenêtre),
-- equity début/fin,
-- return cumulé,
-- max drawdown observé,
-- pnl cumulé sur la fenêtre.
+> `make paper-report` utilise `--since-start` par défaut.
+
+### Option B — sans redéployer (script direct)
+
+Lancer localement un script qui récupère `trades.jsonl` et `pnl.jsonl` sur le VPS puis génère le rapport:
+
+```bash
+python3 scripts/paper_daily_report_remote.py \
+  --vps-host <VPS_HOST> \
+  --vps-user <VPS_USER> \
+  --ssh-key ~/.ssh/<KEY_NAME> \
+  --remote-log-dir ~/quantlab-deploy/runtime/logs/v5c-highrisk-paper \
+  --hours 24 \
+  --since-start
+```
+
+### Option C — copier le script sur VPS (one-shot, sans image rebuild)
+
+```bash
+scp scripts/paper_daily_report.py <VPS_USER>@<VPS_HOST>:~/quantlab-deploy/
+ssh <VPS_USER>@<VPS_HOST> "python3 ~/quantlab-deploy/paper_daily_report.py --log-dir ~/quantlab-deploy/runtime/logs/v5c-highrisk-paper --hours 24"
+```
+
+> Cette option n'exige pas de redéploiement Docker mais le script n'est pas versionné dans l'image runtime.
+
+## Lecture des logs et interprétation
+
+- `trades.jsonl`: exécutions nettes par symbole (ETHUSDT/SOLUSDT)
+- `trades.jsonl.metadata.combo_breakdown`: détail des contributions par combo (signal × poids)
+- `pnl.jsonl`: trajectoire d'equity
+
+Important:
+- Le `start equity` du rapport correspond à la **première ligne de `pnl.jsonl` encore présente**.
+- Pour repartir d'une baseline 1000 propre: purger `trades.jsonl`, `pnl.jsonl` et `state.json`.

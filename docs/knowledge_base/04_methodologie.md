@@ -27,7 +27,7 @@ Pipeline de recherche, biais identifiés, failles méthodologiques et bonnes pra
   - V5b : ATR SL/TP + trailing + breakeven + max hold optimisables
   - Risk grid : flat, r0.5%, r1.0%, r2.0%
   - Corrélation matrix des survivants STRONG
-- **Output** : `results/diagnostic_v5b_{ts}.json` + rapport markdown
+- **Output** : `portfolio/v5b/results/diagnostic_v5b_{ts}.json` + rapport markdown
 
 ### Étape 3 : Portfolio (`scripts/portfolio_v4b_final.py`)
 - **Scope** : Survivants STRONG du diagnostic

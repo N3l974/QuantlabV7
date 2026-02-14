@@ -52,8 +52,20 @@ REGIME_CFG = RegimeOverlayConfig(
 VOL_CFG = VolTargetConfig(target_vol_annual=0.40)  # Higher target = less reduction
 OVERLAY_CFG = OverlayPipelineConfig(regime_config=REGIME_CFG, vol_config=VOL_CFG)
 
+RESULTS_DIR = Path("portfolio/v4b/results")
+SEARCH_DIRS = [RESULTS_DIR, Path("results")]
+
+
+def find_latest(pattern: str) -> Path:
+    for base in SEARCH_DIRS:
+        files = sorted(base.glob(pattern))
+        if files:
+            return files[-1]
+    raise FileNotFoundError(f"No {pattern} found in portfolio/v4b/results or results")
+
+
 # Load diagnostic
-DIAG_PATH = sorted(Path("results").glob("diagnostic_v4_fast_*.json"))[-1]
+DIAG_PATH = find_latest("diagnostic_v4_fast_*.json")
 
 
 def load_survivors():
@@ -239,7 +251,7 @@ def main():
 
     # ── Variant C: V4 conservative with leverage ──
     # Reload V4 portfolio returns
-    v4_path = sorted(Path("results").glob("portfolio_v4_*.json"))[-1]
+    v4_path = find_latest("portfolio_v4_*.json")
     with open(v4_path) as f:
         v4_data = json.load(f)
 
@@ -351,7 +363,8 @@ def main():
     save_data["recommended"] = best_name
     save_data["monte_carlo"] = {best_name: mc}
 
-    with open(f"results/portfolio_v4b_{ts}.json", "w") as f:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(RESULTS_DIR / f"portfolio_v4b_{ts}.json", "w") as f:
         json.dump(save_data, f, indent=2, default=str)
 
     # ── Report ──
@@ -430,8 +443,9 @@ def main():
     lines.append("---")
     lines.append(f"*Généré le {datetime.now().strftime('%d %B %Y')}*")
 
-    Path("docs/results/17_portfolio_v4b.md").write_text("\n".join(lines))
-    logger.info(f"\nReport: docs/results/17_portfolio_v4b.md")
+    report_path = RESULTS_DIR / "17_portfolio_v4b.md"
+    report_path.write_text("\n".join(lines))
+    logger.info(f"\nReport: {report_path}")
 
     elapsed = (time.time() - t0) / 60
     logger.info(f"Total: {elapsed:.1f} min")

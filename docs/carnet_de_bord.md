@@ -279,9 +279,9 @@ Monte Carlo (positive_only_2x) :
 - **Portfolio recommandé** : positive_only_2x (Sharpe 0.66, DD -10.9%)
 
 **Fichiers générés** :
-- `results/portfolio_v2_leverage_20260212_055734.json`
-- `results/portfolio_v2_leverage_20260212_055734.txt`
-- `docs/archive/results/06_portfolio_v2_leverage_20260212.md`
+- `portfolio/archive/v2/portfolio_v2_leverage_20260212_055734.json`
+- `portfolio/archive/v2/portfolio_v2_leverage_20260212_055734.txt`
+- `portfolio/archive/v2/06_portfolio_v2_leverage_20260212.md`
 
 ### Session 3 — Audit critique + Base de connaissances
 
@@ -362,8 +362,8 @@ Monte Carlo (positive_only_2x) :
 - **Décision** : abandonner la méta-opt, utiliser defaults fixes pour Diagnostic V4
 
 **Fichiers générés** :
-- `results/test_ab_meta_vs_defaults_20260212_070723.json`
-- `docs/archive/results/07_test_ab_meta_vs_defaults.md`
+- `portfolio/archive/v4/test_ab_meta_vs_defaults_20260212_070723.json`
+- `portfolio/archive/v4/07_test_ab_meta_vs_defaults.md`
 
 ---
 
@@ -431,8 +431,8 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 **Décision** : Créer des stratégies multi-factor avant le Portfolio V3.
 
 **Fichiers** :
-- `results/holdout_test_20260212_162618.json`
-- `docs/archive/results/09_holdout_test.md`
+- `portfolio/archive/v4/holdout_test_20260212_162618.json`
+- `portfolio/archive/v4/09_holdout_test.md`
 - `scripts/holdout_test.py`
 
 ### Session 8 — Stratégies multi-factor + test holdout
@@ -470,8 +470,8 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 - Les combos avec IS Sharpe négatif performent souvent mieux en holdout (pas de sur-fitting)
 
 **Fichiers** :
-- `results/multi_factor_test_20260212_165734.json`
-- `docs/archive/results/10_multi_factor_test.md`
+- `portfolio/archive/v4/multi_factor_test_20260212_165734.json`
+- `portfolio/archive/v4/10_multi_factor_test.md`
 - `scripts/test_multi_factor.py`
 
 ---
@@ -586,8 +586,8 @@ Le Diagnostic V4 brute-force (5 seeds × 100 trials × 320 combos) était beauco
 - ⚠️ Concentration ETH (86%) → risque de dépendance
 
 **Fichiers** :
-- `results/portfolio_v3_20260212_174821.json`
-- `docs/archive/results/11_portfolio_v3.md`
+- `portfolio/archive/v3/portfolio_v3_20260212_174821.json`
+- `portfolio/archive/v3/11_portfolio_v3.md`
 - `scripts/portfolio_v3_markowitz.py`
 
 ---
@@ -623,8 +623,8 @@ Le paradoxe s'explique par :
 4. Le MC full resample TOUTES les périodes → dilue la performance récente
 
 **Fichiers** :
-- `results/diagnostic_temporal_20260212_182223.json`
-- `docs/archive/results/12_diagnostic_temporal.md`
+- `portfolio/archive/v4/diagnostic_temporal_20260212_182223.json`
+- `portfolio/archive/v4/12_diagnostic_temporal.md`
 - `scripts/diagnostic_temporal.py`
 
 ---
@@ -700,8 +700,8 @@ Le paradoxe s'explique par :
 **Verdict** : V3b est nettement supérieur grâce au MC holdout-only et au Markowitz contraint.
 
 **Fichiers** :
-- `results/portfolio_v3b_20260212_182903.json`
-- `docs/archive/results/13_portfolio_v3b.md`
+- `portfolio/archive/v3/portfolio_v3b_20260212_182903.json`
+- `portfolio/archive/v3/13_portfolio_v3b.md`
 - `scripts/portfolio_v3b_improved.py`
 
 ---
@@ -755,7 +755,7 @@ L'audit a révélé que :
 - **Prochaine étape** : diagnostic complet avec walk-forward + overlays intégrés
 
 **Fichiers** :
-- `docs/archive/results/14_audit_edge_v4.md`
+- `portfolio/archive/v4/14_audit_edge_v4.md`
 - `engine/regime.py`, `engine/overlays.py`
 - `strategies/regime_adaptive.py`, `strategies/mtf_trend_entry.py`, `strategies/mtf_momentum_breakout.py`
 
@@ -830,11 +830,11 @@ L'audit a révélé que :
 **Verdict** : V4 a un Sharpe et Calmar nettement supérieurs, un DD minimal (-0.8%), et une bien meilleure diversification (3 symbols). Le return est plus faible (+4.9% vs +9.8%) car V3b était essentiellement long ETH pendant un bull run — V4 est plus robuste.
 
 **Fichiers** :
-- `docs/archive/results/15_diagnostic_v4_edge.md`
-- `docs/archive/results/16_portfolio_v4.md`
+- `portfolio/archive/v4/15_diagnostic_v4_edge.md`
+- `portfolio/archive/v4/16_portfolio_v4.md`
 - `scripts/diagnostic_v4_fast.py`
 - `scripts/portfolio_v4.py`
-- `results/portfolio_v4_20260212_204205.json`
+- `portfolio/archive/v4/portfolio_v4_20260212_204205.json`
 
 ---
 
@@ -889,14 +889,14 @@ V4 conservateur : +4.9% (loin de l'objectif +15%). Cause : sur-diversification (
 ### Réorganisation dossier portfolio/
 
 - Supprimé V3b (archivé)
-- Structure (historique): `portfolio/v4b/{code, results}` (doc canonique déplacée ensuite dans `docs/portfolios/`)
+- Structure (historique): `portfolio/v4b/{code, results}` (doc ensuite internalisée dans `portfolio/v4b/README.md`)
 - Présentation investisseur V4b dédiée
 
 **Fichiers** :
 - `portfolio/v4b/` — dossier complet V4b
-- `docs/results/17_portfolio_v4b.md`
+- `portfolio/v4b/results/17_portfolio_v4b.md`
 - `scripts/portfolio_v4b_final.py`
-- `docs/portfolios/v4b.md`
+- `portfolio/v4b/README.md`
 
 ---
 
@@ -1081,17 +1081,17 @@ Script `scripts/diagnostic_v5b.py` avec 6 enrichissements :
 
 **Artefacts** :
 - `portfolio/v5c-highrisk/results/portfolio_v5c_highrisk_20260213_093913.json`
-- `docs/portfolios/v5c-highrisk.md`
-- `docs/results/21_portfolio_v5c_highrisk_strict_oos_20260213.md`
+- `portfolio/v5c-highrisk/README.md`
+- `portfolio/v5c-highrisk/results/21_portfolio_v5c_highrisk_strict_oos_20260213.md`
 
 ## Session 18 — Méthode unique de traçabilité (anti-bloat)
 
 **Décision** : adopter un workflow unique et stable pour tous les runs.
 
-1. Raw outputs dans `results/` (working zone)
-2. Rapport court dans `docs/results/` pour chaque run significatif
+1. Raw outputs dans `portfolio/<version>/results/`
+2. Rapport court dans `portfolio/<version>/results/` pour chaque run significatif
 3. Entrée synthèse dans `docs/carnet_de_bord.md`
-4. Copie dans `portfolio/<version>/` uniquement pour versions validées/finales
+4. Documentation portfolio dans `portfolio/<version>/README.md`
 5. Mise à jour `docs/results/README.md` uniquement pour runs importants
 
 **Doc de référence** : `docs/GUIDE_UTILISATEUR.md`.
@@ -1119,7 +1119,7 @@ Script `scripts/diagnostic_v5b.py` avec 6 enrichissements :
 
 **Limitation connue** : runtime live MVP mono-profile; moteur portfolio multi-combos natif à implémenter ensuite.
 
-**Rapport** : `docs/results/22_deploiement_v5c_paper_vps_20260213.md`
+**Rapport** : `portfolio/v5c-highrisk/results/22_deploiement_v5c_paper_vps_20260213.md`
 
 ---
 

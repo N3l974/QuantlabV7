@@ -1,0 +1,142 @@
+================================================================================
+  QUANTLAB V7 — PORTFOLIO V1 REPORT
+  Generated: 2026-02-11 20:11:08
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  1. INDIVIDUAL STRATEGY PERFORMANCE (Walk-Forward OOS)
+────────────────────────────────────────────────────────────────────────────────
+  Symbol     Strategy                   Sharpe   Return       DD     PF     WR  Trades
+  ---------------------------------------------------------------------------
+  XRPUSDT    stochastic_oscillator        0.57   30.1%   -8.4%   1.95 47.1%      34
+  ETHUSDT    atr_volatility_breakout     -0.17   -6.1%  -18.1%   0.86 46.5%      43
+  ETHUSDT    donchian_channel             0.12    4.3%  -16.8%   1.05 47.1%     119
+  BTCUSDT    ema_ribbon                  -0.06   -5.4%  -22.8%   0.97 33.1%     136
+  BTCUSDT    donchian_channel             0.06    1.2%  -17.8%   1.03 39.0%     100
+
+────────────────────────────────────────────────────────────────────────────────
+  2. PORTFOLIO COMPARISON
+────────────────────────────────────────────────────────────────────────────────
+  Portfolio             Sharpe   Return       DD  Stability
+  -------------------------------------------------------
+  equal_weight            0.26    5.7%   -8.1%       0.00
+  sharpe_weighted         0.52   23.5%   -5.3%       0.00
+  risk_parity             0.41   10.7%   -5.0%       0.00
+
+  Best Portfolio: sharpe_weighted
+  Combo                                      Weight
+  --------------------------------------------------
+  XRPUSDT/stochastic_oscillator            74.3%
+  ETHUSDT/atr_volatility_breakout           1.3%
+  ETHUSDT/donchian_channel                 15.1%
+  BTCUSDT/ema_ribbon                        1.3%
+  BTCUSDT/donchian_channel                  8.1%
+
+────────────────────────────────────────────────────────────────────────────────
+  3. MONTE CARLO STRESS TESTS
+────────────────────────────────────────────────────────────────────────────────
+
+  3a. Bootstrap (1Y, 1000 sims)
+    Median Return:    +2.0%
+    Mean Return:      +3.6%
+    Std Dev:           6.6%
+    5th percentile:   -4.4%  (worst case)
+    25th pctl:        -1.0%
+    75th pctl:        +6.8%
+    95th pctl:       +15.8%  (best case)
+    Median DD:        -3.1%
+    Worst DD (p5):    -6.4%
+    Median Sharpe:     0.54
+
+  3b. Block Bootstrap (1Y, preserves autocorrelation)
+    Median Return:    +2.0%
+    Median DD:        -3.0%
+    Worst DD (p5):    -5.6%
+
+  3c. Volatility Stress Test
+    Vol Mult     Median Ret     P5 Ret    P95 Ret  Median DD
+    -------------------------------------------------------
+    vol_1.0x         +2.1%     -4.4%    +19.0%     -3.1%
+    vol_1.5x         +2.7%     -7.0%    +25.3%     -4.7%
+    vol_2.0x         +3.6%     -8.7%    +33.6%     -6.2%
+    vol_3.0x         +5.4%    -13.0%    +50.4%     -9.3%
+
+  3d. Ruin Probability (losing >50% of capital in 1Y)
+    P(ruin): 0.0%
+
+────────────────────────────────────────────────────────────────────────────────
+  4. FUTURE PERFORMANCE PROJECTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+  1Y Projection (1000 simulations)
+    Median Return:       +2.1%
+    Mean Return:         +3.6%
+    Std Dev:              7.0%
+    Median DD:           -3.2%
+    P(positive):         66.0%
+    P(return > 10%):     15.0%
+    P(return > 20%):      3.4%
+    5th pctl return:     -4.5%
+    95th pctl return:   +17.0%
+
+  2Y Projection (1000 simulations)
+    Median Return:       +5.0%
+    Mean Return:         +6.8%
+    Std Dev:              9.9%
+    Median DD:           -4.4%
+    P(positive):         75.2%
+    P(return > 10%):     30.1%
+    P(return > 20%):      9.9%
+    5th pctl return:     -5.9%
+    95th pctl return:   +25.7%
+
+  3Y Projection (1000 simulations)
+    Median Return:       +7.9%
+    Mean Return:        +10.7%
+    Std Dev:             13.5%
+    Median DD:           -5.3%
+    P(positive):         79.9%
+    P(return > 10%):     42.7%
+    P(return > 20%):     20.0%
+    5th pctl return:     -5.8%
+    95th pctl return:   +36.1%
+
+  5Y Projection (1000 simulations)
+    Median Return:      +16.1%
+    Mean Return:        +19.5%
+    Std Dev:             18.6%
+    Median DD:           -6.6%
+    P(positive):         89.1%
+    P(return > 10%):     65.5%
+    P(return > 20%):     41.2%
+    5th pctl return:     -4.1%
+    95th pctl return:   +53.9%
+
+────────────────────────────────────────────────────────────────────────────────
+  5. CAPITAL PROJECTIONS (starting $10,000)
+────────────────────────────────────────────────────────────────────────────────
+  Horizon      Pessimist (P5)       Median   Optimist (P95)
+  -------------------------------------------------------
+  1Y         $         9,552 $    10,209 $        11,696
+  2Y         $         9,415 $    10,499 $        12,572
+  3Y         $         9,419 $    10,788 $        13,613
+  5Y         $         9,589 $    11,613 $        15,393
+
+────────────────────────────────────────────────────────────────────────────────
+  6. RISK ASSESSMENT
+────────────────────────────────────────────────────────────────────────────────
+  Overall Risk Level: LOW (GREEN)
+  Ruin Probability:   0.0%
+  Median Max DD:      3.1%
+  Worst-case DD (5%): 6.4%
+
+────────────────────────────────────────────────────────────────────────────────
+  7. RECOMMENDATIONS
+────────────────────────────────────────────────────────────────────────────────
+  Portfolio: sharpe_weighted
+  Expected Annual Return: +2.1%
+  Expected Sharpe: 0.52
+  Expected Max DD: -5.3%
+  VERDICT: VIABLE for live deployment with proper position sizing
+
+================================================================================

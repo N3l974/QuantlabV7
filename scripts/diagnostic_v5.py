@@ -33,6 +33,9 @@ from engine.overlays import (
 )
 from engine.regime import RegimeConfig
 
+
+RESULTS_DIR = Path("portfolio/v5b/results")
+
 # ─── Config ──────────────────────────────────────────────
 
 SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOLUSDT"]
@@ -430,9 +433,10 @@ def generate_report(p1_results, p2_results, p1_survivors, elapsed):
     lines.append("---")
     lines.append(f"*Genere le {datetime.now().strftime('%d %B %Y')}*")
 
-    Path("docs/results").mkdir(parents=True, exist_ok=True)
-    Path("docs/results/18_diagnostic_v5.md").write_text("\n".join(lines))
-    logger.info(f"Report: docs/results/18_diagnostic_v5.md")
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    report_path = RESULTS_DIR / "18_diagnostic_v5.md"
+    report_path.write_text("\n".join(lines))
+    logger.info(f"Report: {report_path}")
 
 
 # ─── Main ────────────────────────────────────────────────
@@ -464,12 +468,12 @@ def main():
 
     # Save JSON
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    Path("results").mkdir(exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     save_data = {
         "phase1": [{k: v for k, v in r.items()} for r in p1_results],
         "phase2": [{k: v for k, v in r.items() if k not in ("ho_equity", "ho_returns")} for r in p2_results],
     }
-    with open(f"results/diagnostic_v5_{ts}.json", "w") as f:
+    with open(RESULTS_DIR / f"diagnostic_v5_{ts}.json", "w") as f:
         json.dump(save_data, f, indent=2, default=str)
 
     # Report

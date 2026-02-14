@@ -1,0 +1,105 @@
+{
+  "generated": "20260213_093103",
+  "portfolio": "V5c-highrisk",
+  "constraints": {
+    "initial_capital": 100.0,
+    "max_drawdown_limit": -0.3,
+    "horizon": "1-2 months"
+  },
+  "best_risk_profile": {
+    "label": "HR-100",
+    "risk_per_trade_pct": 0.0,
+    "max_position_pct": 1.0,
+    "max_drawdown_pct": 0.3
+  },
+  "metrics": {
+    "sharpe": 2.7192813014202484,
+    "sortino": 5.514606979643382,
+    "max_drawdown": -0.06407281495929265,
+    "calmar": 5.184847586113631,
+    "total_return": 0.39568529101423394,
+    "stability": 0.21710581047439537,
+    "n_periods": 376,
+    "n_trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0
+  },
+  "return_30d": 0.1641448858568666,
+  "return_60d": 0.1680431549758059,
+  "weights": [
+    0.10692167924870621,
+    0.22978212451693342,
+    0.12447140014811532,
+    0.028617896172399043,
+    0.11020689991384605,
+    0.4
+  ],
+  "allocations": [
+    {
+      "weight": 0.10692167924870621,
+      "symbol": "ETHUSDT",
+      "strategy": "trend_multi_factor",
+      "timeframe": "1d",
+      "ho_sharpe": 1.620346914477311,
+      "ho_return": 0.12280928407317115,
+      "ho_dd": -0.046999529779527,
+      "risk_key": "r2.0",
+      "overlay": false
+    },
+    {
+      "weight": 0.22978212451693342,
+      "symbol": "SOLUSDT",
+      "strategy": "mtf_momentum_breakout",
+      "timeframe": "1d",
+      "ho_sharpe": 1.6572779274435436,
+      "ho_return": 0.09702164533535397,
+      "ho_dd": -0.035044339160511064,
+      "risk_key": "flat",
+      "overlay": false
+    },
+    {
+      "weight": 0.12447140014811532,
+      "symbol": "ETHUSDT",
+      "strategy": "supertrend",
+      "timeframe": "1d",
+      "ho_sharpe": 1.691368092908569,
+      "ho_return": 0.08593335899525263,
+      "ho_dd": -0.019147344007283944,
+      "risk_key": "flat",
+      "overlay": true
+    },
+    {
+      "weight": 0.028617896172399043,
+      "symbol": "BTCUSDT",
+      "strategy": "trend_multi_factor",
+      "timeframe": "1d",
+      "ho_sharpe": 1.5685692721854232,
+      "ho_return": 0.0904257226177553,
+      "ho_dd": -0.021247886389656665,
+      "risk_key": "flat",
+      "overlay": true
+    },
+    {
+      "weight": 0.11020689991384605,
+      "symbol": "SOLUSDT",
+      "strategy": "atr_volatility_breakout",
+      "timeframe": "1d",
+      "ho_sharpe": 1.5920438975153341,
+      "ho_return": 0.06392367014592092,
+      "ho_dd": -0.018871286729425212,
+      "risk_key": "flat",
+      "overlay": true
+    },
+    {
+      "weight": 0.4,
+      "symbol": "ETHUSDT",
+      "strategy": "breakout_regime",
+      "timeframe": "1d",
+      "ho_sharpe": 1.8027030664242252,
+      "ho_return": 0.024231203187880964,
+      "ho_dd": -0.0010249033487622265,
+      "risk_key": "r2.0",
+      "overlay": false
+    }
+  ]
+}

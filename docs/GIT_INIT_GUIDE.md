@@ -27,9 +27,10 @@ git status
 
 Vérifier que ces dossiers/fichiers **ne sont pas trackés**:
 - `venv/`
+- `.venv/`
 - `data/raw/`
 - `data/processed/`
-- `results/`
+- `/results/`
 - `logs/`
 - `.env`
 

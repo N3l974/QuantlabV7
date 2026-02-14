@@ -7,6 +7,8 @@ Ce dossier est réservé aux contenus peu utiles au quotidien mais importants po
 - comptes rendus de sessions longues
 - rapports expérimentaux non actifs
 - brouillons de docs remplacées
+- index de résultats historiques (`docs/archive/results/`)
+- artefacts historiques par version (`portfolio/archive/`)
 
 ## Bonnes pratiques
 - Préfixer les fichiers avec une date : `YYYYMMDD_nom.md`

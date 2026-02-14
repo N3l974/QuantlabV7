@@ -14,7 +14,9 @@ Index des documents volumineux ou historiques.
 
 ## Rapports de résultats
 - `docs/results/`
-- `portfolio/v5b/docs/`
+- `portfolio/` (README + résultats par portfolio)
+- `portfolio/archive/` — artefacts historiques déplacés par version (v1..v4)
+- `docs/archive/results/` — index legacy vers `portfolio/archive/`
 
 ## Politique
 Quand un document devient trop long pour le contexte quotidien:
